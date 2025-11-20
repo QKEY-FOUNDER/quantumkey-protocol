@@ -68,3 +68,150 @@ canvas#particles{position:fixed;left:0;top:0;width:100%;height:100%;z-index:0;po
   .nav a{display:inline-block;margin-left:18px;color:#cfeff6}
   .hamburger{display:none}
 }
+/* ===== QuantumKey — header refinements (paste at end of styles.css) ===== */
+
+/* container baseline */
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 18px 20px;
+  position: relative;
+  z-index: 30;
+}
+
+/* brand area: logo icon + name aligned middle */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0; /* allow flex-shrink for small screens */
+}
+
+/* small logo icon */
+.brand-logo {
+  width: 44px;              /* icon size in header */
+  height: 44px;
+  object-fit: contain;
+  display: block;
+  margin: 0;
+  flex: 0 0 44px;
+  filter: drop-shadow(0 6px 18px rgba(6,28,42,0.45));
+  transform: translateZ(0);
+}
+
+/* brand name text */
+.brand-name {
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  color: #bfe9ff;
+  font-size: 18px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  display: block;
+  margin-left: 4px;
+  line-height: 1;
+}
+
+/* Hide overflow problems on very small screens */
+.brand-name,
+.brand-logo {
+  max-width: 70vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* nav (links) layout */
+.nav {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+}
+
+/* links style in header (small, subtle) */
+.nav a {
+  color: rgba(190,225,255,0.95);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 10px;
+  transition: transform .18s ease, background .18s ease, color .18s ease;
+  font-size: 15px;
+}
+
+/* highlight hover */
+.nav a:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.02);
+}
+
+/* primary buttons (Read Whitepaper / Tokenomics) in header area */
+.button-primary, .button-secondary {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: none;
+}
+
+/* menu toggle (mobile) styling */
+.menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(6,18,22,0.45);
+  color: #bfe9ff;
+  border: 0;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+/* visually hide sr-only text in a11y friendly way */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  border: 0;
+}
+
+/* responsive breakpoints */
+@media (max-width: 860px) {
+  .site-header .container { padding: 12px 14px; }
+  .brand-name { font-size: 15px; max-width: 50vw; }
+  .nav { display: none; } /* mobile nav is toggled by menuToggle button */
+  .menu-toggle { display: inline-flex; }
+}
+
+/* larger screens: show nav inline */
+@media (min-width: 861px) {
+  .menu-toggle { display: none; }
+  .nav { display: flex !important; }
+}
+
+/* small polish: ensure header floats above canvas */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(to bottom, rgba(2,6,10,0.55), rgba(2,6,10,0.12));
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* fix for brand alignment when logo image loads late */
+.brand-logo { vertical-align: middle; }
+
+/* avoid logo pushing content left if viewport cramped */
+@media (max-width: 420px) {
+  .brand-logo { width: 38px; height: 38px; flex: 0 0 38px; }
+  .brand-name { font-size: 14px; letter-spacing: 1px; }
+  .menu-toggle { width: 40px; height: 40px; }
+}
