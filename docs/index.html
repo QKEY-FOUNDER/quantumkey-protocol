@@ -5,56 +5,52 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>QuantumKey — The key between Consciousness and Intelligence</title>
 
-  <!-- local stylesheet (must be docs/styles.css) -->
-  <link rel="stylesheet" href="styles.css" />
+  <!-- main style (must be in docs/styles.css) -->
+  <link rel="stylesheet" href="./styles.css">
 
-  <!-- small hint to help browsers pick svg as icon -->
-  <link rel="icon" href="assets/quantumkey-logo.svg" />
+  <!-- meta for nicer mobile rendering -->
+  <meta name="theme-color" content="#07121a">
 </head>
 <body>
-  <header class="site-header">
-    <div class="brand">
-      <button id="menuToggle" class="hamburger" aria-label="Open menu">☰</button>
-      <img class="logo" src="assets/quantumkey-logo.svg" alt="QuantumKey logo" />
-      <span class="brand-name">QUANTUMKEY</span>
-    </div>
+  <!-- particle canvas sits behind all content -->
+  <canvas id="particles"></canvas>
 
-    <nav id="mainNav" class="nav">
-      <a href="#whitepaper">Whitepaper</a>
-      <a href="#tokenomics">Tokenomics</a>
-      <a href="#specs">Specs</a>
-    </nav>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <button id="menu-toggle" aria-label="Toggle menu" class="hamburger">☰</button>
+        <img src="./assets/quantumkey-logo.svg" alt="QuantumKey logo" class="brand-logo" />
+        <span class="brand-name">QUANTUMKEY</span>
+      </div>
+
+      <nav id="main-nav" class="nav" aria-hidden="true">
+        <a href="#whitepaper">Whitepaper</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#specs">Specs</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section class="hero">
-      <!-- animated particles canvas -->
-      <canvas id="particles"></canvas>
-
-      <!-- central artwork + nodes -->
-      <div class="hero-center">
-        <div class="logo-wrap">
-          <img class="hero-logo" src="assets/quantumkey-logo.svg" alt="QuantumKey logo">
-        </div>
-
-        <div class="nodes">
-          <div class="node node-c">Consciousness</div>
-          <div class="node node-g">Governance</div>
-          <div class="node node-i">Identity</div>
+    <section class="hero container" id="hero">
+      <div class="hero-card">
+        <div class="logo-plate" id="logo-plate" aria-hidden="false">
+          <!-- decorative big logo (keeps SVG file external) -->
+          <img src="./assets/quantumkey-logo.svg" alt="QuantumKey emblem" class="hero-logo" />
         </div>
 
         <div class="hero-text">
           <h1>QuantumKey</h1>
-          <p class="lead">A subtle architecture of meaning — a key that harmonizes conscious intent with machine intelligence.</p>
-          <div class="cta">
-            <a class="btn primary" href="#whitepaper">Read Whitepaper</a>
-            <a class="btn ghost" href="#tokenomics">Tokenomics</a>
+          <p class="tagline">A subtle architecture of meaning — a key that harmonizes conscious intent with machine intelligence.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#whitepaper">Read Whitepaper</a>
+            <a class="btn btn-outline" href="#tokenomics">Tokenomics</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="cards">
+    <section class="cards container">
       <article class="card" id="whitepaper">
         <h3>Identity</h3>
         <p>Design, branding and cryptographic identity crafted for security and elegance.</p>
@@ -62,22 +58,22 @@
 
       <article class="card" id="tokenomics">
         <h3>Governance</h3>
-        <p>Transparent DAO — rules and governance in SPEC_DAO.md</p>
+        <p>Transparent DAO — rules and governance in SPEC_DAO.md.</p>
       </article>
 
       <article class="card" id="specs">
         <h3>Token</h3>
-        <p>QKEY: full specification in SPEC_TOKEN.md and TOKENOMICS.md</p>
+        <p>QKEY full specification available in SPEC_TOKEN.md and TOKENOMICS.md.</p>
       </article>
     </section>
+
+    <footer class="site-footer container">
+      <p>© QuantumKey — The union of Consciousness and Intelligence.</p>
+      <p>Repository: <a href="https://github.com/qkey-founder/quantumkey" target="_blank" rel="noopener">qkey-founder/quantumkey</a></p>
+    </footer>
   </main>
 
-  <footer class="site-footer">
-    <p>© QuantumKey — The union of Consciousness and Intelligence.</p>
-    <p>Repository: <a href="https://github.com/qkey-founder/quantumkey" target="_blank" rel="noopener">qkey-founder/quantumkey</a></p>
-  </footer>
-
-  <!-- local script (must be docs/script.js) -->
-  <script src="script.js" defer></script>
+  <!-- main script (must be in docs/script.js) -->
+  <script src="./script.js" defer></script>
 </body>
 </html>
