@@ -5,62 +5,69 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>QuantumKey — The key between Consciousness and Intelligence</title>
 
-  <!-- link to stylesheet (must exist: docs/styles.css) -->
+  <!-- local stylesheet (must be docs/styles.css) -->
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- optional: favicon -->
+  <!-- small hint to help browsers pick svg as icon -->
   <link rel="icon" href="assets/quantumkey-logo.svg" />
 </head>
 <body>
-  <!-- header -->
   <header class="site-header">
     <div class="brand">
+      <button id="menuToggle" class="hamburger" aria-label="Open menu">☰</button>
       <img class="logo" src="assets/quantumkey-logo.svg" alt="QuantumKey logo" />
-      <span class="title">QUANTUMKEY</span>
+      <span class="brand-name">QUANTUMKEY</span>
     </div>
 
-    <!-- navigation (for mobile toggling) -->
-    <nav class="nav" aria-label="Main navigation">
+    <nav id="mainNav" class="nav">
       <a href="#whitepaper">Whitepaper</a>
       <a href="#tokenomics">Tokenomics</a>
       <a href="#specs">Specs</a>
     </nav>
   </header>
 
-  <!-- hero -->
   <main>
     <section class="hero">
-      <div class="hero-inner">
-        <h1 class="fade-up">QuantumKey</h1>
-        <p class="lead fade-up">A subtle architecture of meaning — a key that harmonizes conscious intent with machine intelligence.</p>
-        <div class="cta-row fade-up">
-          <a class="btn btn-primary" href="#whitepaper">Read Whitepaper</a>
-          <a class="btn btn-ghost" href="#tokenomics">Tokenomics</a>
-        </div>
-      </div>
+      <!-- animated particles canvas -->
+      <canvas id="particles"></canvas>
 
-      <div class="logo-panel fade-up" aria-hidden="false">
-        <img class="hero-logo" src="assets/quantumkey-logo.svg" alt="QuantumKey logo">
-        <div class="node c">Consciousness</div>
-        <div class="node g">Governance</div>
-        <div class="node i">Identity</div>
+      <!-- central artwork + nodes -->
+      <div class="hero-center">
+        <div class="logo-wrap">
+          <img class="hero-logo" src="assets/quantumkey-logo.svg" alt="QuantumKey logo">
+        </div>
+
+        <div class="nodes">
+          <div class="node node-c">Consciousness</div>
+          <div class="node node-g">Governance</div>
+          <div class="node node-i">Identity</div>
+        </div>
+
+        <div class="hero-text">
+          <h1>QuantumKey</h1>
+          <p class="lead">A subtle architecture of meaning — a key that harmonizes conscious intent with machine intelligence.</p>
+          <div class="cta">
+            <a class="btn primary" href="#whitepaper">Read Whitepaper</a>
+            <a class="btn ghost" href="#tokenomics">Tokenomics</a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section-cards">
-      <article class="card fade-up" id="whitepaper">
+    <section class="cards">
+      <article class="card" id="whitepaper">
         <h3>Identity</h3>
-        <p>Design, brand and cryptographic identity crafted for security and elegance.</p>
+        <p>Design, branding and cryptographic identity crafted for security and elegance.</p>
       </article>
 
-      <article class="card fade-up" id="tokenomics">
+      <article class="card" id="tokenomics">
         <h3>Governance</h3>
         <p>Transparent DAO — rules and governance in SPEC_DAO.md</p>
       </article>
 
-      <article class="card fade-up" id="specs">
+      <article class="card" id="specs">
         <h3>Token</h3>
-        <p>QKEY full specification in SPEC_TOKEN.md and TOKENOMICS.md</p>
+        <p>QKEY: full specification in SPEC_TOKEN.md and TOKENOMICS.md</p>
       </article>
     </section>
   </main>
@@ -70,7 +77,7 @@
     <p>Repository: <a href="https://github.com/qkey-founder/quantumkey" target="_blank" rel="noopener">qkey-founder/quantumkey</a></p>
   </footer>
 
-  <!-- script (must exist: docs/script.js) -->
+  <!-- local script (must be docs/script.js) -->
   <script src="script.js" defer></script>
 </body>
 </html>
