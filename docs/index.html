@@ -1,96 +1,36 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>QuantumKey — The key between Consciousness and Intelligence</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <main class="page">
-    <header class="site-header">
-      <div class="brand">
-        <img src="assets/quantumkey-logo.svg" alt="QuantumKey logo" class="brand-logo small" />
-        <h1 class="brand-title">QUANTUMKEY</h1>
-        <button class="nav-toggle" aria-label="Open menu">☰</button>
-      </div>
-    </header>
+<header class="site-header">
+  <div class="brand">
+    <img class="logo" src="assets/quantumkey-logo.svg" alt="QuantumKey" />
+    <span class="title">QUANTUMKEY</span>
+  </div>
+  <!-- .menu-toggle será criado pelo script se faltar -->
+  <nav class="nav" aria-hidden="true">
+    <a href="#whitepaper">Whitepaper</a>
+    <a href="#tokenomics">Tokenomics</a>
+    <a href="#specs">Specs</a>
+  </nav>
+</header>
 
-    <section class="hero">
-      <div class="hero-art">
-        <!-- canvas for dust particles -->
-        <canvas class="dust" aria-hidden="true"></canvas>
+<section class="hero">
+  <div class="hero-inner">
+    <h1 class="fade-up">QuantumKey</h1>
+    <p class="lead fade-up">A subtle architecture of meaning — a key that harmonizes conscious intent with machine intelligence.</p>
+    <div class="cta-row fade-up">
+      <a class="btn btn-primary" href="#whitepaper">Read Whitepaper</a>
+      <a class="btn btn-ghost" href="#tokenomics">Tokenomics</a>
+    </div>
+  </div>
 
-        <!-- central logo (big) -->
-        <div class="logo-frame" id="logo-frame">
-          <img src="assets/quantumkey-logo.svg" alt="QuantumKey logo" class="brand-logo big" id="hero-logo" />
-          <!-- glow rings -->
-          <div class="glow-ring ring-1"></div>
-          <div class="glow-ring ring-2"></div>
-        </div>
+  <div class="logo-panel fade-up">
+    <img class="hero-logo" src="assets/quantumkey-logo.svg" alt="QuantumKey logo">
+    <div class="node c">Consciousness</div>
+    <div class="node g">Governance</div>
+    <div class="node i">Identity</div>
+  </div>
+</section>
 
-        <!-- SVG overlay: orbit lines + curved text path -->
-        <svg class="orbits-svg" viewBox="-300 -300 600 600" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-          <!-- orbit connecting lines will be inserted dynamically by JS as <line> -->
-          <!-- curved marketing phrase around top -->
-          <defs>
-            <path id="arcTop" d="M -200 -120 A 240 240 0 0 1 200 -120" />
-            <path id="arcBottom" d="M -200 140 A 240 240 0 0 0 200 140" />
-          </defs>
-
-          <text class="arc-text top">
-            <textPath xlink:href="#arcTop" startOffset="50%">
-              The delicate weave of Consciousness and Intelligence
-            </textPath>
-          </text>
-
-          <text class="arc-text bottom">
-            <textPath xlink:href="#arcBottom" startOffset="50%">
-              Trust · Design · Governance · Tokenomics · Identity
-            </textPath>
-          </text>
-
-          <!-- container for dynamic orbit labels -->
-          <g id="orbit-labels"></g>
-          <g id="orbit-lines"></g>
-        </svg>
-      </div>
-
-      <div class="hero-copy">
-        <h2 class="hero-title">QuantumKey</h2>
-        <p class="hero-sub">
-          A subtle architecture of meaning — a key that harmonizes conscious intent with machine intelligence.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn primary" href="#WHITEPAPER">Read Whitepaper</a>
-          <a class="btn ghost" href="#TOKENOMICS">Tokenomics</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- sample content cards -->
-    <section class="cards">
-      <article class="card">
-        <h3>Identity</h3>
-        <p>Design, branding and cryptographic identity crafted for security and elegance.</p>
-      </article>
-      <article class="card">
-        <h3>Governance</h3>
-        <p>Transparent DAO rules and collaborative governance, encoded and auditable.</p>
-      </article>
-      <article class="card">
-        <h3>Token</h3>
-        <p>QKEY: full specification available in SPEC_TOKEN.md and TOKENOMICS.md.</p>
-      </article>
-    </section>
-
-    <footer class="site-footer">
-      <p>© QuantumKey — The union of Consciousness and Intelligence.</p>
-      <p>Repository: <a href="https://github.com/qkey-founder/quantumkey" target="_blank" rel="noreferrer">qkey-founder/quantumkey</a></p>
-    </footer>
-  </main>
-
-  <script src="script.js" defer></script>
-</body>
-</html>
+<section class="section-cards">
+  <div class="card fade-up"><h3>Identity</h3><p>Design, brand and cryptographic identity.</p></div>
+  <div class="card fade-up"><h3>Governance</h3><p>Transparent DAO — governance rules in SPEC_DAO.md</p></div>
+  <div class="card fade-up"><h3>Token</h3><p>QKEY full spec in SPEC_TOKEN.md</p></div>
+</section>
