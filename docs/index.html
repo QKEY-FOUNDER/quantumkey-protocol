@@ -1,36 +1,76 @@
-<header class="site-header">
-  <div class="brand">
-    <img class="logo" src="assets/quantumkey-logo.svg" alt="QuantumKey" />
-    <span class="title">QUANTUMKEY</span>
-  </div>
-  <!-- .menu-toggle será criado pelo script se faltar -->
-  <nav class="nav" aria-hidden="true">
-    <a href="#whitepaper">Whitepaper</a>
-    <a href="#tokenomics">Tokenomics</a>
-    <a href="#specs">Specs</a>
-  </nav>
-</header>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QuantumKey — The key between Consciousness and Intelligence</title>
 
-<section class="hero">
-  <div class="hero-inner">
-    <h1 class="fade-up">QuantumKey</h1>
-    <p class="lead fade-up">A subtle architecture of meaning — a key that harmonizes conscious intent with machine intelligence.</p>
-    <div class="cta-row fade-up">
-      <a class="btn btn-primary" href="#whitepaper">Read Whitepaper</a>
-      <a class="btn btn-ghost" href="#tokenomics">Tokenomics</a>
+  <!-- link to stylesheet (must exist: docs/styles.css) -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- optional: favicon -->
+  <link rel="icon" href="assets/quantumkey-logo.svg" />
+</head>
+<body>
+  <!-- header -->
+  <header class="site-header">
+    <div class="brand">
+      <img class="logo" src="assets/quantumkey-logo.svg" alt="QuantumKey logo" />
+      <span class="title">QUANTUMKEY</span>
     </div>
-  </div>
 
-  <div class="logo-panel fade-up">
-    <img class="hero-logo" src="assets/quantumkey-logo.svg" alt="QuantumKey logo">
-    <div class="node c">Consciousness</div>
-    <div class="node g">Governance</div>
-    <div class="node i">Identity</div>
-  </div>
-</section>
+    <!-- navigation (for mobile toggling) -->
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#whitepaper">Whitepaper</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#specs">Specs</a>
+    </nav>
+  </header>
 
-<section class="section-cards">
-  <div class="card fade-up"><h3>Identity</h3><p>Design, brand and cryptographic identity.</p></div>
-  <div class="card fade-up"><h3>Governance</h3><p>Transparent DAO — governance rules in SPEC_DAO.md</p></div>
-  <div class="card fade-up"><h3>Token</h3><p>QKEY full spec in SPEC_TOKEN.md</p></div>
-</section>
+  <!-- hero -->
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <h1 class="fade-up">QuantumKey</h1>
+        <p class="lead fade-up">A subtle architecture of meaning — a key that harmonizes conscious intent with machine intelligence.</p>
+        <div class="cta-row fade-up">
+          <a class="btn btn-primary" href="#whitepaper">Read Whitepaper</a>
+          <a class="btn btn-ghost" href="#tokenomics">Tokenomics</a>
+        </div>
+      </div>
+
+      <div class="logo-panel fade-up" aria-hidden="false">
+        <img class="hero-logo" src="assets/quantumkey-logo.svg" alt="QuantumKey logo">
+        <div class="node c">Consciousness</div>
+        <div class="node g">Governance</div>
+        <div class="node i">Identity</div>
+      </div>
+    </section>
+
+    <section class="section-cards">
+      <article class="card fade-up" id="whitepaper">
+        <h3>Identity</h3>
+        <p>Design, brand and cryptographic identity crafted for security and elegance.</p>
+      </article>
+
+      <article class="card fade-up" id="tokenomics">
+        <h3>Governance</h3>
+        <p>Transparent DAO — rules and governance in SPEC_DAO.md</p>
+      </article>
+
+      <article class="card fade-up" id="specs">
+        <h3>Token</h3>
+        <p>QKEY full specification in SPEC_TOKEN.md and TOKENOMICS.md</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© QuantumKey — The union of Consciousness and Intelligence.</p>
+    <p>Repository: <a href="https://github.com/qkey-founder/quantumkey" target="_blank" rel="noopener">qkey-founder/quantumkey</a></p>
+  </footer>
+
+  <!-- script (must exist: docs/script.js) -->
+  <script src="script.js" defer></script>
+</body>
+</html>
