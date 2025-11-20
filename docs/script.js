@@ -1,110 +1,157 @@
-// script.js — particles + menu toggle + small entrance delays
+/* script.js — drop into docs/script.js
+   Responsibilities:
+   - Draw subtle particle field (canvas)
+   - Create a few orbiting "nodes" labels around the logo
+   - Small UI: toggle mobile nav and smooth scroll
+*/
+
 (function(){
-  // menu toggle
-  const menu = document.getElementById('mainNav');
-  const toggle = document.getElementById('menuToggle');
-  if(toggle && menu){
-    toggle.addEventListener('click', ()=> {
-      menu.classList.toggle('open');
+  // ---- NAV TOGGLE & SMOOTH SCROLL ----
+  const menuToggle = document.getElementById('menu-toggle');
+  const mainNav = document.getElementById('main-nav');
+
+  if(menuToggle && mainNav){
+    menuToggle.addEventListener('click', () => {
+      const open = mainNav.style.display !== 'block';
+      mainNav.style.display = open ? 'block' : 'none';
+      mainNav.setAttribute('aria-hidden', !open);
     });
   }
 
-  // entrance stagger
-  requestAnimationFrame(()=> {
-    document.querySelectorAll('.fade-up').forEach((el,i)=>{
-      el.style.setProperty('--delay', `${i*80}ms`);
-    });
+  // smooth scroll for in-page links
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if(!a) return;
+    e.preventDefault();
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
   });
 
-  // particles canvas around logo (orbiting micro-particles)
+  // ---- PARTICLE BACKGROUND ----
   const canvas = document.getElementById('particles');
   if(!canvas) return;
-  const ctx = canvas.getContext('2d', {alpha:true});
-  let W = canvas.width = window.innerWidth;
-  let H = canvas.height = Math.max(window.innerHeight, 600);
+  const ctx = canvas.getContext('2d', { alpha: true });
+  let w = canvas.width = innerWidth;
+  let h = canvas.height = innerHeight;
+  const DPR = Math.max(1, window.devicePixelRatio || 1);
+  canvas.width = w * DPR;
+  canvas.height = h * DPR;
+  canvas.style.width = w + 'px';
+  canvas.style.height = h + 'px';
+  ctx.scale(DPR, DPR);
 
-  const center = () => {
-    // center near top of hero center
-    return { x: W/2, y: H/2.2 };
-  };
-
-  const rand = (a,b) => Math.random()*(b-a)+a;
-
+  // simple particle system
   const particles = [];
-  const PCOUNT = Math.min(80, Math.floor((W*H)/50000)); // scale with screen
-
-  for(let i=0;i<PCOUNT;i++){
-    const r = rand(40, 260);
+  const PARTICLE_COUNT = Math.max(26, Math.floor((w*h)/90000)); // adaptive
+  for(let i=0;i<PARTICLE_COUNT;i++){
     particles.push({
-      angle: Math.random()*Math.PI*2,
-      r: r,
-      speed: rand(0.0006, 0.0025) * (Math.random()>0.5?1:-1),
-      size: rand(0.6, 2.6),
-      hue: rand(185,220),
-      alpha: rand(0.09,0.55),
-      wobble: rand(0.2,1.2)
+      x: Math.random()*w,
+      y: Math.random()*h,
+      vx: (Math.random()-0.5)*0.3,
+      vy: (Math.random()-0.5)*0.3,
+      r: 0.6 + Math.random()*2.2,
+      alpha: 0.05 + Math.random()*0.9
     });
   }
 
+  // orbit nodes around logo
+  const logoPlate = document.getElementById('logo-plate');
+  const orbitNodes = [
+    {label:'Consciousness', angle: -0.9, dist: 220},
+    {label:'Governance', angle: 0.6, dist: 220},
+    {label:'Identity', angle: 2.0, dist: 220}
+  ];
+
+  let t = 0;
   function resize(){
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = Math.max(window.innerHeight, 600);
+    w = canvas.width = innerWidth;
+    h = canvas.height = innerHeight;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(DPR,0,0,DPR,0,0);
   }
   window.addEventListener('resize', resize);
 
   function draw(){
-    ctx.clearRect(0,0,W,H);
-    const c = center();
+    t += 0.01;
+    ctx.clearRect(0,0,w,h);
 
-    // soft radial glow behind logo
-    const g = ctx.createRadialGradient(c.x, c.y, 10, c.x, c.y, Math.max(W,H)/2);
-    g.addColorStop(0, 'rgba(80,200,255,0.06)');
-    g.addColorStop(0.25, 'rgba(40,110,180,0.04)');
-    g.addColorStop(1, 'transparent');
+    // gentle vignette
+    const g = ctx.createRadialGradient(w*0.5, h*0.45, Math.min(w,h)*0.2, w*0.5, h*0.45, Math.max(w,h));
+    g.addColorStop(0, 'rgba(6,18,22,0.0)');
+    g.addColorStop(1, 'rgba(2,6,10,0.6)');
     ctx.fillStyle = g;
-    ctx.fillRect(0,0,W,H);
-
-    // draw orbit rings (subtle)
-    ctx.save();
-    ctx.globalAlpha = 0.12;
-    ctx.strokeStyle = 'rgba(110,240,255,0.07)';
-    ctx.lineWidth = 2;
-    [120,200,280].forEach((rad,i)=>{
-      ctx.beginPath();
-      ctx.ellipse(c.x, c.y, rad, rad*0.6, Math.sin(Date.now()/6000+i)*0.2, 0, Math.PI*2);
-      ctx.stroke();
-    });
-    ctx.restore();
+    ctx.fillRect(0,0,w,h);
 
     // draw particles
-    particles.forEach(p=>{
-      p.angle += p.speed;
-      const wob = Math.sin((Date.now()/1000)*p.wobble + p.r)*6;
-      const x = c.x + Math.cos(p.angle) * (p.r + wob);
-      const y = c.y + Math.sin(p.angle) * (p.r*0.6 + wob*0.6);
-      // particle glow
-      const rad = p.size*2.6;
-      const grad = ctx.createRadialGradient(x,y,0,x,y,rad*3);
-      grad.addColorStop(0, `rgba(180,230,255,${p.alpha})`);
-      grad.addColorStop(0.6, `rgba(90,160,200,${p.alpha*0.25})`);
-      grad.addColorStop(1, 'transparent');
-      ctx.fillStyle = grad;
+    for(let p of particles){
+      p.x += p.vx;
+      p.y += p.vy;
+      if(p.x < -50) p.x = w + 50;
+      if(p.x > w + 50) p.x = -50;
+      if(p.y < -50) p.y = h + 50;
+      if(p.y > h + 50) p.y = -50;
+
       ctx.beginPath();
-      ctx.arc(x,y,p.size,0,Math.PI*2);
+      ctx.fillStyle = `rgba(150,220,255,${0.08 * p.alpha})`;
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
       ctx.fill();
-    });
+    }
+
+    // glow ring behind hero logo (centred near hero area)
+    const hero = document.querySelector('.hero-card');
+    if(hero){
+      // compute logo center
+      const rect = logoPlate.getBoundingClientRect();
+      const cx = rect.left + rect.width/2;
+      const cy = rect.top + rect.height/2;
+
+      // soft rings
+      for(let i=1;i<=3;i++){
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(100,200,255,${0.06/(i*0.6)})`;
+        ctx.lineWidth = 18 * i;
+        ctx.globalCompositeOperation = 'lighter';
+        ctx.arc(cx, cy, 120 + i*28 + Math.sin(t*1.2 + i)*6, 0, Math.PI*2);
+        ctx.stroke();
+      }
+      ctx.globalCompositeOperation = 'source-over';
+
+      // orbiting nodes labels
+      ctx.font = '13px Inter, system-ui, Arial';
+      ctx.fillStyle = 'rgba(190,225,255,0.9)';
+      ctx.textAlign = 'center';
+      orbitNodes.forEach((n,i)=>{
+        const ang = n.angle + t*0.35 + i*0.5;
+        const x = cx + Math.cos(ang) * n.dist;
+        const y = cy + Math.sin(ang) * n.dist*0.6;
+        // small node dot
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(120,200,255,0.95)';
+        ctx.arc(x, y, 4 + (i%2), 0, Math.PI*2);
+        ctx.fill();
+        // label
+        ctx.fillStyle = 'rgba(200,230,255,0.92)';
+        ctx.fillText(n.label, x + Math.cos(ang)*18, y + Math.sin(ang)*12);
+      });
+    }
 
     requestAnimationFrame(draw);
   }
+  requestAnimationFrame(draw);
 
-  // kick off
-  draw();
-
-  // small accessibility: close menu on nav click
-  document.querySelectorAll('.nav a').forEach(a => {
-    a.addEventListener('click', () => {
-      if(menu && menu.classList.contains('open')) menu.classList.remove('open');
-    });
+  // small accessibility: keyboard toggles menu
+  document.addEventListener('keyup', e=>{
+    if(e.key === 'm' || e.key === 'M'){
+      if(menuToggle) menuToggle.click();
+    }
   });
 
+  // ensure canvas covers after dynamic layout changes
+  const ro = new ResizeObserver(()=> resize());
+  ro.observe(document.body);
+
+  // debug console
+  console.log('QuantumKey visual engine loaded');
 })();
