@@ -1,77 +1,148 @@
-<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Outer subtle glow -->
-  <circle cx="256" cy="256" r="200" fill="url(#outerGlow)" opacity="0.22"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 512 512"
+     width="512" height="512"
+     role="img" aria-labelledby="title desc">
+  <title id="title">QuantumKey emblem</title>
+  <desc id="desc">Hexagonal shield with glowing energy core and three orbiting nodes — animated.</desc>
 
-  <!-- Hexagon body -->
-  <path d="M256 80L380 160V320L256 400L132 320V160L256 80Z" 
-        fill="url(#hexGrad)" 
-        stroke="url(#hexStroke)" 
-        stroke-width="5" 
-        stroke-linejoin="round"/>
-
-  <!-- Inner circle -->
-  <circle cx="256" cy="256" r="70" fill="url(#innerGrad)" stroke="url(#innerStroke)" stroke-width="3"/>
-
-  <!-- Quantum orbit dots -->
-  <circle cx="256" cy="186" r="10" fill="url(#dotGrad)"/>
-  <circle cx="316" cy="256" r="10" fill="url(#dotGrad)"/>
-  <circle cx="256" cy="326" r="10" fill="url(#dotGrad)"/>
-  <circle cx="196" cy="256" r="10" fill="url(#dotGrad)"/>
-
-  <!-- Quantum lines -->
-  <line x1="256" y1="186" x2="256" y2="130" stroke="url(#lineGrad)" stroke-width="4" stroke-linecap="round"/>
-  <line x1="316" y1="256" x2="372" y2="256" stroke="url(#lineGrad)" stroke-width="4" stroke-linecap="round"/>
-  <line x1="256" y1="326" x2="256" y2="382" stroke="url(#lineGrad)" stroke-width="4" stroke-linecap="round"/>
-  <line x1="196" y1="256" x2="140" y2="256" stroke="url(#lineGrad)" stroke-width="4" stroke-linecap="round"/>
-
-  <!-- Definitions -->
   <defs>
-    <!-- Outer radial glow -->
-    <radialGradient id="outerGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-      gradientTransform="translate(256 256) scale(220)">
-      <stop offset="0%" stop-color="#6EEBFF" stop-opacity="0.6"/>
-      <stop offset="40%" stop-color="#3A78A1" stop-opacity="0.18"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    <!-- Gradients -->
+    <radialGradient id="g-core" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#bdf6ff" stop-opacity="1"/>
+      <stop offset="35%" stop-color="#6fe0ff" stop-opacity="0.95"/>
+      <stop offset="70%" stop-color="#2a9bff" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#0b1120" stop-opacity="0"/>
     </radialGradient>
 
-    <!-- Hexagon gradient -->
-    <linearGradient id="hexGrad" x1="180" y1="120" x2="340" y2="390" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#6EE7FF"/>
-      <stop offset="100%" stop-color="#4470FF"/>
+    <linearGradient id="g-hex" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7fe6ff"/>
+      <stop offset="45%" stop-color="#57a8ff"/>
+      <stop offset="100%" stop-color="#2f6bff"/>
     </linearGradient>
 
-    <!-- Hexagon stroke -->
-    <linearGradient id="hexStroke" x1="256" y1="80" x2="256" y2="400" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#CFFFFF"/>
-      <stop offset="100%" stop-color="#6EEBFF"/>
+    <linearGradient id="g-ring" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(140,230,255,0.55)"/>
+      <stop offset="100%" stop-color="rgba(80,150,255,0.06)"/>
     </linearGradient>
 
-    <!-- Inner circle gradient -->
-    <radialGradient id="innerGrad" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-      gradientTransform="translate(256 256) scale(75)">
-      <stop offset="0%" stop-color="#A8F8FF"/>
-      <stop offset="60%" stop-color="#4CB4FF"/>
-      <stop offset="100%" stop-color="#2454A0"/>
-    </radialGradient>
+    <!-- Soft blur filter for subtle glow (kept light) -->
+    <filter id="f-softglow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
 
-    <!-- Inner circle stroke -->
-    <linearGradient id="innerStroke" x1="256" y1="186" x2="256" y2="326" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#DFFFFF"/>
-      <stop offset="100%" stop-color="#6EEBFF"/>
-    </linearGradient>
+    <!-- small drop-shadow for hex plate -->
+    <filter id="f-plate-shadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feOffset dx="0" dy="8" result="off"/>
+      <feGaussianBlur in="off" stdDeviation="20" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0.25"/>
+      <feBlend in="SourceGraphic" mode="normal"/>
+    </filter>
 
-    <!-- Quantum dots -->
-    <radialGradient id="dotGrad" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-      gradientTransform="translate(0 0) scale(12)">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="60%" stop-color="#9AEFFF"/>
-      <stop offset="100%" stop-color="#4BB3FF"/>
-    </radialGradient>
-
-    <!-- Lines -->
-    <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#DFFFFF"/>
-      <stop offset="100%" stop-color="#6EEBFF"/>
-    </linearGradient>
   </defs>
+
+  <!-- outer gentle halo -->
+  <g opacity="0.14">
+    <circle cx="256" cy="256" r="206" fill="url(#g-ring)"/>
+  </g>
+
+  <!-- hexagon plate with slight stroke and shadow -->
+  <g filter="url(#f-plate-shadow)">
+    <polygon id="hex-plate"
+             points="256 72 382 146 382 366 256 440 130 366 130 146"
+             fill="url(#g-hex)"
+             stroke="rgba(255,255,255,0.16)"
+             stroke-width="3.2"
+             stroke-linejoin="round"/>
+  </g>
+
+  <!-- inner subtle inset -->
+  <polygon points="256 92 360 152 360 332 256 392 152 332 152 152"
+           fill="rgba(0,0,0,0.06)"/>
+
+  <!-- glowing energy core group -->
+  <g id="core" transform="translate(0,0)">
+    <!-- outer soft glow -->
+    <circle cx="256" cy="256" r="110" fill="url(#g-core)" opacity="0.35" />
+    <!-- animated core (pulsing) -->
+    <g id="core-pulse" transform="translate(256,256)">
+      <circle id="core-l1" cx="0" cy="0" r="54" fill="#8fe8ff" opacity="0.24">
+        <animate attributeName="r" values="54;62;54" dur="3.8s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.26;0.12;0.26" dur="3.8s" repeatCount="indefinite"/>
+      </circle>
+
+      <circle id="core-l2" cx="0" cy="0" r="38" fill="#46b7ff" opacity="0.95">
+        <animateTransform attributeName="transform" attributeType="XML"
+                          type="scale" values="1;1.04;1" dur="2.6s" repeatCount="indefinite"/>
+      </circle>
+
+      <!-- bright center -->
+      <circle cx="0" cy="0" r="14" fill="#bff9ff" opacity="1">
+        <animate attributeName="r" values="12;16;12" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+
+  <!-- orbit group: rotate the whole group to create orbit motion for nodes -->
+  <g id="orbit-root" transform="translate(0,0)">
+    <!-- the group rotates slowly -->
+    <animateTransform attributeName="transform"
+                      type="rotate"
+                      from="0 256 256"
+                      to="360 256 256"
+                      dur="18s"
+                      repeatCount="indefinite" />
+
+    <!-- nodes placed around center (their coords define orbit radius) -->
+    <!-- Node A (top-right) -->
+    <g id="node-a" transform="translate(314,196)">
+      <circle r="7.6" fill="#bdf6ff" opacity="0.98">
+        <animate attributeName="r" values="7.6;9.2;7.6" dur="4.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="2.6" fill="#fff" opacity="0.9" transform="translate(5,-5)"/>
+    </g>
+
+    <!-- Node B (bottom) -->
+    <g id="node-b" transform="translate(256,336)">
+      <circle r="7.6" fill="#bdf6ff" opacity="0.98">
+        <animate attributeName="r" values="7.6;8.8;7.6" dur="5.1s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="2.2" fill="#fff" opacity="0.9" transform="translate(0,6)"/>
+    </g>
+
+    <!-- Node C (left) -->
+    <g id="node-c" transform="translate(198,196)">
+      <circle r="7.6" fill="#bdf6ff" opacity="0.98">
+        <animate attributeName="r" values="7.6;9.0;7.6" dur="4.6s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="2.8" fill="#fff" opacity="0.9" transform="translate(-5,-4)"/>
+    </g>
+
+    <!-- faint orbit tracks -->
+    <circle cx="256" cy="256" r="132" fill="none" stroke="rgba(140,200,255,0.06)" stroke-width="2.2"/>
+    <ellipse cx="256" cy="256" rx="132" ry="80" fill="none" stroke="rgba(140,200,255,0.04)" stroke-width="1.6"/>
+  </g>
+
+  <!-- subtle decorative lines (linking nodes to core) -->
+  <g stroke="rgba(180,230,255,0.09)" stroke-width="1.2" stroke-linecap="round">
+    <line x1="256" y1="256" x2="314" y2="196"/>
+    <line x1="256" y1="256" x2="256" y2="336"/>
+    <line x1="256" y1="256" x2="198" y2="196"/>
+  </g>
+
+  <!-- thin hex inner stroke for crisp edge -->
+  <polygon points="256 82 366 150 366 362 256 430 146 362 146 150"
+           fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.6" stroke-linejoin="round"/>
+
+  <!-- accessibility: invisible focusable rectangle (keeps image accessible) -->
+  <rect x="0" y="0" width="512" height="512" fill="transparent" />
+
 </svg>
