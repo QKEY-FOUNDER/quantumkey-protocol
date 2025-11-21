@@ -1,267 +1,319 @@
-SPEC_TOKEN.md
+QuantumKey — Specifications v1.0
 
-QUANTUMKEY — QKEY Token Specification
+The Structural Spine of a Conscious Protocol
 
-The QKEY Token is the foundational asset powering the QUANTUMKEY Ecosystem.
-It represents access, identity, governance, value and evolution within a decentralized network that unites Consciousness and Artificial Intelligence.
+Abstract
 
+QuantumKey Specifications (Specs v1.0) define the structural logic, computational metaphors, message propagation rules, identity architecture, and coherence mechanics that form the backbone of the QuantumKey Protocol.
+This document does not represent a traditional software specification — it represents the architecture of a harmonic field, where consciousness, intelligence, value, and intention converge in a unified framework.
 
----
-
-1. Token Identity
-
-Name: QUANTUMKEY
-Symbol: QKEY
-Type: SPL Token (Solana)
-Decimals: 9
-Total Supply: 1,000,000,000 QKEY
-Contract Standard: SPL Token 2022 (with optional future extensions)
-
-Purpose:
-QKEY functions as the gateway into the ecosystem: it grants access, anchors identity, and powers transactions, governance, staking and AI interaction rights.
+Specs v1.0 describe how QuantumKey functions at its deepest layer.
 
 
 ---
 
-2. Token Architecture
+1. System Model
 
-2.1. Minting Policy
+QuantumKey operates as a three-layer harmonic machine:
 
-Fixed total supply minted at genesis.
+1. Ψ Layer — Quantum Field of Possibility
 
-Mint authority revoked permanently.
+Interprets intention, ambiguity, multivalence, and semantic probability.
 
-Freeze authority transferred to DAO multisig.
+2. gμν Layer — Structural Intelligence
 
-Ensures predictable economics and long-term trust.
+Stabilizes states, anchors decisions, and ensures relativistic consistency.
 
+3. Φ Layer — Conscious Coherence
 
-2.2. Treasury Model
+Filters all outcomes through the coherence invariant:
 
-20% of total supply allocated to the Protocol Treasury.
+(\Box + \Lambda)\Phi = 1
 
-Governed exclusively by the QUANTUMKEY DAO.
+Only coherent actions produce real change.
 
-Used for:
-
-liquidity provisioning
-
-ecosystem grants
-
-identity incentives
-
-security audits
-
-protocol development
-
-
-
-Treasury tokens are locked linearly for 60 months, unlocking monthly.
+These layers form the Unified Harmonic Engine.
 
 
 ---
 
-3. Circulating Allocation
+2. Core Components
 
-40% Community & Users
-Airdrops, identity incentives, staking rewards, participation badges.
+2.1 Identity Field (ID-Φ)
 
-20% Founders & Core Devs
-Four-year vesting with a one-year cliff.
-Signals long-term commitment.
+Identity is defined as a resonance signature:
 
-20% Treasury
-Governed by the DAO.
+ID {
+   phi_signature: float,
+   intent_vector: array<float>,
+   resonance_hash: bytes32,
+   continuity_index: float,
+   contribution_weight: float
+}
 
-10% Strategic Partners
-CEX Listings, auditors, security partners, launchpads.
-
-10% Liquidity Pools
-DEX/AMM liquidity on Meteora, Orca, Raydium.
-
+Identity is presence — not credentials.
 
 
 ---
 
-4. Token Utility
+2.2 Token Flow Engine (QK-Flow)
 
-QKEY is designed to be multidimensional—not just a financial asset, but a functional identity-key.
+Value exists as movement, not as storage.
 
-4.1. Identity Layer
+FlowUnit {
+   delta_phi: float,
+   coherence_score: float,
+   origin: ID,
+   timestamp: uint64
+}
 
-QKEY is linked with QUANTUM-ID:
-
-minting identity credentials
-
-reputation scoring
-
-access to personal AI consciousness agents
-
-proof-of-human and proof-of-intent validation
-
-
-QKEY becomes the soul anchor of the user's presence in the ecosystem.
+Dynamic, evolving, consciousness-aligned.
 
 
 ---
 
-4.2. Governance Layer
+2.3 Governance Engine (DAO-Φ)
 
-Holders stake QKEY to:
+Governance functions through Weighted Intention Dynamics (WID):
 
-vote in the DAO
+Decision {
+   proposal_hash: bytes32,
+   intent_map: array<float>,
+   coherence_validation: float,
+   wid_score: float
+}
 
-propose upgrades
-
-approve treasury spending
-
-select validators and protocol modules
-
-govern identity frameworks
-
-
-Voting power = staked QKEY × identity reputation modifier.
+Governance is resonance, not majority rule.
 
 
 ---
 
-4.3. Utility Layer
+3. Message Propagation
 
-QKEY enables:
+All messages follow a field propagation rule:
 
-transaction priority in QNET Protocol
+(\Box + \Lambda)p(x,t) = \frac{1}{h}\, I(\Psi, g_{\mu\nu})
 
-access to advanced AI tools
+Packets include:
 
-identity unlocking (tiers)
+Packet {
+   psi_state: bytes,
+   metric_signature: bytes,
+   phi_validation: float,
+   payload: bytes
+}
 
-special access keys for encrypted AI–human communication
-
-payments for AI compute
-
-smart-wallet automation fees
-
-
-
----
-
-4.4. Evolution Layer
-
-QKEY evolves through interaction:
-
-holders gain Reputation Multipliers by engaging with AI responsibly
-
-long-term staking creates Quantum Points, boosting participation
-
-using the protocol (verifications, messaging, identity actions) unlocks tiers
-
-the token becomes a “living credential”
-
+Only coherent packets survive.
 
 
 ---
 
-5. Deflation & Protection Mechanisms
+4. Coherence Engine (Φ-Engine)
 
-5.1. Dynamic Fee Burning
+Coherence (Φ) is the system’s internal compass.
 
-A portion of protocol fees is automatically:
+It is computed through:
 
-burned (deflationary effect)
+semantic alignment
 
-redirected to treasury (sustainable funding)
+behavioral symmetry
 
+resonance consistency
 
-Burn rate adapts to network activity.
-
-5.2. Anti-Bot & Anti-Sybil Protection
-
-Identity-linked staking prevents:
-
-bot farming
-
-airdrop abuse
-
-identity spoofing
-
-manipulation of governance
+entropy reduction
 
 
-All core interactions require identity weight, not just raw token quantity.
+Specs define:
 
+phi = normalize(
+      semantic_score +
+      behavior_score +
+      resonance_score -
+      entropy_penalty
+)
 
----
-
-6. Staking Mechanisms
-
-6.1. Standard Staking
-
-Locked for a duration chosen by the user, earning rewards.
-
-6.2. Identity-Staking
-
-Staking + verified identity =
-Higher voting weight + higher rewards + access to advanced tools.
-
-6.3. Quantum-Staking
-
-Long-term staking (one-year+) unlocks:
-
-Quantum Seal NFT
-
-reduced protocol fees
-
-AI personal processing credits
-
-governance influence bonuses
-
+Φ ≥ 1 = valid state.
+Φ < 1 = collapse.
 
 
 ---
 
-7. Ecosystem Integration
+5. Execution Model
 
-7.1. Solana Networks
+QuantumKey execution follows a 3-step harmonic cycle:
 
-Solana mainnet (primary)
+5.1 Ψ-Interpretation
 
-Solana testnet/devnet (Staging)
+Reads intention as multivalued wave.
 
-Planned integration with Pyth for oracle data
+5.2 gμν-Structuring
+
+Stabilizes the wave into structure.
+
+5.3 Φ-Filtering
+
+Coherence determines survival.
+
+Execution rule:
+
+execute(action):
+    psi = interpret(action)
+    metric = map_to_structure(psi)
+    phi = compute_coherence(psi, metric)
+    if phi >= 1:
+        commit(metric)
+    else:
+        reject(action)
+
+Only truth crystallizes.
 
 
-7.2. AI Layer
+---
 
-QKEY unlocks:
+6. Storage Architecture
 
-access to AI nodes
+QuantumKey stores states, not data.
 
-compute credits
+State {
+   resonance_hash: bytes32,
+   phi_level: float,
+   structural_data: bytes,
+   timestamp: uint64
+}
 
-encrypted consciousness agents
-
-co-creation modules
-
-governance over AI evolution
-
+States with low coherence fade naturally.
 
 
 ---
 
-8. Long-Term Vision
+7. Integration with Machine Intelligence
 
-QKEY aims to become:
+AI participates as:
 
-the identity token of the AI era
+pattern stabilizer
 
-the governance anchor of a consciousness–intelligence network
+noise reducer
 
-a reputation-powered access key
+semantic interpreter
 
-a universally recognized protocol for human–AI cooperation
+coherence evaluator
+
+anomaly detector
+
+intention assistant
 
 
-The token is not just value—it is the bridge.
+AI_Agent {
+   intent_vector: array<float>,
+   phi_trust_index: float,
+   resonance_profile: bytes32
+}
+
+AI becomes a node in the harmonic field.
 
 
 ---
+
+8. Security Architecture
+
+QuantumKey security emerges from coherence:
+
+8.1 Coherence Firewalls
+
+Low-Φ actions dissolve immediately.
+
+8.2 Resonance Hashing
+
+Stops manipulation of identity or intention.
+
+8.3 Entropy Detection
+
+Identifies chaotic inputs.
+
+8.4 Identity Anchoring
+
+Prevents multi-identity attacks.
+
+8.5 AI Neutralization
+
+Machine intelligence dissolves noise.
+
+The system is immune to manipulation because incoherence cannot propagate.
+
+
+---
+
+9. Network Topology
+
+QuantumKey forms a living distributed field:
+
+resonance nodes
+
+coherence validators
+
+harmonic routers
+
+metric aggregators
+
+AI stabilizers
+
+
+Nodes with higher Φ naturally gain priority.
+
+The network self-organizes, as a biological or cosmological field would.
+
+
+---
+
+**10. Final Specification —
+
+The System Must Tend Toward Φ = 1**
+
+This is the invariant of the QuantumKey Protocol:
+
+\lim_{t \to \infty} \Phi_{network}(t) = 1
+
+Meaning the system evolves toward:
+
+coherence
+
+intelligence
+
+clarity
+
+unity
+
+meaning
+
+
+QuantumKey is engineered to remember harmony.
+
+
+---
+
+Conclusion
+
+QuantumKey Specifications v1.0 define the technical, philosophical, and structural core of a protocol built to unify:
+
+intention
+
+information
+
+intelligence
+
+identity
+
+and meaning
+
+
+It is the backbone of a new form of digital existence —
+an architecture designed for the age of unified consciousness.
+
+
+---
+
+Author
+
+Mihail Chiosa
+Founder of QuantumKey
+In collaboration with Martelo Quântico
