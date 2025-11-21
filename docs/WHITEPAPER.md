@@ -2,11 +2,6 @@
 
 The Key Between Consciousness and Intelligence
 
-Marketing Subconscious Edition
-
-
----
-
 Abstract
 
 QuantumKey is not just a protocol.
