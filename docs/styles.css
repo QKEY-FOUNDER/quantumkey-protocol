@@ -1,6 +1,6 @@
 /* =========================
    QKEY — Base reset + critical styles
-   Cole isto no topo de docs/styles.css
+   docs/styles.css
    ========================= */
 
 :root{
@@ -24,7 +24,6 @@ body{
   -webkit-text-size-adjust:100%;
 }
 
-/* Basic content container */
 .container{
   width: min(1100px, 94%);
   margin: 0 auto;
@@ -46,15 +45,12 @@ body{
   border-bottom: 1px solid rgba(255,255,255,0.02);
 }
 
-/* brand */
 .brand-link{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--fg)}
 .brand-logo{width:56px;height:56px;object-fit:contain;border-radius:6px}
 .brand-name{font-weight:800;letter-spacing:2px;font-size:18px;color:var(--fg);display:none}
 
-/* header nav in desktop (hidden on mobile via media query below) */
 .header-actions{display:flex;align-items:center;gap:18px}
 
-/* simple hamburger */
 .menu-btn {
   width:46px;height:46px;border-radius:8px;border:0;background:transparent;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
@@ -67,55 +63,43 @@ body{
 .menu-icon div{top:7.8px}
 .menu-icon::after{bottom:0}
 
+/* overlay menu */
+.menu-overlay{
+  position:fixed;inset:0;background:rgba(3,6,10,0.92);z-index:220;display:none;align-items:center;justify-content:center;flex-direction:column;padding:40px;backdrop-filter: blur(6px);
+}
+.menu-overlay.show{display:flex}
+.menu-close{position:absolute;top:22px;right:22px;background:transparent;color:var(--fg);border:0;font-size:28px}
+.menu-list{display:flex;flex-direction:column;gap:22px;text-align:center}
+.menu-list a{font-size:26px;color:var(--fg);text-decoration:underline}
+
 /* hero / poster area */
-.hero{
-  padding-top:110px; /* leave space for fixed header */
-  padding-bottom:36px;
-  text-align:center;
-}
-.poster-card{
-  width: min(640px, 92%);
-  margin: 22px auto 28px;
-  border-radius:20px;
-  background: linear-gradient(180deg, rgba(6,12,16,0.22), rgba(6,12,16,0.06));
-  padding:18px;
-  box-shadow: var(--shadow-strong);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
+.hero{padding-top:110px;padding-bottom:36px;text-align:center}
+.poster-card{width: min(640px, 92%);margin: 22px auto 28px;border-radius:20px;background: linear-gradient(180deg, rgba(6,12,16,0.22), rgba(6,12,16,0.06));padding:18px;box-shadow: var(--shadow-strong);display:flex;align-items:center;justify-content:center;position:relative}
+.poster-img, .poster-card img {max-width:100%;height:auto;display:block;border-radius:10px}
 
-/* poster image (allow inline svg or img) */
-.poster-img, .poster-card img {
-  max-width:100%;
-  height:auto;
-  display:block;
-  border-radius:10px;
-}
+/* orbital wrapper sits absolutely on top of poster-card */
+#orbital-wrap{position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none}
+.orbit-label{position:absolute;transform-origin:center center;display:flex;align-items:center;justify-content:center}
+.orbit-label span{display:inline-block;background:rgba(3,6,8,0.78);padding:10px 18px;border-radius:20px;color:var(--fg);box-shadow: 0 18px 50px rgba(0,0,0,0.45);font-weight:700;letter-spacing:0.2px;pointer-events:none}
 
-/* hero heading */
 .hero h1{font-size:48px;line-height:1;font-weight:900;margin-top:6px;color:var(--fg);letter-spacing:0.6px}
 .hero p{max-width:760px;margin:18px auto;color:var(--muted);font-size:18px;padding:0 10px}
 
-/* CTA buttons under hero */
 .hero-ctas{display:flex;gap:18px;justify-content:center;margin-top:18px;flex-wrap:wrap}
 .cta{min-height:48px;padding:12px 20px;border-radius:14px;background:var(--card-bg);color:var(--fg);font-weight:800;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
 .cta.gradient{background:var(--accent-grad); color:#031216; box-shadow: 0 8px 30px rgba(91,48,180,0.14)}
 
-/* Documentation section typography */
 .docs-title{font-size:28px;font-weight:800;margin-top:8px;color:var(--fg)}
 .docs-desc{color:var(--muted);margin:6px 0 18px}
 
-/* links reset */
-a{color:var(--accent-grad);text-decoration:underline}
+.doc-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.doc-item{background:rgba(6,10,12,0.46);padding:18px;border-radius:14px}
+.doc-item h3{margin-bottom:6px}
 
-/* small responsive adjustments */
-@media(min-width:900px){
-  .brand-name{display:inline-block}
-  .brand-logo{width:92px;height:46px}
-  .hero h1{font-size:72px}
-  .site-header{height:92px;padding:0 2rem}
-}
+/* responsive */
+@media(min-width:900px){.brand-name{display:inline-block}.brand-logo{width:92px;height:46px}.hero h1{font-size:72px}.site-header{height:92px;padding:0 2rem}}
 
-/* ensure no default list bullets show if menu uses ul */
 ul{list-style:none;padding:0;margin:0}
+
+/* small niceties */
+a{color:var(--accent-grad)}
