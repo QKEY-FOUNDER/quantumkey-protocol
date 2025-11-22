@@ -1,6 +1,6 @@
 /* =========================
-   QuantumKey — styles.css
-   Atualizado para o HTML fornecido
+   QuantumKey — styles.css (fix v2)
+   Regras unificadas: header, hero, orbit labels, botões
    ========================= */
 
 /* reset e base */
@@ -13,114 +13,77 @@ html,body { height:100%; width:100%; background:#030b10; color:#eaf8ff; font-fam
   inset: 0;
   width: 100%;
   height: 100%;
-  z-index: -2;               /* atrás de tudo */
+  z-index: -2;
   pointer-events: none;
 }
 
 /* header / topbar */
-.site-header {
-  width:100%;
-  background: transparent;
-  z-index: 30;
-}
+.site-header { width:100%; background: transparent; z-index: 30; position: relative; }
+.container.header-row { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 14px; max-width:1100px; margin:0 auto; }
 
-/* container flex que aparece no teu HTML */
-.container.header-row {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:10px 14px;
-}
+/* brand */
+.brand { display:flex; align-items:center; gap:10px; }
+.brand-link { display:flex; align-items:center; gap:10px; text-decoration:none; color: inherit; }
+.brand-logo { display:block; width: 88px; height:auto; max-width:110px; object-fit: contain; transform-origin: center; transition: width .18s ease, transform .18s ease; filter: drop-shadow(0 8px 26px rgba(0,160,220,0.06)); pointer-events:none; } /* pointer-events none evita que o svg capture cliques/selecções */
+.brand-name { font-weight:800; font-size:20px; letter-spacing:2px; color:#e8fbff; display:inline-block; line-height:1; margin-left:6px; }
 
-/* Se houver outro container com só .container usar isto */
-.container { max-width:1100px; margin:0 auto; }
-
-/* BRAND (logo + wordmark) */
-.brand {
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-/* link do brand - remove estilo de link azul */
-.brand-link {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  text-decoration:none;
-  color: inherit;
-}
-
-/* imagem do logo (SVG/IMG) */
-.brand-logo {
-  display:block;
-  width: 88px;           /* tamanho do logo no header (mobile primeiro) */
-  height: auto;
-  max-width: 110px;
-  object-fit: contain;
-  transform-origin: center;
-  transition: width .18s ease, transform .18s ease;
-  filter: drop-shadow(0 8px 26px rgba(0,160,220,0.06));
-}
-
-/* nome da marca (wordmark) */
-.brand-name {
-  font-weight:800;
-  font-size:20px;
-  letter-spacing:2px;
-  color:#e8fbff;
-  display:inline-block;
-  line-height:1;
-  margin-left:6px;
-}
-
-/* menu / botão hamburger à direita (se existir) */
+/* menu */
 .menu-area { display:flex; align-items:center; gap:8px; }
-.hamburger, .menu-toggle { width:40px; height:40px; border-radius:8px; display:flex; align-items:center; justify-content:center;
-  background: rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.03); color:#eaf8ff; }
+.hamburger, .menu-toggle { width:40px; height:40px; border-radius:8px; display:flex; align-items:center; justify-content:center; background: rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.03); color:#eaf8ff; }
 
 /* =========================
    HERO (imagem grande + título + botões)
    ========================= */
 
-.hero-card, .hero, #hero, .hero-wrapper {
-  width:100%;
-  max-width:980px;
-  margin: 6px auto 24px;
-  padding: 10px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  gap:14px;
-}
+.hero-wrapper { width:100%; max-width:980px; margin: 6px auto 24px; padding: 10px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:14px; position:relative; z-index:5; }
 
-/* imagem central (preview/hero) — cuidado com tamanhos inline no SVG */
-.hero-preview, .hero-image, .badge-preview, .poster {
-  display:block;
-  width: 100%;
-  max-width: 420px;      /* limita o tamanho grande que empurra a página */
-  height: auto;
-  object-fit: contain;
-  margin: 6px auto 0;
-}
+/* preview / poster */
+.hero-preview, .hero-image, .badge-preview, .poster { display:block; width:100%; max-width:420px; height:auto; object-fit:contain; margin:6px auto 0; pointer-events:none; }
 
-/* correcção específica: se o SVG tiver width/height inline */
+/* Protege contra SVG com width/height inline */
 .brand-logo[width], .brand-logo[height], .hero-preview[width], .hero-preview[height], svg[width], svg[height] {
   max-width: 420px !important;
   width: auto !important;
   height: auto !important;
 }
 
-/* título principal e subtítulo */
-.hero-title { font-size:44px; font-weight:800; letter-spacing:1px; line-height:1.02; color:#e8fbff; margin-top:6px; }
-.hero-subtitle { max-width:720px; color:#cde8f6; font-size:15px; }
+/* título e subtítulo */
+.hero-title { font-size:44px; font-weight:800; letter-spacing:1px; line-height:1.02; color:#e8fbff; margin-top:6px; z-index:6; }
+.hero-subtitle { max-width:720px; color:#cde8f6; font-size:15px; margin-top:6px; z-index:6; position:relative; }
 
-/* botões do hero */
-.btn-row { display:flex; gap:14px; margin-top:6px; flex-wrap:wrap; justify-content:center; }
-.btn { padding:12px 20px; border-radius:12px; border:none; font-weight:700; cursor:pointer; color:#001f26;
-      background: linear-gradient(135deg,#4bfaff,#9d4bff); box-shadow:0 8px 30px rgba(60,140,200,0.12); }
+/* espaço extra abaixo do subtítulo para evitar sobreposição com botões */
+.hero-controls { margin-top:14px; z-index:6; position:relative; }
+
+/* botões */
+.btn-row { display:flex; gap:14px; margin-top:6px; flex-wrap:wrap; justify-content:center; z-index:6; }
+.btn { padding:12px 20px; border-radius:12px; border:none; font-weight:700; cursor:pointer; color:#001f26; background: linear-gradient(135deg,#4bfaff,#9d4bff); box-shadow:0 8px 30px rgba(60,140,200,0.12); }
+
+/* evita que os botões cubram o subtítulo em telas pequenas */
+.hero-subtitle { padding-bottom:8px; }
+@media (max-width:900px) {
+  .hero-controls { margin-top:20px; }
+  .btn-row { margin-top:12px; }
+}
+
+/* =========================
+   ORBIT LABELS (palavras ao redor do logo)
+   - estilos genéricos para elementos que giram/posicionados acima do canvas/SVG
+   - requer HTML com container .orbit-labels e elementos .orbit-label
+   ========================= */
+
+.orbit-labels { position:absolute; top:0; left:0; right:0; bottom:0; pointer-events:none; z-index:4; } /* por cima do fundo, mas abaixo do texto principal */
+.orbit-label { position:absolute; color:#aeeeff; font-weight:600; font-size:13px; transform-origin:center; opacity:0.95; white-space:nowrap; text-shadow:0 2px 6px rgba(0,0,0,0.6); }
+
+/* Exemplos de posições (ajusta se necessário) */
+.orbit-label.pos-top-left { left:6%; top:6%; }
+.orbit-label.pos-top-right { right:8%; top:6%; }
+.orbit-label.pos-right { right:6%; top:28%; }
+.orbit-label.pos-left { left:6%; top:28%; }
+.orbit-label.pos-bottom-left { left:8%; bottom:10%; }
+
+/* Se queres animação contínua (rotação lenta) */
+.orbit-rotate { animation: orbitSpin 28s linear infinite; transform-origin:50% 50%; }
+@keyframes orbitSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
 /* =========================
    DOCUMENTATION CARDS
@@ -142,36 +105,16 @@ html,body { height:100%; width:100%; background:#030b10; color:#eaf8ff; font-fam
    ========================= */
 
 @media (max-width: 900px) {
-
-  /* header reduzido */
   .container.header-row { padding:8px 12px; }
-
-  /* logo mais pequeno no mobile para não dominar a viewport */
   .brand-logo { width:72px; max-width:90px; }
-
   .brand-name { font-size:18px; }
-
-  /* hero muito menor no telemóvel */
-  .hero-preview, .poster { max-width: 240px !important; width: 54vw !important; }
-
+  .hero-preview, .poster { max-width:240px !important; width:54vw !important; }
   .hero-title { font-size:28px; }
   .hero-subtitle { font-size:14px; max-width:360px; }
-
-  /* botões em coluna para caber */
   .btn-row { flex-direction:column; width:90%; max-width:320px; margin:0 auto; }
   .btn { width:100%; text-align:center; }
 }
 
-/* =========================
-   UTILITIES Fallback
-   ========================= */
-
-.hidden-mobile { display:none; }
-.center { display:flex; justify-content:center; align-items:center; }
+/* utilitários */
 img, svg, iframe, embed { max-width:100%; height:auto; }
-
-/* Se houver um link a aparecer em azul - força o estilo */
 a.brand-link, a.brand-link:link, a.brand-link:visited { color: inherit !important; text-decoration:none !important; }
-
-/* Se ainda houver algum elemento a empurrar o topo (margem grande) */
-:root { --header-top-gap: 6px; }
