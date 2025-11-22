@@ -59,15 +59,46 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function computeOrbit() {
     if (!poster || !orbitWrap) return;
-    // get bounding rect of poster relative to viewport
+
+    // bounding rect do poster (imagem dentro do DOM)
     const imgRect = poster.getBoundingClientRect();
-    // compute center of poster in page coords
-    const centerX = imgRect.left + imgRect.width / 2;
-    const centerY = imgRect.top + imgRect.height / 2;
-    // compute radius: a little bigger than the largest half-dimension of poster
+
+    // centro do poster em coordenadas da página (viewport)
+    const centerXPage = imgRect.left + imgRect.width / 2 + window.scrollX;
+    const centerYPage = imgRect.top + imgRect.height / 2 + window.scrollY;
+
+    // radius: um pouco maior que a metade da dimensão maior do poster
     const baseRadius = Math.max(imgRect.width, imgRect.height) / 2;
-    const extra = Math.max(28, Math.min(160, baseRadius * 0.15)); // extra padding
+    const extra = Math.max(28, Math.min(160, baseRadius * 0.15));
     let radius = Math.round(baseRadius + extra);
+
+    // limita o radius a algo razoável para dispositivos pequenos
+    const maxAllowed = Math.max(window.innerWidth, window.innerHeight) * 0.6;
+    if (radius > maxAllowed) radius = Math.round(maxAllowed);
+
+    // define a variável CSS --orbit-radius (usada nos estilos)
+    orbitWrap.style.setProperty('--orbit-radius', radius + 'px');
+
+    // posicionar o orbitWrap de forma estável:
+    // colocamos left/top relativos ao offsetParent do orbitWrap.
+    // obter rect do offsetParent
+    const parent = orbitWrap.offsetParent || document.body;
+    const parentRect = parent.getBoundingClientRect();
+
+    // converter centro da página -> coordenadas relativas ao offsetParent
+    const relX = centerXPage - (parentRect.left + window.scrollX);
+    const relY = centerYPage - (parentRect.top + window.scrollY);
+
+    // aplicar left/top e centrar com translate(-50%,-50%)
+    orbitWrap.style.position = 'absolute';
+    orbitWrap.style.left = Math.round(relX) + 'px';
+    orbitWrap.style.top = Math.round(relY) + 'px';
+    orbitWrap.style.transform = 'translate(-50%,-50%)';
+
+    // remove qualquer largura forçada que cause overflow
+    orbitWrap.style.width = 'auto';
+    orbitWrap.style.height = 'auto';
+  }
 
     // cap radius so it won't overflow tiny screens
     const maxAllowed = Math.max(window.innerWidth, window.innerHeight) * 0.6;
