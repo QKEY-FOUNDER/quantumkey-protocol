@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -17,41 +17,33 @@
     <div class="container header-row">
       <div class="brand">
         <a class="brand-link" href="./" aria-label="QuantumKey home">
-          <div class="brand-logo-wrapper" aria-hidden="true">
-            <!-- Inline SVG (kept) -->
-            <?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 1000 1000"
-     role="img" aria-labelledby="title desc" class="brand-svg">
-  <title id="title">QuantumKey badge — emblem</title>
-  <desc id="desc">Circular neon badge with three glowing spheres and QUANTUMKEY wordmark.</desc>
-  <!-- (SVG content as before) -->
-  <defs> ... </defs>
-  <!-- SVG body continues (omitted in this preview for brevity) -->
-  <!-- ensure you keep the same SVG content you previously used -->
-</svg>
+          <!-- usando <img> para garantir que o logo apareça sempre -->
+          <div class="brand-logo-wrapper" aria-hidden="false">
+            <img src="./assets/quantumkey-logo.svg" alt="QuantumKey badge" class="brand-img" />
           </div>
-
           <span class="brand-name">QUANTUMKEY</span>
         </a>
       </div>
 
-      <button id="menu-btn" class="menu-btn" aria-expanded="false" aria-controls="offcanvas-menu" aria-label="Open menu">
-        <span class="burger"></span>
-      </button>
+      <nav class="header-actions">
+        <a class="top-link" href="./assets/whitepaper/QuantumKey_Whitepaper.pdf" target="_blank" rel="noopener">Read Whitepaper</a>
+        <a class="top-link" href="./assets/whitepaper/QuantumKey_Tokenomics.pdf" target="_blank" rel="noopener">Tokenomics</a>
+        <button id="menu-btn" class="menu-btn" aria-expanded="false" aria-controls="offcanvas-menu" aria-label="Abrir menu">
+          <span class="burger"></span>
+        </button>
+      </nav>
     </div>
   </header>
 
   <!-- Off-canvas menu -->
   <nav id="offcanvas-menu" class="offcanvas" aria-hidden="true">
-    <div class="offcanvas-inner container">
-      <button id="menu-close" class="menu-close" aria-label="Close menu">×</button>
+    <div class="offcanvas-inner container" role="dialog" aria-modal="true" aria-label="Menu principal">
+      <button id="menu-close" class="menu-close" aria-label="Fechar menu">×</button>
       <ul class="nav-list">
         <li><a href="#hero">Home</a></li>
         <li><a href="#docs">Documentation</a></li>
         <li><a href="./assets/whitepaper/QuantumKey_Whitepaper.pdf" target="_blank" rel="noopener">Whitepaper</a></li>
         <li><a href="./assets/whitepaper/QuantumKey_Tokenomics.pdf" target="_blank" rel="noopener">Tokenomics</a></li>
-        <li><a href="https://github.com/QKEY-FOUNDER/quantumkey" target="_blank" rel="noopener">Repository</a></li>
       </ul>
     </div>
   </nav>
@@ -59,17 +51,14 @@
   <main class="site-main">
     <section id="hero" class="hero container" aria-labelledby="hero-heading">
       <div class="hero-visual">
-        <!-- Poster (SVG thumbnail fallback) -->
         <div class="hero-poster" aria-hidden="true">
-          <img src="./assets/quantumkey-logo.svg" alt="QuantumKey poster" class="poster-thumb" />
-          <!-- Orbit labels container (absolute over the poster) -->
+          <!-- Poster / grande imagem central -->
+          <img src="./assets/quantumkey-logo.svg" alt="" class="poster-thumb" />
+          <!-- ORBIT LABELS (somente 3, com raio ligeiramente maior que a imagem) -->
           <div class="orbit-wrap" aria-hidden="true">
             <span class="orbit-label" style="--i:0">Governance</span>
             <span class="orbit-label" style="--i:1">Identity</span>
-            <span class="orbit-label" style="--i:2">Protocol</span>
-            <span class="orbit-label" style="--i:3">Tokenomics</span>
-            <span class="orbit-label" style="--i:4">Specs</span>
-            <span class="orbit-label" style="--i:5">Community</span>
+            <span class="orbit-label" style="--i:2">Consciousness</span>
           </div>
         </div>
       </div>
