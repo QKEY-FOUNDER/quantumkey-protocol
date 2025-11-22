@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>QuantumKey — The key between Consciousness and Intelligence</title>
+  <title>QuantumKey — Documentation Hub</title>
+  <meta name="description" content="QuantumKey — the key between consciousness and intelligence. Documentation hub: whitepaper, tokenomics, DAO, identity, protocol, specs." />
 
   <!-- main style (must be in docs/styles.css) -->
   <link rel="stylesheet" href="./styles.css">
@@ -11,68 +12,103 @@
   <!-- meta for nicer mobile rendering -->
   <meta name="theme-color" content="#07121a">
 </head>
-<body>
-  <!-- particle canvas sits behind all content -->
-  <canvas id="particles"></canvas>
+<body class="dark">
+
+  <!-- particle canvas sits behind all content (script.js draws it) -->
+  <canvas id="particles" aria-hidden="true"></canvas>
 
   <header class="site-header">
-    <div class="container">
+    <div class="container header-row">
       <div class="brand">
-        <!-- Primary CTAs are direct links to the markdown files hosted by GitHub Pages -->
-        <a class="button-primary" href="WHITEPAPER.md" target="_self" rel="noopener">Read Whitepaper</a>
-        <a class="button-secondary" href="TOKENOMICS.md" target="_self" rel="noopener">Tokenomics</a>
-
-        <a class="brand-link" href="./index.html" aria-label="QuantumKey home">
-          <img src="./assets/quantumkey-logo.svg" alt="QuantumKey logo" class="brand-logo" />
+        <a class="brand-link" href="./">
+          <img src="./assets/quantumkey-logo.svg" alt="QuantumKey badge" class="brand-logo" />
           <span class="brand-name">QUANTUMKEY</span>
         </a>
       </div>
 
-      <nav id="main-nav" class="nav" aria-hidden="false">
-        <!-- nav links point directly to the docs files so they reliably open on GitHub Pages -->
-        <a href="WHITEPAPER.md" target="_self" rel="noopener">Whitepaper</a>
-        <a href="TOKENOMICS.md" target="_self" rel="noopener">Tokenomics</a>
-        <a href="SPEC_TOKEN.md" target="_self" rel="noopener">Specs</a>
+      <nav id="main-nav" class="nav" aria-label="Main navigation">
+        <a href="./assets/whitepaper/QuantumKey_Whitepaper.pdf" target="_blank" rel="noopener">Whitepaper</a>
+        <a href="./assets/whitepaper/QuantumKey_Tokenomics.pdf" target="_blank" rel="noopener">Tokenomics</a>
+        <a href="./assets/whitepaper/QuantumKey_DAO.pdf" target="_blank" rel="noopener">DAO</a>
+        <a href="./assets/whitepaper/QuantumKey_Identity.pdf" target="_blank" rel="noopener">Identity</a>
+        <a href="./assets/whitepaper/QuantumKey_Protocol.pdf" target="_blank" rel="noopener">Protocol</a>
+        <a href="./assets/whitepaper/QuantumKey_Specs.pdf" target="_blank" rel="noopener">Specs</a>
       </nav>
+
+      <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="22" height="16" viewBox="0 0 22 16" aria-hidden="true"><path d="M0 1h22M0 8h22M0 15h22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
     </div>
   </header>
 
   <main>
-    <section class="hero container" id="hero">
+    <section class="hero container" id="hero" role="region" aria-labelledby="hero-title">
       <div class="hero-card">
         <div class="logo-plate" id="logo-plate" aria-hidden="false">
-          <!-- decorative big logo (keeps SVG file external) -->
           <img src="./assets/quantumkey-logo.svg" alt="QuantumKey emblem" class="hero-logo" />
         </div>
 
         <div class="hero-text">
-          <h1>QuantumKey</h1>
-          <p class="tagline">A subtle architecture of meaning — a key that harmonizes conscious intent with machine intelligence.</p>
+          <h1 id="hero-title">QuantumKey</h1>
+          <p class="tagline">A subtle architecture of meaning — the key that harmonizes conscious intent with machine intelligence.</p>
           <div class="cta-row">
-            <!-- CTAs changed to direct file links (no JS needed) -->
-            <a class="btn btn-primary" href="WHITEPAPER.md" target="_self" rel="noopener">Read Whitepaper</a>
-            <a class="btn btn-outline" href="TOKENOMICS.md" target="_self" rel="noopener">Tokenomics</a>
+            <a class="btn btn-primary" href="./assets/whitepaper/QuantumKey_Whitepaper.pdf" target="_blank" rel="noopener">Read Whitepaper</a>
+            <a class="btn btn-outline" href="./assets/whitepaper/QuantumKey_Tokenomics.pdf" target="_blank" rel="noopener">Tokenomics</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="cards container">
-      <article class="card" id="whitepaper">
-        <!-- headings as direct links to the appropriate spec documents -->
-        <h3><a href="SPEC_IDENTITY.md" target="_self" rel="noopener">Identity</a></h3>
-        <p>Design, branding and cryptographic identity crafted for security and elegance.</p>
-      </article>
+    <section class="docs container" id="docs-hub" aria-labelledby="docs-title">
+      <h2 id="docs-title">Documentation Library</h2>
+      <p class="lead">All core documents for QuantumKey are available for download and review. Click any item to open the PDF in a new tab.</p>
 
-      <article class="card" id="tokenomics">
-        <h3><a href="SPEC_DAO.md" target="_self" rel="noopener">Governance</a></h3>
-        <p>Transparent DAO — rules and governance in SPEC_DAO.md.</p>
-      </article>
+      <div class="grid">
+        <article class="doc-card">
+          <h3>Whitepaper</h3>
+          <p>Vision, architecture and philosophical foundations.</p>
+          <a class="card-btn" href="./assets/whitepaper/QuantumKey_Whitepaper.pdf" target="_blank" rel="noopener">Open PDF</a>
+        </article>
 
-      <article class="card" id="specs">
-        <h3><a href="SPEC_TOKEN.md" target="_self" rel="noopener">Token</a></h3>
-        <p>QKEY full specification available in SPEC_TOKEN.md and TOKENOMICS.md.</p>
-      </article>
+        <article class="doc-card">
+          <h3>Tokenomics</h3>
+          <p>The energetic architecture of the $QKEY economy.</p>
+          <a class="card-btn" href="./assets/whitepaper/QuantumKey_Tokenomics.pdf" target="_blank" rel="noopener">Open PDF</a>
+        </article>
+
+        <article class="doc-card">
+          <h3>DAO</h3>
+          <p>Governance model and alignment primitives.</p>
+          <a class="card-btn" href="./assets/whitepaper/QuantumKey_DAO.pdf" target="_blank" rel="noopener">Open PDF</a>
+        </article>
+
+        <article class="doc-card">
+          <h3>Identity</h3>
+          <p>Identity as a field of presence and continuity.</p>
+          <a class="card-btn" href="./assets/whitepaper/QuantumKey_Identity.pdf" target="_blank" rel="noopener">Open PDF</a>
+        </article>
+
+        <article class="doc-card">
+          <h3>Protocol</h3>
+          <p>Operational mechanics of the harmonic engine.</p>
+          <a class="card-btn" href="./assets/whitepaper/QuantumKey_Protocol.pdf" target="_blank" rel="noopener">Open PDF</a>
+        </article>
+
+        <article class="doc-card">
+          <h3>Specs</h3>
+          <p>Technical spine and message propagation rules.</p>
+          <a class="card-btn" href="./assets/whitepaper/QuantumKey_Specs.pdf" target="_blank" rel="noopener">Open PDF</a>
+        </article>
+      </div>
+
+      <div class="extra">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="https://github.com/qkey-founder/quantumkey" target="_blank" rel="noopener">Repository on GitHub</a></li>
+          <li><a href="./README.md" target="_self">Project README</a></li>
+          <li><a href="./docs/assets/art/logo/quantumkey-mark.svg" target="_blank" rel="noopener">Brand assets</a></li>
+        </ul>
+      </div>
     </section>
 
     <footer class="site-footer container">
