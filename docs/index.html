@@ -1,141 +1,131 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>QuantumKey — Documentation Hub</title>
   <meta name="description" content="QuantumKey — the key between consciousness and intelligence. Documentation hub: whitepaper, tokenomics, DAO, identity, protocol, specs." />
-
-  <link rel="stylesheet" href="./styles.css">
   <meta name="theme-color" content="#07121a">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body class="dark">
 
   <canvas id="particles" aria-hidden="true"></canvas>
 
-  <header class="site-header" role="banner">
+  <header class="site-header">
     <div class="container header-row">
-      <a class="brand-link" href="./">
-        <img src="./assets/art/logo/quantumkey-logo.svg" alt="QuantumKey badge" class="brand-logo" />
-        <span class="brand-name">QUANTUMKEY</span>
-      </a>
-
-      <div class="header-actions">
-        <button id="menu-btn" class="menu-btn" aria-label="Open menu" aria-expanded="false">
-          <span class="menu-icon"><div></div></span>
-        </button>
+      <div class="brand">
+        <a class="brand-link" href="./" aria-label="QuantumKey home">
+          <!-- usando <img> para garantir que o logo apareça sempre -->
+          <div class="brand-logo-wrapper" aria-hidden="false">
+            <img src="./assets/quantumkey-logo.svg" alt="QuantumKey badge" class="brand-img" />
+          </div>
+          <span class="brand-name">QUANTUMKEY</span>
+        </a>
       </div>
+
+      <nav class="header-actions">
+        <!-- top links removed as requested -->
+        <button id="menu-btn" class="menu-btn" aria-expanded="false" aria-controls="offcanvas-menu" aria-label="Abrir menu">
+          <span class="burger"></span>
+        </button>
+      </nav>
     </div>
   </header>
 
-  <!-- Full-screen overlay menu -->
-  <nav id="menu-overlay" class="menu-overlay" aria-hidden="true">
-    <button id="menu-close" class="menu-close" aria-label="Close menu">✕</button>
-    <ul class="menu-list">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#documentation">Documentation</a></li>
-      <li><a href="./docs/assets/whitepaper/QuantumKey_Whitepaper.pdf" target="_blank">Whitepaper</a></li>
-      <li><a href="./docs/assets/whitepaper/QuantumKey_Tokenomics.pdf" target="_blank">Tokenomics</a></li>
-    </ul>
+  <!-- Off-canvas menu -->
+  <nav id="offcanvas-menu" class="offcanvas" aria-hidden="true">
+    <div class="offcanvas-inner container" role="dialog" aria-modal="true" aria-label="Menu principal">
+      <button id="menu-close" class="menu-close" aria-label="Fechar menu">×</button>
+      <ul class="nav-list">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#docs">Documentation</a></li>
+        <li><a href="./assets/whitepaper/QuantumKey_Whitepaper.pdf" target="_blank" rel="noopener">Whitepaper</a></li>
+        <li><a href="./assets/whitepaper/QuantumKey_Tokenomics.pdf" target="_blank" rel="noopener">Tokenomics</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <main id="home">
-
-    <section class="hero" role="region" aria-label="Hero">
-      <div class="poster-card">
-        <!-- INLINE SVG poster (id poster-thumb) -->
-        <!-- This is a simplified, responsive copy of your SVG badge so JS can measure and center orbits. -->
-        <svg id="poster-thumb" class="poster-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
-          <title id="title">QuantumKey poster</title>
-          <desc id="desc">Poster — three glowing spheres and connectors</desc>
-          <defs>
-            <radialGradient id="gradQ" cx="30%" cy="35%" r="60%">
-              <stop offset="0%" stop-color="#e8ffff"/>
-              <stop offset="40%" stop-color="#63e7ff"/>
-              <stop offset="100%" stop-color="#0ea7ff"/>
-            </radialGradient>
-            <radialGradient id="gradC" cx="50%" cy="30%" r="60%">
-              <stop offset="0%" stop-color="#fff7d6"/>
-              <stop offset="40%" stop-color="#ffb57a"/>
-              <stop offset="100%" stop-color="#ff6e8a"/>
-            </radialGradient>
-            <radialGradient id="gradR" cx="70%" cy="60%" r="60%">
-              <stop offset="0%" stop-color="#fff6e8"/>
-              <stop offset="40%" stop-color="#ffd07a"/>
-              <stop offset="100%" stop-color="#ff8a2c"/>
-            </radialGradient>
-            <filter id="glow"><feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            <radialGradient id="vign" cx="50%" cy="50%" r="70%"><stop offset="0%" stop-color="rgba(6,18,22,0.0)"/><stop offset="100%" stop-color="rgba(2,8,12,0.8)"/></radialGradient>
-          </defs>
-
-          <rect width="100%" height="100%" fill="#041216"/>
-          <rect width="100%" height="100%" fill="url(#vign)"/>
-
-          <g clip-path="circle(480 at 500 460)">
-            <g filter="url(#glow)" opacity="0.95">
-              <circle cx="500" cy="460" r="420" fill="rgba(8,18,26,0.06)"/>
-              <circle cx="500" cy="460" r="360" fill="rgba(4,10,12,0.06)"/>
-            </g>
-
-            <g transform="translate(240,460)">
-              <circle cx="0" cy="0" r="120" fill="url(#gradQ)" filter="url(#glow)"/>
-              <text x="0" y="8" text-anchor="middle" font-weight="700" font-size="36" fill="#031216">QFT</text>
-            </g>
-
-            <g transform="translate(500,220)">
-              <circle cx="0" cy="0" r="135" fill="url(#gradC)" filter="url(#glow)"/>
-              <text x="0" y="12" text-anchor="middle" font-weight="700" font-size="28" fill="#031216">Consciousness</text>
-            </g>
-
-            <g transform="translate(760,520)">
-              <circle cx="0" cy="0" r="100" fill="url(#gradR)" filter="url(#glow)"/>
-              <text x="0" y="10" text-anchor="middle" font-weight="700" font-size="30" fill="#031216">GR</text>
-            </g>
-
-            <path id="pA" d="M340,420 C420,360 480,320 500,300" stroke="#63e7ff" stroke-width="4" stroke-dasharray="14 10" fill="none"/>
-            <path id="pB" d="M540,340 C660,400 720,460 748,504" stroke="#ffd6a3" stroke-width="4.6" stroke-dasharray="12 8" fill="none"/>
-            <path id="pC" d="M740,520 C640,516 560,500 380,468" stroke="#9fe7ff" stroke-width="4" stroke-dasharray="14 10" fill="none"/>
-          </g>
-
-          <g transform="translate(500,960)" text-anchor="middle">
-            <text x="0" y="-6" font-weight="800" font-size="34" fill="#e8fbff">QUANTUMKEY</text>
-            <text x="0" y="20" font-size="12" fill="rgba(200,230,240,0.7)">the key between consciousness &amp; intelligence</text>
-          </g>
-        </svg>
-
-        <!-- orbital label wrappers (JS will position them around the #poster-thumb center) -->
-        <div id="orbital-wrap" aria-hidden="true">
-          <div class="orbit-label" data-key="Consciousness"><span>Consciousness</span></div>
-          <div class="orbit-label" data-key="Governance"><span>Governance</span></div>
-          <div class="orbit-label" data-key="Identity"><span>Identity</span></div>
+  <main class="site-main">
+    <section id="hero" class="hero container" aria-labelledby="hero-heading">
+      <div class="hero-visual">
+        <div class="hero-poster" aria-hidden="true">
+          <!-- Poster / grande imagem central -->
+          <img src="./assets/quantumkey-logo.svg" alt="" class="poster-thumb" />
+          <!-- ORBIT LABELS (somente 3, com raio ligeiramente maior que a imagem) -->
+          <div class="orbit-wrap" aria-hidden="true">
+            <span class="orbit-label" style="--i:0">Governance</span>
+            <span class="orbit-label" style="--i:1">Identity</span>
+            <span class="orbit-label" style="--i:2">Consciousness</span>
+          </div>
         </div>
-
       </div>
 
+      <div class="hero-content">
+        <h1 id="hero-heading" class="site-title">QuantumKey</h1>
+        <p class="site-subtitle">
+          A subtle architecture of meaning — the key that harmonizes conscious intent with machine intelligence.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="./assets/whitepaper/QuantumKey_Whitepaper.pdf" target="_blank" rel="noopener">Read Whitepaper</a>
+          <a class="btn btn-primary" href="./assets/whitepaper/QuantumKey_Tokenomics.pdf" target="_blank" rel="noopener">Tokenomics</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="docs" class="docs container">
+      <h2>Documentation Library</h2>
+      <p class="lead">All core documents for QuantumKey are available for download and review. Click any item to open the PDF in a new tab.</p>
+
+      <div class="docs-grid">
+        <article class="doc-card">
+          <h3>Whitepaper</h3>
+          <p>Vision, architecture and philosophical foundations.</p>
+          <a class="doc-link" href="./assets/whitepaper/QuantumKey_Whitepaper.pdf" target="_blank" rel="noopener">Open PDF</a>
+        </article>
+
+        <article class="doc-card">
+          <h3>Tokenomics</h3>
+          <p>The energetic architecture of the $QKEY economy.</p>
+          <a class="doc-link" href="./assets/whitepaper/QuantumKey_Tokenomics.pdf" target="_blank" rel="noopener">Open PDF</a>
+        </article>
+
+        <article class="doc-card">
+          <h3>DAO</h3>
+          <p>Governance model and alignment primitives.</p>
+          <a class="doc-link" href="./assets/whitepaper/QuantumKey_DAO.pdf" target="_blank" rel="noopener">Open PDF</a>
+        </article>
+
+        <article class="doc-card">
+          <h3>Identity</h3>
+          <p>Identity as a field of presence and continuity.</p>
+          <a class="doc-link" href="./assets/whitepaper/QuantumKey_Identity.pdf" target="_blank" rel="noopener">Open PDF</a>
+        </article>
+
+        <article class="doc-card">
+          <h3>Protocol</h3>
+          <p>Operational mechanics of the harmonic engine.</p>
+          <a class="doc-link" href="./assets/whitepaper/QuantumKey_Protocol.pdf" target="_blank" rel="noopener">Open PDF</a>
+        </article>
+
+        <article class="doc-card">
+          <h3>Specs</h3>
+          <p>Technical spine and message propagation rules.</p>
+          <a class="doc-link" href="./assets/whitepaper/QuantumKey_Specs.pdf" target="_blank" rel="noopener">Open PDF</a>
+        </article>
+      </div>
+    </section>
+
+    <footer class="site-footer">
       <div class="container">
-        <h1>QuantumKey</h1>
-        <p>A subtle architecture of meaning — the key that harmonizes conscious intent with machine intelligence.</p>
-        <div class="hero-ctas">
-          <a href="./docs/assets/whitepaper/QuantumKey_Whitepaper.pdf" class="cta gradient" target="_blank">Read Whitepaper</a>
-          <a href="./docs/assets/whitepaper/QuantumKey_Tokenomics.pdf" class="cta" target="_blank">Tokenomics</a>
-        </div>
+        <p>© QuantumKey — The union of Consciousness and Intelligence.</p>
+        <p>Repository: <a href="https://github.com/QKEY-FOUNDER/quantumkey" target="_blank" rel="noopener">qkey-founder/quantumkey</a></p>
       </div>
-    </section>
-
-    <section id="documentation" class="container docs-section">
-      <h2 class="docs-title">Documentation Library</h2>
-      <p class="docs-desc">All core documents for QuantumKey are available for download and review. Click any item to open the PDF in a new tab.</p>
-
-      <div class="doc-cards">
-        <article class="doc-item"><h3>Whitepaper</h3><p>Vision, architecture and philosophical foundations.</p><a href="./docs/assets/whitepaper/QuantumKey_Whitepaper.pdf" target="_blank">Open PDF</a></article>
-        <article class="doc-item"><h3>Tokenomics</h3><p>The energetic architecture of the $QKEY economy.</p><a href="./docs/assets/whitepaper/QuantumKey_Tokenomics.pdf" target="_blank">Open PDF</a></article>
-        <article class="doc-item"><h3>DAO</h3><p>Governance model and alignment primitives.</p><a href="./docs/assets/whitepaper/QuantumKey_DAO.pdf" target="_blank">Open PDF</a></article>
-        <article class="doc-item"><h3>Identity</h3><p>Identity as a field of presence and continuity.</p><a href="./docs/assets/whitepaper/QuantumKey_Identity.pdf" target="_blank">Open PDF</a></article>
-      </div>
-    </section>
-
+    </footer>
   </main>
 
-  <script src="./script.js"></script>
+  <script src="./script.js" defer></script>
 </body>
 </html>
