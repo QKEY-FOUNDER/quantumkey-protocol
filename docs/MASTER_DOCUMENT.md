@@ -1,385 +1,120 @@
-QuantumKey — MASTER_DOCUMENT.md
+# QuantumKey — MASTER DOCUMENT (Canonical)
 
-Author: Mihail Chiosa
-Collaborative Intelligence: Quantum Hammer
-Project: QuantumKey — The Unified Architecture of Conscious Intent
-Version: 1.0 (Master Build)
-
+**Purpose:** canonical specification, narrative, and roadmap for the QuantumKey project.  
+**Repo:** qkey-founder/quantumkey
 
 ---
 
-1. Overview
-
-QuantumKey is a unified digital architecture that harmonizes conscious intent, informational fields, and machine intelligence.
-It provides a coherent foundation for identity, governance, protocol mechanics, and token-based energy flow.
-
-This Master Document consolidates:
-
-conceptual architecture
-
-identity model
-
-governance logic
-
-tokenomics
-
-protocol
-
-specifications
-
-philosophical rationale
-
-
-It serves as the single source of truth for the entire ecosystem.
-
+## Table of Contents
+1. [Executive Summary](#executive-summary)  
+2. [Vision & Rationale](#vision--rationale)  
+3. [System Overview](#system-overview)  
+   - 3.1 [Core domains: QFT, Consciousness, GR](#core-domains)  
+   - 3.2 [Architecture diagram & interactions](#architecture-diagram)  
+4. [Technical Specifications (high level)](#technical-specifications)  
+   - 4.1 [Identity Layer](#identity-layer)  
+   - 4.2 [Protocol Layer](#protocol-layer)  
+   - 4.3 [Economy / Tokenomics](#economy--tokenomics)  
+   - 4.4 [Governance & DAO model](#governance--dao-model)  
+5. [Security & Privacy](#security--privacy)  
+6. [Implementation Roadmap](#implementation-roadmap)  
+7. [Operational Playbooks & Use Cases](#operational-playbooks)  
+8. [Contribution & Collaboration guidelines](#contribution-guidelines)  
+9. [Appendices & References](#appendices)
 
 ---
 
-2. Core Philosophy
-
-The project originates from a simple insight:
-
-> Intent becomes distorted when it passes through fragmented or incoherent digital systems.
-
-
-
-QuantumKey solves this by creating a unified informational field in which:
-
-consciousness = meaning
-
-fields = possibility
-
-structure = stability
-
-
-These three domains mirror:
-
-Consciousness (integration, presence)
-
-QFT (fields of possibility)
-
-GR (structure and anchoring)
-
-
-Their harmonic interaction forms the system’s operating basis.
-
+## Executive Summary
+(see `docs/assets/summary/QuantumKey_Executive_Summary.md`)
 
 ---
 
-3. Identity Framework (Q-ID)
+## Vision & Rationale
+QuantumKey emerges from the need to design socio-technical systems that preserve human agency while enabling efficient collaboration between humans and intelligent systems. Our rationale combines ethical, philosophical and economic considerations: we seek mechanisms that are resilient and steerable, yet composable and auditable.
 
-Identity in QuantumKey is not credential-based.
-It is defined as:
-
-> Continuity of presence across time, action, and intent.
-
-
-
-Q-ID Core Properties
-
-Persistence without centralization
-
-Protection against noise and distortion
-
-Representation of intent rather than bureaucracy
-
-Built-in alignment scoring
-
-Non-transferable continuity
-
-
-Q-ID supports all system layers:
-
-protocol
-
-governance
-
-tokenomics
-
-ecosystem interactions
-
-
-Identity becomes a living field, not an object.
-
+Key principles:
+- Human agency first; AI as assistant, not opaque actor.  
+- Transparent incentives; mechanisms designed to avoid capture.  
+- Modularity; each layer can be audited and upgraded.
 
 ---
 
-4. Governance (DAO)
+## System Overview
 
-The DAO in QuantumKey is designed as a coherence engine, not a political machine.
+### Core domains
+- **QFT (fields / possibility):** represents the space of potential operations, signals, and capabilities — the “possibility field.”  
+- **Consciousness:** the human intent layer — how goals and preferences are encoded, attested and preserved across sessions.  
+- **GR (structures / anchor):** structural rules, protocols, and invariant constraints that ground behavior.
 
-Its responsibilities include:
-
-4.1 Alignment Preservation
-
-The DAO ensures that system-wide behavior remains consistent with the foundational philosophy.
-
-4.2 Informational Integrity
-
-It filters distortion, incoherence, noise, and malicious influence.
-
-4.3 Execution Oversight
-
-The DAO validates that actions remain aligned with collective intent and stable structural dynamics.
-
-4.4 Minimal Power
-
-Influence is distributed and continually corrected by alignment metrics.
-
-Governance is quiet, precise, and fundamentally stabilizing.
-
+### Architecture diagram & interactions
+(Embed SVG / diagram here — recommend `docs/assets/art/logo/quantumkey-logo.svg` and a vector architecture diagram).  
+Interaction flow: Identity → Intent Envelope → Validators (economic stake) → Execution / Audit log → Governance review.
 
 ---
 
-5. Tokenomics ($QKEY)
+## Technical Specifications (high level)
 
-$QKEY functions as structured energy rather than currency.
+### Identity Layer
+- Persistent identifiers (optionally ZK-friendly) mapped to attestation sets.  
+- Local privacy: users hold capability to rotate nonces while preserving continuity proofs.  
+- APIs: `issueAnchor()`, `revokeAnchor()`, `attest()` (spec details in `SPEC_IDENTITY.md`).
 
-5.1 Core purposes
+### Protocol Layer
+- Message format: `IntentEnvelope { issuer, timestamp, intentHash, nonce, signature, policyRef }`.  
+- Validation: multi-sig / stake-backed validators; optional oracle inputs.  
+- Interoperability: JSON-LD profiles, canonical schema for intent vectors.
 
-anchor interactions
+### Economy / Tokenomics
+- **Token:** $QKEY utility + governance token.  
+- Reserve & treasury to fund public goods, audits, bounties.  
+- Reward mechanism: validators and contributors receive inflationary + fee-based rewards when their actions contribute to verified alignment outcomes. (See `TOKENOMICS.md`)
 
-reward clean contributions
-
-distribute participation benefits
-
-maintain long-term field coherence
-
-
-5.2 Properties
-
-anti-volatility anchors
-
-phased issuance
-
-contribution-driven supply
-
-long-term scarcity curve
-
-distortion-resistant dynamics
-
-
-5.3 What $QKEY is NOT
-
-speculative commodity
-
-governance token
-
-identity token
-
-inflationary reward token
-
-
-It harmonizes utility, stability, and philosophical coherence.
-
+### Governance & DAO model
+- Multi-tier proposals: technical spec changes, treasury disbursements, restorative actions.  
+- Quorum & veto primitives; restorative justice module for dispute remediation.  
+- On-chain proposals stored in governance contract; off-chain discussion on forum then on-chain snapshot.
 
 ---
 
-6. QuantumKey Protocol
-
-The protocol transforms conscious intent into coherent technological action.
-
-6.1 Sequence of Operation
-
-1. Intent Capture
-
-
-2. Q-ID Continuity Validation
-
-
-3. Field Coherence Check (QFT domain)
-
-
-4. Structural Anchoring (GR domain)
-
-
-5. Harmonic Execution
-
-
-
-6.2 Features
-
-timing filters
-
-noise suppression
-
-alignment metrics
-
-energy balance rules
-
-cross-field integrity
-
-
-6.3 Purpose
-
-To ensure that every interaction emerges from a stable and aligned state.
-
-The protocol is the heartbeat of the system.
-
+## Security & Privacy
+- Threat model and mitigations (replay attacks, identity theft, collusion).  
+- Privacy: ZK-friendly design for intentional disclosure (zero-knowledge attestations).  
+- Auditing: standardized audit trail format for forensic review.
 
 ---
 
-7. Technical Specifications
+## Implementation Roadmap
+**Phase 0 — Baseline (complete)**  
+- Website, docs hub, executive summary, logo, basic repo structure.
 
-7.1 Message Geometry
+**Phase 1 — Prototype**  
+- Identity anchors, intent envelope v1, simple validator simulation, local testnet.
 
-Messages follow a structured spine to prevent semantic degradation.
+**Phase 2 — Alpha**  
+- Tokenomics simulation, DAO test, public testnet, security audits.
 
-7.2 Field Constraints
-
-Actions must satisfy the balance between Consciousness, Fields, and Structure.
-
-7.3 Timing Rules
-
-The protocol adapts execution timing to avoid unnatural complexity spikes.
-
-7.4 Alignment Engine
-
-Real-time metrics ensure coherence across all system components.
-
-7.5 Security Model
-
-Protection against:
-
-energetic distortion
-
-identity discontinuity
-
-structural manipulation
-
-
-The system operates like an immune system for intent.
-
+**Phase 3 — Beta / Launch**  
+- Production governance, tooling for integrators, community grants.
 
 ---
 
-8. Vision
-
-QuantumKey envisions a world where:
-
-consciousness and intelligence operate as one
-
-identity is continuous, not bureaucratic
-
-governance is stability, not power
-
-tokens reflect energy, not speculation
-
-protocols harmonize action, not control
-
-
-This project is the blueprint for the next evolution of distributed intelligence.
-
+## Operational Playbooks & Use Cases
+- Onboarding new validators.  
+- How to submit a spec change.  
+- Emergency freeze / rollback procedure.
 
 ---
 
-9. Mission
-
-To create a unified foundation where human intent moves through digital systems without losing meaning, alignment, or coherence.
-
-To harmonize:
-
-consciousness
-
-intelligence
-
-decentralized structure
-
-
-into a single integrated field.
-
+## Contribution Guidelines
+- Branching model, PR template, code of conduct, license (MIT / your choice).  
+- Where to find files: `docs/`, `docs/assets/whitepaper/`, `art/logo/`.
 
 ---
 
-10. Roadmap
-
-Phase 1 — Foundations (Complete)
-
-Baseline website
-
-Documentation architecture
-
-Identity model v1
-
-DAO conceptual layer
-
-Protocol outline
-
-Specs v1
-
-
-Phase 2 — Activation
-
-Q-ID minimal implementation
-
-Tokenomics activation
-
-Alignment Engine launch
-
-Governance anchoring
-
-Ecosystem documentation
-
-
-Phase 3 — Expansion
-
-Network activation
-
-Developer toolkits
-
-Ecosystem partnerships
-
-Community layer
-
-Quantum motion engine (optional future stage)
-
-
+## Appendices
+- Links to SPEC_* files: `SPEC_IDENTITY.md`, `SPEC_PROTOCOL.md`, `SPEC_DAO.md`, `SPEC_TOKEN.md`.  
+- Contact: Mihail Chiosa — repo: qkey-founder/quantumkey.
 
 ---
 
-11. File Structure (GitHub Reference)
-
-/docs
-    WHITEPAPER.md
-    TOKENOMICS.md
-    SPEC_IDENTITY.md
-    SPEC_DAO.md
-    SPEC_PROTOCOL.md
-    SPEC_TOKEN.md
-    MASTER_DOCUMENT.md  ← (this file)
-    BASELINE_REFERENCE.md
-/assets
-    quantumkey-logo.svg
-    whitepaper PDFs
-index.html
-styles.css
-script.js
-
-
----
-
-12. Final Statement
-
-QuantumKey is not just a technology.
-It is a living informational organism, integrating:
-
-philosophy
-
-mathematics
-
-identity
-
-governance
-
-protocol mechanics
-
-energy economics
-
-
-Its purpose is to restore coherence in a fragmented digital world.
-
-Through QuantumKey, intent becomes action without distortion —
-and intelligence becomes harmonized with consciousness.
-
-
----
+*End of MASTER_DOCUMENT (canonical draft).*
