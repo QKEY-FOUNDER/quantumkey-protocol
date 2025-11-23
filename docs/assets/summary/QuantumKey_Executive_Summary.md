@@ -3,7 +3,7 @@
 **One line:** QuantumKey is a unified architecture that harmonizes conscious human intent with machine intelligence through a decentralized set of protocols, identity primitives and governance mechanisms.
 
 **Author:** Mihail Chiosa  
-**Document:** Executive Summary (1 page) — April 2026
+**Document:** Executive Summary (1 page) — 2025-11
 
 ## Abstract
 QuantumKey proposes a practical and philosophical system to align digital structures and AI behavior with human intentions. It combines three interlinked domains — *fields* (QFT), *consciousness*, and *structures* (GR) — into a modular stack that supports identity continuity, tokenized alignment incentives, and decentralized governance. The system is designed to be auditable, upgradeable, and to enable cooperative decision-making between humans and intelligent agents.
