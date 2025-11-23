@@ -1,96 +1,141 @@
-/* script.js
- - menu toggle
- - orbit animation (keeps labels horizontal while orbiting)
- - centers on inline SVG (#poster-thumb)
-*/
-
-(function(){
+document.addEventListener('DOMContentLoaded', function () {
+  // MENU: open/close off-canvas with accessibility attributes
   const menuBtn = document.getElementById('menu-btn');
-  const menuOverlay = document.getElementById('menu-overlay');
+  const offcanvas = document.getElementById('offcanvas-menu');
   const menuClose = document.getElementById('menu-close');
+  const focusableSelector = 'a, button, input, textarea, [tabindex]:not([tabindex="-1"])';
 
-  function openMenu(){
-    menuOverlay.classList.add('show');
-    menuBtn.setAttribute('aria-expanded','true');
-    menuOverlay.setAttribute('aria-hidden','false');
+  function openMenu() {
+    offcanvas.classList.add('open');
+    offcanvas.setAttribute('aria-hidden', 'false');
+    menuBtn.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('menu-open');
+    const first = offcanvas.querySelector(focusableSelector);
+    if (first) first.focus();
   }
-  function closeMenu(){
-    menuOverlay.classList.remove('show');
-    menuBtn.setAttribute('aria-expanded','false');
-    menuOverlay.setAttribute('aria-hidden','true');
-  }
-  menuBtn && menuBtn.addEventListener('click', openMenu);
-  menuClose && menuClose.addEventListener('click', closeMenu);
-  // click outside menu items closes
-  menuOverlay && menuOverlay.addEventListener('click', (e)=>{ if(e.target===menuOverlay) closeMenu(); });
-
-  // Orbital labels logic
-  const poster = document.getElementById('poster-thumb');
-  const wrap = document.getElementById('orbital-wrap');
-  if(!poster || !wrap) return; // nothing to do without poster
-
-  // create label nodes if missing
-  const labels = Array.from(wrap.querySelectorAll('.orbit-label'));
-
-  // function to compute orbit radius and center
-  function computeOrbit(){
-    const rect = poster.getBoundingClientRect();
-    const centerX = rect.left + rect.width/2 + window.scrollX;
-    const centerY = rect.top + rect.height/2 + window.scrollY;
-    // radius slightly bigger than poster radius
-    const radius = Math.max(rect.width, rect.height) * 0.6 + 40; // tweak factor
-    return {centerX, centerY, radius};
+  function closeMenu() {
+    offcanvas.classList.remove('open');
+    offcanvas.setAttribute('aria-hidden', 'true');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+    menuBtn.focus();
   }
 
-  // position labels in DOM to be absolutely positioned relative to document
-  labels.forEach((l)=>{
-    l.style.position = 'absolute';
+  menuBtn && menuBtn.addEventListener('click', function () {
+    const isOpen = offcanvas.classList.contains('open');
+    if (isOpen) closeMenu(); else openMenu();
   });
 
-  let angle = 0; // radians
-  const angularSpeed = (Math.PI*2) / 12; // full rotation in 12s
+  menuClose && menuClose.addEventListener('click', function () {
+    closeMenu();
+  });
 
-  function tick(ts){
-    const {centerX, centerY, radius} = computeOrbit();
-    angle += angularSpeed * (1/60); // roughly per frame increment
-
-    // distribute labels evenly or use fixed angle offsets
-    const offsets = [0, (Math.PI*2)/3, (Math.PI*4)/3];
-
-    labels.forEach((label, idx)=>{
-      const a = angle + offsets[idx];
-      const x = centerX + Math.cos(a) * radius;
-      const y = centerY + Math.sin(a) * radius;
-      // move label's center to x,y — we need half width/height
-      const rect = label.getBoundingClientRect();
-      const w = rect.width; const h = rect.height;
-      // set position
-      label.style.left = (x - w/2) + 'px';
-      label.style.top = (y - h/2) + 'px';
-      // rotate wrapper so it follows orbit (subtle); then counter-rotate inner text to keep horizontal
-      const deg = a * 180 / Math.PI;
-      label.style.transform = `rotate(${deg}deg)`;
-      const span = label.querySelector('span');
-      if(span) span.style.transform = `rotate(${-deg}deg)`; // counter rotate text
-    });
-
-    requestAnimationFrame(tick);
-  }
-
-  // start animation when DOM is ready and poster has size
-  function startWhenReady(){
-    const rect = poster.getBoundingClientRect();
-    if(rect.width>10){
-      requestAnimationFrame(tick);
-    } else {
-      // try again after a short delay
-      setTimeout(startWhenReady,200);
+  // close menu when pressing Escape
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && offcanvas.classList.contains('open')) {
+      closeMenu();
     }
+  });
+
+  // close when clicking outside content (click on offcanvas area but not inside inner)
+  offcanvas && offcanvas.addEventListener('click', function (ev) {
+    if (ev.target === offcanvas) closeMenu();
+  });
+
+  // Particle background (lightweight)
+  const canvas = document.getElementById('particles');
+  if (canvas && canvas.getContext) {
+    const ctx = canvas.getContext('2d');
+    let w = canvas.width = window.innerWidth;
+    let h = canvas.height = window.innerHeight;
+    const particles = [];
+    const N = Math.floor(Math.max(20, (w*h) / 140000));
+    function rand(min, max){ return Math.random()*(max-min)+min; }
+    for (let i=0;i<N;i++){
+      particles.push({
+        x: rand(0,w),
+        y: rand(0,h),
+        r: rand(0.4,1.6),
+        vx: rand(-0.2,0.2),
+        vy: rand(-0.12,0.12),
+        alpha: rand(0.04,0.18)
+      });
+    }
+
+    function resize(){
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+
+    function draw(){
+      ctx.clearRect(0,0,w,h);
+      for (let p of particles){
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < -10) p.x = w + 10;
+        if (p.x > w + 10) p.x = -10;
+        if (p.y < -10) p.y = h + 10;
+        if (p.y > h + 10) p.y = -10;
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(180,230,255,${p.alpha})`;
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+        ctx.fill();
+      }
+      requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
   }
-  startWhenReady();
 
-  // recompute on resize/scroll to keep center correct
-  window.addEventListener('resize', ()=>{});
-  window.addEventListener('scroll', ()=>{});
+  // Orbital labels (simple animation)
+  const poster = document.querySelector('.poster-thumb');
+  const orbitWrap = document.querySelector('.orbit-wrap');
+  const orbitLabels = orbitWrap ? Array.from(orbitWrap.querySelectorAll('.orbit-label')) : [];
 
-})();
+  if (poster && orbitWrap && orbitLabels.length === 3) {
+    let angle = 0;
+    const offsets = [0, (Math.PI*2)/3, (Math.PI*4)/3]; // three positions
+    const speed = (Math.PI*2) / 28; // full rotation in 28s
+
+    function updateOrbit() {
+      const rect = poster.getBoundingClientRect();
+      const centerX = rect.left + rect.width/2 + window.scrollX;
+      const centerY = rect.top + rect.height/2 + window.scrollY;
+      const radius = Math.max(rect.width, rect.height) * 0.6 + 40;
+
+      angle += speed / 60; // assumes ~60fps
+
+      orbitLabels.forEach((label, idx) => {
+        const a = angle + offsets[idx];
+        const x = centerX + Math.cos(a) * radius;
+        const y = centerY + Math.sin(a) * radius;
+        const rectL = label.getBoundingClientRect();
+        const w = rectL.width;
+        const h = rectL.height;
+        label.style.left = (x - w/2) + 'px';
+        label.style.top = (y - h/2) + 'px';
+
+        const deg = a * 180 / Math.PI;
+        label.style.transform = `rotate(${deg}deg)`;
+        const span = label.querySelector('span');
+        if (span) span.style.transform = `rotate(${-deg}deg)`;
+      });
+
+      requestAnimationFrame(updateOrbit);
+    }
+
+    // Start when poster has dimensions
+    function startWhenReady() {
+      const r = poster.getBoundingClientRect();
+      if (r.width > 10) {
+        requestAnimationFrame(updateOrbit);
+      } else {
+        setTimeout(startWhenReady, 200);
+      }
+    }
+    startWhenReady();
+    window.addEventListener('resize', () => {}); // placeholder if you want to recalc on resize
+    window.addEventListener('scroll', () => {}); // placeholder
+  }
+
+});
