@@ -17,7 +17,6 @@
     <div class="container header-row">
       <div class="brand">
         <a class="brand-link" href="./" aria-label="QuantumKey home">
-          <!-- usando <img> para garantir que o logo apareça sempre -->
           <div class="brand-logo-wrapper" aria-hidden="false">
             <img src="./assets/quantumkey-logo.svg" alt="QuantumKey badge" class="brand-img" />
           </div>
@@ -25,19 +24,18 @@
         </a>
       </div>
 
-      <nav class="header-actions">
-        <a class="top-link" href="./assets/whitepaper/QuantumKey_Whitepaper.pdf" target="_blank" rel="noopener">Read Whitepaper</a>
-        <a class="top-link" href="./assets/whitepaper/QuantumKey_Tokenomics.pdf" target="_blank" rel="noopener">Tokenomics</a>
+      <nav class="header-actions" aria-hidden="true">
+        <!-- top links intentionally removed -->
         <button id="menu-btn" class="menu-btn" aria-expanded="false" aria-controls="offcanvas-menu" aria-label="Abrir menu">
-          <span class="burger"></span>
+          <span class="burger" aria-hidden="true"></span>
         </button>
       </nav>
     </div>
   </header>
 
   <!-- Off-canvas menu -->
-  <nav id="offcanvas-menu" class="offcanvas" aria-hidden="true">
-    <div class="offcanvas-inner container" role="dialog" aria-modal="true" aria-label="Menu principal">
+  <nav id="offcanvas-menu" class="offcanvas" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menu principal">
+    <div class="offcanvas-inner container">
       <button id="menu-close" class="menu-close" aria-label="Fechar menu">×</button>
       <ul class="nav-list">
         <li><a href="#hero">Home</a></li>
@@ -53,7 +51,7 @@
       <div class="hero-visual">
         <div class="hero-poster" aria-hidden="true">
           <!-- Poster / grande imagem central -->
-          <img src="./assets/quantumkey-logo.svg" alt="" class="poster-thumb" />
+          <img src="./assets/quantumkey-logo.svg" alt="QuantumKey poster" class="poster-thumb" />
           <!-- ORBIT LABELS (somente 3, com raio ligeiramente maior que a imagem) -->
           <div class="orbit-wrap" aria-hidden="true">
             <span class="orbit-label" style="--i:0">Governance</span>
@@ -71,7 +69,7 @@
 
         <div class="hero-cta">
           <a class="btn btn-primary" href="./assets/whitepaper/QuantumKey_Whitepaper.pdf" target="_blank" rel="noopener">Read Whitepaper</a>
-          <a class="btn btn-secondary" href="./assets/whitepaper/QuantumKey_Tokenomics.pdf" target="_blank" rel="noopener">Tokenomics</a>
+          <a class="btn btn-primary" href="./assets/whitepaper/QuantumKey_Tokenomics.pdf" target="_blank" rel="noopener">Tokenomics</a>
         </div>
       </div>
     </section>
