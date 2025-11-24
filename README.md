@@ -1,5 +1,3 @@
-README.md — QuantumKey Protocol
-
 # 🌐 QuantumKey Protocol  
 ### A Unified Architecture for Intent, Identity, Autonomous Agents & Semantic Alignment  
 **Version:** 1.0 • **Year:** 2025  
@@ -10,23 +8,22 @@ README.md — QuantumKey Protocol
 
 ## 🧭 Overview
 
-QuantumKey Protocol é uma arquitetura digital unificada que conecta **intenção humana**, **identidade verificável**, **agentes autónomos**, **inteligência semântica** e **governança descentralizada** dentro de um único fluxo harmónico.
+QuantumKey Protocol is a unified digital architecture connecting **human intent**, **verifiable identity**, **autonomous agents**, **semantic machine intelligence**, and **alignment-driven governance** into a single harmonic framework.
 
-O objetivo é fornecer um **protocolo operacional universal** onde humanos, máquinas e sistemas distribuídos possam cooperar com segurança, clareza semântica e alinhamento contínuo.
-
----
-
-# 📘 Documentação Oficial (v1.0)
-
-A documentação principal do protocolo está organizada em dois formatos:  
-**Markdown (para leitura direta no GitHub)** e **PDF (para distribuição oficial)**.
+It provides a **universal operational protocol** where humans, systems, and intelligent agents can collaborate with clarity, cryptographic trust, and continuous semantic alignment.
 
 ---
 
-## **📄 Whitepaper & Protocol Specs**
+# 📘 Official Documentation (v1.0)
+
+All primary documentation is available in **Markdown** (for GitHub reading) and **PDF** (for official distribution).
+
+---
+
+## **📄 Whitepaper & Core Specifications**
 
 ### **Whitepaper — v1.0**  
-- 📘 MD:  
+- 📘 Markdown:  
   [`docs/WHITEPAPER.md`](docs/WHITEPAPER.md)  
 - 📄 PDF:  
   [`docs/assets/whitepaper/QuantumKey Protocol — Whitepaper v1.0.pdf`](docs/assets/whitepaper/QuantumKey%20Protocol%20%E2%80%94%20Whitepaper%20v1.0.pdf)
@@ -34,7 +31,7 @@ A documentação principal do protocolo está organizada em dois formatos:
 ---
 
 ### **Core Protocol Specification — v1.0**  
-- 📘 MD:  
+- 📘 Markdown:  
   [`docs/QuantumKey_Protocol.md`](docs/QuantumKey_Protocol.md)  
 - 📄 PDF:  
   [`docs/assets/whitepaper/QuantumKey_Protocol_Core_v1.0.pdf`](docs/assets/whitepaper/QuantumKey_Protocol_Core_v1.0.pdf)
@@ -59,9 +56,9 @@ A documentação principal do protocolo está organizada em dois formatos:
 
 ---
 
-# 🧩 Documentação Complementar
+# 🧩 Complementary Documentation
 
-Estes documentos expandem a arquitetura, os fundamentos e os componentes operacionais do protocolo.
+Additional documents expanding the conceptual and operational foundations:
 
 - **Executive Summary**  
   [`docs/EXECUTIVE_SUMMARY.md`](docs/EXECUTIVE_SUMMARY.md)
@@ -74,25 +71,25 @@ Estes documentos expandem a arquitetura, os fundamentos e os componentes operaci
 
 ---
 
-# 🏗 Arquitetura do Sistema
+# 🏗 System Architecture
 
-Os documentos seguintes fazem parte da arquitetura técnica inicial (v0.1), útil como contexto histórico, conceptual e estrutural:
+Early conceptual architecture documents (v0.1), maintained as historical and developmental references:
 
 docs/ └── architecture/ ├── DAO_Constitution_v0.1.md ├── Identity_Crypto_Spec_v0.1.md ├── Protocol_Message_Formats_v0.1.md ├── Roadmap_2025_2027_v0.1.md ├── SAS_v0.1.md ├── Testnet_Architecture_v0.1.md └── Tokenomics_v0.1.md
 
-> Estes ficheiros são mantidos como referência conceptual antes da conclusão da versão 1.0.
+> These files capture the technical foundation and thought process leading to version 1.0.
 
 ---
 
-# 🗂 Estrutura de Pastas
+# 🗂 Folder Structure
 
-/ ├── art/logo/                     # Identidade visual ├── docs/ │   ├── architecture/             # Arquitetura v0.1 (histórico) │   ├── assets/ │   │   ├── whitepaper/           # PDFs oficiais v1.0 │   │   └── summary/              # Executive summaries │   ├── legacy/                   # Documentos substituídos │   ├── ui-baseline/              # Interface demo (HTML/CSS/JS) │   ├── QuantumKey_Protocol.md    # Core Specification v1.0 │   ├── WHITEPAPER.md             # Whitepaper v1.0 │   ├── EXECUTIVE_SUMMARY.md │   ├── MASTER_DOCUMENT.md │   └── BASELINE_REFERENCE.md ├── Brand-Guidelines.md └── README.md
+/ ├── art/logo/                     # Visual identity assets ├── docs/ │   ├── architecture/             # Historical architecture (v0.1) │   ├── assets/ │   │   ├── whitepaper/           # Official v1.0 PDF documents │   │   └── summary/              # Executive summary files │   ├── legacy/                   # Deprecated pre-v1.0 specifications │   ├── ui-baseline/              # Demonstration UI (HTML/CSS/JS) │   ├── QuantumKey_Protocol.md    # Core Protocol Specification v1.0 │   ├── WHITEPAPER.md             # Whitepaper v1.0 │   ├── EXECUTIVE_SUMMARY.md │   ├── MASTER_DOCUMENT.md │   └── BASELINE_REFERENCE.md ├── Brand-Guidelines.md └── README.md
 
 ---
 
-# 📜 Documentos Legacy
+# 📜 Legacy Documents
 
-Mantidos apenas como arquivo histórico:
+Archived and deprecated documents preserved for reference:
 
 - [`docs/legacy/SPEC_PROTOCOL.md`](docs/legacy/SPEC_PROTOCOL.md)  
 - [`docs/legacy/SPEC_IDENTITY.md`](docs/legacy/SPEC_IDENTITY.md)  
@@ -102,40 +99,41 @@ Mantidos apenas como arquivo histórico:
 
 ---
 
-# 🚀 Roadmap 2025–2027 (Visão Geral)
+# 🚀 Roadmap 2025–2027 (High-Level)
 
-- 2025 Q1–Q2: Consolidação da arquitetura v1.0  
-- 2025 Q3: Testnet inicial do QuantumKey Protocol  
-- 2025 Q4: Quantum Identity Network  
-- 2026: Agents & Intent Engine  
-- 2027: Autonomous Alignment Layer + Governance Activation  
+- **2025 Q1–Q2:** Finalization of the unified protocol (v1.0)  
+- **2025 Q3:** QuantumKey Testnet (Phase 1)  
+- **2025 Q4:** Quantum Identity Network Launch  
+- **2026:** Agent Intelligence Layer & Intent Engine  
+- **2027:** Autonomous Alignment Layer & Governance Activation  
 
 ---
 
-# 🎨 Identidade Visual
+# 🎨 Visual Identity
 
-O logotipo oficial encontra-se em:
+Official logo:
 
 - [`art/logo/quantumkey-logo.svg`](art/logo/quantumkey-logo.svg)
 
 ---
 
-# 📄 Licença
+# 📄 License
 
-A definir pelo autor (MIT, Apache 2.0 ou CC BY 4.0).
+To be defined by the author (MIT, Apache 2.0, CC BY 4.0, etc.).
 
 ---
 
-# 🧬 Sobre o Projeto
+# 🧬 About the Project
 
-O QuantumKey Protocol é um marco na evolução das interfaces entre humanos e máquinas.  
-Representa um sistema onde:
+QuantumKey Protocol is a milestone in the evolution of human–machine interfaces.  
+It establishes a system where:
 
-- a intenção humana é tratada como dado criptográfico,  
-- os agentes conseguem cooperar com alinhamento semântico real,  
-- a identidade se torna verificável e consciente do contexto,  
-- e a governança emerge como harmonia autossustentada.
+- **human intent becomes cryptographic signal**,  
+- **identity becomes verifiable and context-aware**,  
+- **agents collaborate through semantic understanding**,  
+- **governance emerges from alignment-based harmonics**,  
+- and **digital ecosystems operate with coherence rather than chaos**.
 
-Construído com visão de futuro e consciência expandida.
+A protocol built with foresight, precision, and evolutionary purpose.
 
 Quantum Hammer — 2025
