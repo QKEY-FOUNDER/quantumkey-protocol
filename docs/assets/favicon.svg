@@ -1,27 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- QuantumKey – Phi symbol, centered horizontally, placed at y=228
+     Background: radial from almost-white edges -> absolute black center (touches symbol)
+     Symbol: solar gold radial gradient + subtle glow; no outer circle (symbol only)
+-->
 <svg width="512" height="512" viewBox="0 0 512 512"
-     xmlns="http://www.w3.org/2000/svg" role="img"
-     aria-label="QuantumKey Favicon – Phi Solar Gold">
-
-  <!-- Fundo Preto Absoluto -->
-  <rect width="512" height="512" fill="#000000"/>
-
-  <!-- Gradiente dourado mais compacto para leitura em 32px -->
+     xmlns="http://www.w3.org/2000/svg" role="img" aria-label="QuantumKey Phi - Solar Gold on Absolute Black">
   <defs>
-    <radialGradient id="goldFav" cx="50%" cy="38%" r="60%">
-      <stop offset="0%"   stop-color="#FFF7C0"/>
-      <stop offset="40%"  stop-color="#F4C84E"/>
-      <stop offset="70%"  stop-color="#D8931F"/>
-      <stop offset="100%" stop-color="#A86D0A"/>
+    <!-- Background radial gradient: outer almost-white -> inner black -->
+    <radialGradient id="bgCenterToEdge" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <!-- center absolute black -->
+      <stop offset="0%"  stop-color="#000000" />
+      <!-- keep full black near center so symbol sits on absolute black -->
+      <stop offset="46%" stop-color="#000000" />
+      <!-- transition to softer grey -->
+      <stop offset="70%" stop-color="#1f1f1f" />
+      <!-- outer edge almost-white -->
+      <stop offset="100%" stop-color="#FBFBF9" />
     </radialGradient>
+
+    <!-- Solar gold radial for the Phi symbol -->
+    <radialGradient id="solarGold" cx="50%" cy="40%" r="55%" fx="50%" fy="40%">
+      <stop offset="0%"  stop-color="#fff9d6"/>   <!-- brightest core -->
+      <stop offset="15%" stop-color="#ffef9b"/>
+      <stop offset="40%" stop-color="#ffd26a"/>
+      <stop offset="75%" stop-color="#ffb000"/>
+      <stop offset="100%" stop-color="#ff9a00"/>
+    </radialGradient>
+
+    <!-- Subtle golden glow for symbol (outer soft halo) -->
+    <filter id="goldGlow" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="b1"/>
+      <feMerge>
+        <feMergeNode in="b1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Slight inner highlight overlay -->
+    <linearGradient id="symbolShine" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.14"/>
+      <stop offset="45%" stop-color="#ffffff" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Ensure consistent glyph rendering if font missing -->
+    <style type="text/css"><![CDATA[
+      .phi { font-family: "Georgia", "Times New Roman", serif; font-weight: 700; text-anchor: middle; }
+    ]]></style>
   </defs>
 
-  <!-- Símbolo Φ -->
-  <text x="50%" y="50%" dominant-baseline="central"
-        text-anchor="middle"
-        font-family="serif"
-        font-size="300"
-        font-weight="bold"
-        fill="url(#goldFav)">
+  <!-- full-page background gradient -->
+  <rect x="0" y="0" width="512" height="512" fill="url(#bgCenterToEdge)"/>
+
+  <!-- reinforce absolute-black center region (so symbol always sits on #000) -->
+  <circle cx="256" cy="256" r="112" fill="#000000" />
+
+  <!-- Phi symbol:
+       - centered horizontally at x=256
+       - vertical position at y=228 (pedido: movimento oposto)
+       - large font-size so it becomes main element (no enclosing circle)
+  -->
+  <text class="phi"
+        x="256"
+        y="228"
+        font-size="260"
+        dominant-baseline="middle"
+        fill="url(#solarGold)"
+        filter="url(#goldGlow)">
+    Φ
+  </text>
+
+  <!-- soft shine overlay -->
+  <text class="phi"
+        x="256"
+        y="228"
+        font-size="260"
+        dominant-baseline="middle"
+        fill="url(#symbolShine)"
+        style="mix-blend-mode:screen; opacity:0.45; pointer-events:none;">
     Φ
   </text>
 
