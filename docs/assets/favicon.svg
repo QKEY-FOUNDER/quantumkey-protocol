@@ -1,37 +1,84 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- QuantumKey – Phi simbol, centered at y=236
+     Background: radial center black (#000000) -> outer almost-white (#FBFBF9)
+     Symbol: solar gold radial gradient + subtle glow
+-->
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="QuantumKey Phi - Solar Gold on Absolute Black">
+  <defs>
+    <!-- Background radial gradient: center = absolute black, edges = almost-white -->
+    <radialGradient id="bgCenterToEdge" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <!-- center absolute black -->
+      <stop offset="0%"  stop-color="#000000" />
+      <!-- keep full black for a while so the symbol sits on absolute black -->
+      <stop offset="48%" stop-color="#000000" />
+      <!-- soften into grey -->
+      <stop offset="70%" stop-color="#1f1f1f" />
+      <!-- outer edge almost-white -->
+      <stop offset="100%" stop-color="#FBFBF9" />
+    </radialGradient>
 
-  <!-- Fundo transparente -->
-  <rect width="512" height="512" fill="none"/>
+    <!-- Solar gold radial for the Phi symbol -->
+    <radialGradient id="solarGold" cx="50%" cy="40%" r="55%" fx="50%" fy="40%">
+      <stop offset="0%"  stop-color="#fff9d6"/>   <!-- brightest core -->
+      <stop offset="15%" stop-color="#ffef9b"/>
+      <stop offset="40%" stop-color="#ffd26a"/>
+      <stop offset="75%" stop-color="#ffb000"/>
+      <stop offset="100%" stop-color="#ff9a00"/>
+    </radialGradient>
 
-  <!-- Halo externo (suave e simétrico) -->
-  <radialGradient id="halo" cx="50%" cy="50%" r="50%">
-    <stop offset="0%"  stop-color="rgba(255,215,130,0.22)"/>
-    <stop offset="55%" stop-color="rgba(255,190,80,0.10)"/>
-    <stop offset="100%" stop-color="rgba(255,180,40,0.00)"/>
-  </radialGradient>
-  <circle cx="256" cy="256" r="220" fill="url(#halo)"/>
+    <!-- Subtle golden glow for symbol (outer soft halo) -->
+    <filter id="goldGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="b1"/>
+      <feMerge>
+        <feMergeNode in="b1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
 
-  <!-- Anel externo dourado -->
-  <radialGradient id="ringGrad" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#ffe2a8"/>
-    <stop offset="50%" stop-color="#ffc769"/>
-    <stop offset="100%" stop-color="#ffb23a"/>
-  </radialGradient>
-  <circle cx="256" cy="256" r="160" fill="none" stroke="url(#ringGrad)" stroke-width="14"/>
+    <!-- Slight inner highlight (to give the symbol more 'solar' feel) -->
+    <linearGradient id="symbolShine" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </linearGradient>
 
-  <!-- Núcleo interno, brilho solar -->
-  <radialGradient id="core" cx="50%" cy="50%" r="60%">
-    <stop offset="0%"  stop-color="#fff8d9"/>
-    <stop offset="35%" stop-color="#ffe4a8"/>
-    <stop offset="70%" stop-color="#ffcc67"/>
-    <stop offset="100%" stop-color="#ffb53a"/>
-  </radialGradient>
-  <circle cx="256" cy="256" r="105" fill="url(#core)"/>
+    <!-- Ensure crisp edges on rendering -->
+    <style type="text/css"><![CDATA[
+      .phi { font-family: "Georgia", "Times New Roman", serif; font-weight: 700; text-anchor: middle; }
+    ]]></style>
+  </defs>
 
-  <!-- Reflexo superior (leve) -->
-  <ellipse cx="256" cy="220" rx="60" ry="28" fill="rgba(255,255,255,0.22)"/>
+  <!-- full background filled with radial gradient (center black) -->
+  <rect x="0" y="0" width="512" height="512" fill="url(#bgCenterToEdge)"/>
 
-  <!-- Sombra inferior (profundidade) -->
-  <ellipse cx="256" cy="300" rx="70" ry="22" fill="rgba(0,0,0,0.08)"/>
+  <!-- Optional small invisible circle to visually anchor the absolute-black center region (not visible) -->
+  <!-- (keeps the very center strongly black) -->
+  <circle cx="256" cy="256" r="110" fill="#000000" opacity="1" />
+
+  <!-- Phi symbol:
+       - centered horizontally at x=256
+       - vertical position at y=236 (conforme pediste: deslocamento para baixo via y=236 no teu renderizador)
+       - large font-size so symbol is the only element (no circle)
+  -->
+  <text class="phi"
+        x="256"
+        y="236"
+        font-size="260"
+        dominant-baseline="middle"
+        fill="url(#solarGold)"
+        filter="url(#goldGlow)">
+    Φ
+  </text>
+
+  <!-- a soft shine overlay on top of the symbol to add depth -->
+  <text class="phi"
+        x="256"
+        y="236"
+        font-size="260"
+        dominant-baseline="middle"
+        fill="url(#symbolShine)"
+        style="mix-blend-mode:screen; opacity:0.45; pointer-events:none;">
+    Φ
+  </text>
 
 </svg>
