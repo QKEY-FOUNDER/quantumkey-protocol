@@ -1,108 +1,79 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // Robust menu open/close logic
-  const menuBtn = document.getElementById('menu-btn');
-  const offcanvas = document.getElementById('offcanvas-menu');
-  const menuClose = document.getElementById('menu-close');
-  const focusableSelector = 'a, button, input, textarea, [tabindex]:not([tabindex="-1"])';
-  let lastFocusedBeforeOpen = null;
+// script.js - controls offcanvas menu and safe DOM listeners
+(function () {
+  "use strict";
 
-  function safeFocus(el) {
-    try { if (el && typeof el.focus === 'function') el.focus(); } catch (e) {}
-  }
+  function dbg(...args){ if(window.location.search.indexOf("debug")!==-1) console.log(...args); }
 
-  function openMenu() {
-    if (!offcanvas) return;
-    lastFocusedBeforeOpen = document.activeElement;
-    offcanvas.classList.add('open');
-    offcanvas.setAttribute('aria-hidden', 'false');
-    menuBtn && menuBtn.setAttribute('aria-expanded', 'true');
-    document.body.classList.add('menu-open');
-    offcanvas.style.pointerEvents = 'auto';
-    const first = offcanvas.querySelector(focusableSelector);
-    if (first) safeFocus(first);
-  }
+  document.addEventListener('DOMContentLoaded', function () {
+    var menuBtn = document.getElementById('menu-btn');
+    var offcanvas = document.getElementById('offcanvas-menu');
+    var closeBtn = document.getElementById('menu-close');
+    var navLinks = offcanvas ? offcanvas.querySelectorAll('a') : [];
 
-  function closeMenu() {
-    if (!offcanvas) return;
-    offcanvas.classList.remove('open');
-    offcanvas.setAttribute('aria-hidden', 'true');
-    menuBtn && menuBtn.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove('menu-open');
-    offcanvas.style.pointerEvents = 'none';
-    if (lastFocusedBeforeOpen) safeFocus(lastFocusedBeforeOpen);
-  }
+    if (!menuBtn || !offcanvas || !closeBtn) {
+      console.warn('Menu elements missing: menuBtn, offcanvas or closeBtn not found.');
+      return;
+    }
 
-  if (menuBtn) {
+    function isOpen() {
+      return offcanvas.classList.contains('open');
+    }
+
+    function setAriaOpen(state) {
+      menuBtn.setAttribute('aria-expanded', state ? 'true' : 'false');
+      offcanvas.setAttribute('aria-hidden', state ? 'false' : 'true');
+    }
+
+    function openMenu() {
+      offcanvas.classList.add('open');
+      setAriaOpen(true);
+      // prevent background scroll
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      dbg('menu opened');
+    }
+
+    function closeMenu() {
+      offcanvas.classList.remove('open');
+      setAriaOpen(false);
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      dbg('menu closed');
+    }
+
     menuBtn.addEventListener('click', function (e) {
       e.preventDefault();
-      if (!offcanvas) return;
-      if (offcanvas.classList.contains('open')) closeMenu(); else openMenu();
+      if (isOpen()) closeMenu(); else openMenu();
     });
-  }
 
-  if (menuClose) {
-    menuClose.addEventListener('click', function (e) {
+    closeBtn.addEventListener('click', function (e) {
       e.preventDefault();
       closeMenu();
     });
-  }
 
-  if (offcanvas) {
-    offcanvas.addEventListener('click', function (ev) {
-      if (ev.target === offcanvas) closeMenu();
-    });
-  }
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && offcanvas && offcanvas.classList.contains('open')) {
-      closeMenu();
-    }
-  });
-
-  // Particle background (lightweight)
-  const canvas = document.getElementById('particles');
-  if (canvas && canvas.getContext) {
-    const ctx = canvas.getContext('2d');
-    let w = canvas.width = window.innerWidth;
-    let h = canvas.height = window.innerHeight;
-    const particles = [];
-    const N = Math.floor(Math.max(20, (w*h) / 140000));
-    function rand(min, max){ return Math.random()*(max-min)+min; }
-    for (let i=0;i<N;i++){
-      particles.push({
-        x: rand(0,w),
-        y: rand(0,h),
-        r: rand(0.4,1.6),
-        vx: rand(-0.2,0.2),
-        vy: rand(-0.12,0.12),
-        alpha: rand(0.04,0.18)
+    // close when clicking a link inside the menu (useful for anchors)
+    navLinks.forEach(function (a) {
+      a.addEventListener('click', function () {
+        closeMenu();
       });
-    }
+    });
 
-    function resize(){
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-
-    function draw(){
-      ctx.clearRect(0,0,w,h);
-      for (let p of particles){
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < -10) p.x = w + 10;
-        if (p.x > w + 10) p.x = -10;
-        if (p.y < -10) p.y = h + 10;
-        if (p.y > h + 10) p.y = -10;
-        ctx.beginPath();
-        ctx.fillStyle = `rgba(180,230,255,${p.alpha})`;
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-        ctx.fill();
+    // close on ESC
+    document.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape' || ev.key === 'Esc') {
+        if (isOpen()) closeMenu();
       }
-      requestAnimationFrame(draw);
-    }
-    requestAnimationFrame(draw);
-  }
+    });
 
-  // Orbital labels removed — no orbital JS to run
-});
+    // close when clicking outside the offcanvas (for desktop)
+    document.addEventListener('click', function (ev) {
+      if (!isOpen()) return;
+      var target = ev.target;
+      var inside = offcanvas.contains(target) || menuBtn.contains(target);
+      if (!inside) closeMenu();
+    });
+
+    // quick check: ensure script loaded after DOM elements exist
+    dbg('script.js initialized', { menuBtn: !!menuBtn, offcanvas: !!offcanvas, closeBtn: !!closeBtn });
+  });
+})();
