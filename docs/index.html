@@ -239,5 +239,47 @@
 
   <!-- External script (deferred). Kept last so DOM is ready; will enhance UI further if present -->
   <script src="./script.js" defer></script>
+  <script>
+/* FIX TEMP: attach simple offcanvas toggle so menu buttons work even if script.js não carregou */
+(function () {
+  // Espera pelo DOM
+  function ready(fn) {
+    if (document.readyState !== 'loading') fn();
+    else document.addEventListener('DOMContentLoaded', fn);
+  }
+
+  ready(function () {
+    var menuBtn = document.getElementById('menu-btn');
+    var menuClose = document.getElementById('menu-close');
+    var offcanvas = document.getElementById('offcanvas-menu');
+
+    if (!menuBtn || !offcanvas) return;
+
+    function openMenu() {
+      offcanvas.classList.add('open');
+      offcanvas.setAttribute('aria-hidden', 'false');
+      menuBtn.setAttribute('aria-expanded', 'true');
+    }
+    function closeMenu() {
+      offcanvas.classList.remove('open');
+      offcanvas.setAttribute('aria-hidden', 'true');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    menuBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (offcanvas.classList.contains('open')) closeMenu();
+      else openMenu();
+    });
+
+    if (menuClose) menuClose.addEventListener('click', function (e) { e.preventDefault(); closeMenu(); });
+
+    // fecha quando clica fora do painel (opcional)
+    offcanvas.addEventListener('click', function (e) {
+      if (e.target === offcanvas) closeMenu();
+    });
+  });
+})();
+  </script>
 </body>
 </html>
