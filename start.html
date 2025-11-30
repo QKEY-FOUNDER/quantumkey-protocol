@@ -4,53 +4,74 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Start Here — QuantumKey Protocol</title>
-  <link rel="stylesheet" href="styles.css" />
-  <meta name="description" content="Start here — entry point for the QuantumKey protocol. How to participate, where to find docs and resources." />
-  <!-- favicon can remain as in repo -->
-</head>
-<body>
-  <header class="site-header">
-    <button id="menuToggle" class="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-    </button>
 
-    <a class="small-logo" href="index.html" aria-label="Home">
-      <img src="docs/assets/quantumkey-logo.svg" alt="QuantumKey Logo" />
-    </a>
+  <!-- global site styles (unchanged) -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- page-specific overrides for Start Here -->
+  <link rel="stylesheet" href="start.css">
+
+  <meta name="description" content="Quick entry point for the QuantumKey Protocol — how to participate, where core docs live and next steps.">
+</head>
+<body class="start-page">
+
+  <!-- header -->
+  <header class="site-header" role="banner">
+    <div class="left">
+      <button id="menuToggle" class="hamburger" aria-expanded="false" aria-controls="sideMenu" aria-label="Open menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <!-- small favicon / home link (keeps header consistent with main site) -->
+      <a class="small-logo" href="index.html" aria-label="Home">
+        <img class="favicon" src="docs/assets/quantumkey-logo.svg" alt="QuantumKey Logo">
+      </a>
+    </div>
+
+    <!-- horizontal nav for large screens (kept minimal) -->
+    <nav class="main-nav" role="navigation" aria-label="Main">
+      <a class="btn-ghost" href="index.html">Home</a>
+      <a class="btn-ghost" href="docs/WHITEPAPER.md">Whitepaper (MD)</a>
+      <a class="btn-ghost" href="docs/architecture/Tokenomics_v0.1.md">Tokenomics (MD)</a>
+    </nav>
   </header>
 
-  <!-- vertical menu (hidden by default on mobile) -->
-  <nav id="sideMenu" class="side-menu" aria-hidden="true">
+  <!-- side menu (mobile) -->
+  <nav id="sideMenu" class="main-nav mobile-open" aria-hidden="true" hidden>
     <ul>
-      <li><a href="docs/WHITEPAPER.md">Whitepaper (MD)</a></li>
-      <li><a href="docs/architecture/Tokenomics_v0.1.md">Tokenomics (MD)</a></li>
+      <!-- Using MD pages in the repo to avoid duplicate PDF links -->
       <li><a href="docs/architecture/DAO_Constitution_v0.1.md">DAO (MD)</a></li>
       <li><a href="docs/architecture/Identity_Crypto_Spec_v0.1.md">Identity (MD)</a></li>
       <li><a href="docs/architecture/Protocol_Message_Formats_v0.1.md">Protocol (MD)</a></li>
-      <!-- removed "All docs" link per request to avoid 404 -->
+      <li><a href="docs/WHITEPAPER.md">Whitepaper (MD)</a></li>
+      <li><a href="docs/architecture/Tokenomics_v0.1.md">Tokenomics (MD)</a></li>
     </ul>
   </nav>
 
-  <main id="main" class="container">
+  <main id="main" class="container" role="main">
+    <!-- hero section -->
     <section class="hero">
-      <div class="hero-logo" role="img" aria-label="QuantumKey large logo">
-        <img src="docs/assets/quantumkey-logo.svg" alt="QuantumKey Logo" />
+      <!-- hero card containing centered large logo -->
+      <div class="hero-card" aria-hidden="true">
+        <div class="hero-logo" role="img" aria-label="QuantumKey mark">
+          <!-- Use the repository SVG/PNG that already exists. Adjust path if needed. -->
+          <img class="logo-large" src="docs/assets/quantumkey-logo.svg" alt="QuantumKey Logo">
+        </div>
       </div>
 
-      <h1 class="title">Start Here —<br/>QuantumKey Protocol</h1>
-
-      <p class="lead">
-        Welcome to the entry point of the QuantumKey Protocol. This page is your fast route to understanding the purpose
-        of the protocol, how to participate, what the document structure looks like, and where to find tools to begin experimenting.
+      <h1 class="hero-title">Start Here — QuantumKey Protocol</h1>
+      <p class="hero-sub lead">
+        Welcome to the entry point of the QuantumKey Protocol. This page is your fast route to understanding the purpose of the protocol, how to participate, what the document structure looks like, and where to find tools to begin experimenting. Choose a route below and let's turn theory into action.
       </p>
 
-      <div class="cta-row">
-        <a class="cta cta-primary" href="docs/WHITEPAPER.md">Read Whitepaper (MD)</a>
-        <a class="cta cta-primary" href="docs/architecture/Tokenomics_v0.1.md">Tokenomics (MD)</a>
+      <!-- single set of CTAs: one link per doc (no duplication) -->
+      <div class="hero-cta" role="region" aria-label="Quick resources">
+        <a class="btn-gradient cta-primary" href="docs/WHITEPAPER.md">Read Whitepaper (MD)</a>
+        <a class="btn-gradient outline cta-primary" href="docs/architecture/Tokenomics_v0.1.md">Tokenomics (MD)</a>
       </div>
     </section>
 
-    <section class="content">
+    <!-- content: concise roadmap & contribution instructions -->
+    <section class="content md-viewer" aria-label="Start content">
       <h2>What is the QuantumKey Protocol?</h2>
       <p>A unified architecture that integrates intent, cryptographic identity, semantic agents, and alignment-oriented governance into a single coherent protocol.</p>
 
@@ -59,46 +80,66 @@
 
       <h2>How to participate</h2>
       <ol>
-        <li>Read the core documents.</li>
-        <li>Open issues or submit PRs.</li>
+        <li>Read the core documents (links above).</li>
+        <li>Open issues or submit PRs on GitHub.</li>
         <li>Contribute to discussions (GitHub Discussions).</li>
         <li>Test upcoming mini-SDKs when released.</li>
       </ol>
 
       <h2>Roadmap — Next Steps</h2>
       <ol>
-        <li><strong>Living Documentation</strong> — organize MDs, ensure every spec includes examples and message formats.</li>
-        <li><strong>Minimal Examples</strong> — add examples to docs/examples/ (QIE messages, JSON structures).</li>
-        <li><strong>QKP-SDK Repository</strong> — build the first SDK with an initial module (e.g., intent-validator).</li>
+        <li><strong>Living documentation</strong> — organize MDs and ensure every spec includes examples and message formats.</li>
+        <li><strong>Minimal examples</strong> — add examples to <code>docs/examples/</code> (QIE messages, JSON structures).</li>
+        <li><strong>QKP-SDK repository</strong> — build the first SDK with an initial module (e.g., <code>intent-validator</code>).</li>
       </ol>
 
-      <p class="repo-link"><a href="https://github.com/QKEY-FOUNDER/quantumkey-protocol" target="_blank" rel="noopener">Go to repository</a></p>
+      <p class="repo-link">
+        <a href="https://github.com/qkey-founder/quantumkey-protocol" target="_blank" rel="noopener">Go to repository</a>
+      </p>
     </section>
   </main>
 
+  <footer class="site-footer" role="contentinfo">
+    <small>QuantumKey — living protocol. Author: Mihail Chiosa.</small>
+  </footer>
+
+  <!-- minimal JS to open/close mobile side menu and keep ARIA updated -->
   <script>
-    // Simple menu toggle (keeps behavior accessible/responsive)
     (function () {
       const menuToggle = document.getElementById('menuToggle');
       const sideMenu = document.getElementById('sideMenu');
 
+      function openMenu() {
+        sideMenu.hidden = false;
+        sideMenu.setAttribute('aria-hidden', 'false');
+        menuToggle.setAttribute('aria-expanded', 'true');
+      }
+      function closeMenu() {
+        sideMenu.hidden = true;
+        sideMenu.setAttribute('aria-hidden', 'true');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+
       menuToggle.addEventListener('click', () => {
-        const open = menuToggle.getAttribute('aria-expanded') === 'true';
-        menuToggle.setAttribute('aria-expanded', String(!open));
-        sideMenu.classList.toggle('open');
-        sideMenu.setAttribute('aria-hidden', String(open));
+        if (sideMenu.hidden) openMenu();
+        else closeMenu();
       });
 
-      // Close menu when clicking outside on larger screens
-      document.addEventListener('click', (ev) => {
-        if (!sideMenu.classList.contains('open')) return;
-        const insideMenu = sideMenu.contains(ev.target) || menuToggle.contains(ev.target);
-        if (!insideMenu) {
-          sideMenu.classList.remove('open');
-          sideMenu.setAttribute('aria-hidden', 'true');
-          menuToggle.setAttribute('aria-expanded', 'false');
+      // close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!sideMenu.hidden) {
+          const inside = sideMenu.contains(e.target) || menuToggle.contains(e.target);
+          if (!inside) closeMenu();
         }
       });
+
+      // close on Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+      });
+
+      // keep menu hidden by default on load for mobile
+      closeMenu();
     })();
   </script>
 </body>
