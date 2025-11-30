@@ -150,3 +150,31 @@ body.start-page ol {
 body.start-page * {
   max-width: 100%;
 }
+/* Start page — menu hide/show safety */
+#sideMenu {
+  display: none;
+  position: absolute; /* ajusta conforme layout */
+  top: 64px;          /* desloca para baixo do header */
+  right: 12px;
+  background: transparent;
+  padding: 8px 12px;
+  z-index: 60;
+}
+
+/* quando aberto */
+#sideMenu.mobile-open {
+  display: block;
+}
+
+/* lista dentro do menu — estilo simples para mobile */
+#sideMenu ul {
+  list-style: disc;
+  padding-left: 18px;
+  margin: 6px 0;
+}
+
+/* previne overflow lateral quando o menu estiver visível */
+body.start-page, body.start-page * {
+  box-sizing: border-box;
+  max-width: 100%;
+}
