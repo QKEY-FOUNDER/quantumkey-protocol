@@ -19,12 +19,8 @@
       <img src="docs/assets/quantumkey-logo.svg" alt="QuantumKey icon" class="favicon">
     </div>
 
-    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
-      <a class="btn-ghost" id="btn-show-doc" href="#">Read Whitepaper</a>
-      <!-- estes hrefs são *de backup*; o JS corrige dinamicamente -->
-      <a class="btn-ghost" id="pdf-whitepaper" href="#">Whitepaper (PDF)</a>
-      <a class="btn-ghost" id="pdf-tokenomics" href="#">Tokenomics (PDF)</a>
-    </nav>
+    <!-- nav vazio: script.js vai inserir os itens não-hero -->
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation"></nav>
   </header>
 
   <main>
@@ -42,8 +38,8 @@
       </div>
     </section>
 
-    <section class="cards" id="pdf-cards">
-      <!-- Cards gerados no JS -->
+    <section class="cards" id="pdf-cards" aria-live="polite">
+      <!-- Cards gerados pelo script.js -->
     </section>
 
     <section class="md-viewer">
