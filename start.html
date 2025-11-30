@@ -142,5 +142,52 @@
       closeMenu();
     })();
   </script>
+  <script>
+/* Robust menu toggle for start.html */
+(function () {
+  // IDs e classes esperadas — confirma correspondência com o teu HTML
+  const menuToggle = document.getElementById('menuToggle');
+  const sideMenu = document.getElementById('sideMenu');
+
+  if (!menuToggle || !sideMenu) {
+    // Se houver mismatch, tenta procurar por alternativas e loga
+    console.warn('Menu toggle or sideMenu not found. Check IDs: menuToggle, sideMenu');
+    return;
+  }
+
+  // garantir estado inicial: fechado
+  sideMenu.classList.remove('mobile-open');
+  sideMenu.setAttribute('aria-hidden', 'true');
+  menuToggle.setAttribute('aria-expanded', 'false');
+
+  // funçao que alterna o menu
+  function toggleMenu(e) {
+    const isOpen = sideMenu.classList.toggle('mobile-open');
+    sideMenu.setAttribute('aria-hidden', String(!isOpen));
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    e.stopPropagation();
+  }
+
+  menuToggle.addEventListener('click', toggleMenu);
+
+  // fecha o menu ao clicar fora
+  document.addEventListener('click', function (ev) {
+    if (!sideMenu.classList.contains('mobile-open')) return;
+    const inside = sideMenu.contains(ev.target) || menuToggle.contains(ev.target);
+    if (!inside) {
+      sideMenu.classList.remove('mobile-open');
+      sideMenu.setAttribute('aria-hidden', 'true');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // evita o menu a abrir por atalhos ou reloads inesperados
+  window.addEventListener('load', function () {
+    sideMenu.classList.remove('mobile-open');
+    sideMenu.setAttribute('aria-hidden', 'true');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  });
+})();
+  </script>
 </body>
 </html>
