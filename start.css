@@ -1,0 +1,85 @@
+/* ============================================================
+   QuantumKey Protocol — start.html isolated layout fixes
+   This file affects ONLY start.html when imported manually.
+   ============================================================ */
+
+/* Evita scroll lateral só nesta página */
+.start-page {
+  overflow-x: hidden;
+}
+
+/* Container principal do hero section centrado */
+.start-page .hero {
+  display: block;
+  text-align: center;
+  width: 100%;
+  max-width: 1100px;
+  margin: 18px auto 10px;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* Moldura do logo — versão 100% responsiva */
+.start-page .hero-card {
+  margin: 0 auto 18px;
+  width: min(86vw, 720px);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #000; /* mantém o fundo preto do logo */
+  padding: 6px;
+  box-shadow: 0 20px 80px rgba(11, 20, 32, 0.6),
+              inset 0 0 140px rgba(255, 180, 80, 0.03);
+}
+
+/* Logo grande — centralizado, contido e responsivo */
+.start-page .logo-large,
+.start-page .hero-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 18px 48px rgba(255, 170, 60, 0.18));
+}
+
+/* Pequeno logo no header (favicon) estabilizado em mobile */
+.start-page .favicon {
+  margin-left: 6px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+/* Garante que o menu mobile não empurre o conteúdo */
+.start-page .side-menu,
+.start-page .main-nav.mobile-open {
+  position: fixed;
+  right: 12px;
+  top: 64px;
+  width: min(86vw, 360px);
+  max-width: 360px;
+  z-index: 9999;
+}
+
+/* Classe opcional para remover botões duplicados, se JS marcar elementos */
+.start-page .duplicate-hide {
+  display: none !important;
+}
+
+/* Ajustes em mobile */
+@media (max-width: 720px) {
+  .start-page .hero-card {
+    width: 92vw;
+    max-width: 420px;
+    aspect-ratio: 1/1;
+  }
+
+  .start-page .logo-large {
+    max-height: 62vw;
+  }
+}
