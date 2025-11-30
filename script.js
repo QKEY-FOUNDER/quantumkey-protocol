@@ -1,4 +1,5 @@
 // script.js — centraliza documentos, evita duplicação, popula menu + cards + hero CTAs
+// Versão atualizada: Tokenomics abre MD no viewer; "All docs" removido do menu
 
 // DOM refs
 const viewer = document.getElementById("viewer");
@@ -9,8 +10,8 @@ const ctaRead = document.getElementById("cta-read");
 const ctaTokenomics = document.getElementById("cta-tokenomics");
 
 // Mobile menu toggle
-if(menuToggle && mainNav){
-  menuToggle.addEventListener('click', ()=>{
+if (menuToggle && mainNav) {
+  menuToggle.addEventListener('click', () => {
     const open = mainNav.classList.toggle('mobile-open');
     menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
@@ -36,21 +37,41 @@ function patchHeroCTAs(){
   const heroWhite = pdfs.find(p => p.id === 'whitepaper');
   const heroToken = pdfs.find(p => p.id === 'tokenomics');
 
-  if(heroWhite){
+  if (heroWhite) {
     const md = heroWhite.mdPath || 'docs/WHITEPAPER.md';
-    if(ctaRead) ctaRead.addEventListener('click', ()=> fetchAndRender(md));
+    if (ctaRead) ctaRead.addEventListener('click', () => fetchAndRender(md));
+    // também mantemos botão “Read Whitepaper” primário no header, se existir
+    const headerBtn = document.getElementById('btn-show-doc');
+    if (headerBtn) headerBtn.onclick = (e) => { e.preventDefault(); fetchAndRender(md); };
   }
 
-  if(heroToken){
-    const href = assetPath('docs/assets/whitepaper', heroToken.filename);
-    if(ctaTokenomics) ctaTokenomics.href = href;
+  if (heroToken) {
+    // NOVO: se há mdPath para tokenomics, fazemos o botão carregar o MD no viewer (como o whitepaper)
+    if (heroToken.mdPath) {
+      if (ctaTokenomics) {
+        ctaTokenomics.addEventListener('click', (e) => {
+          e.preventDefault();
+          fetchAndRender(heroToken.mdPath);
+        });
+        // se também houver um elemento no header que aponta para tokenomics, aplica lá também
+        const pdfTokenomicsBtn = document.getElementById('pdf-tokenomics');
+        if (pdfTokenomicsBtn) pdfTokenomicsBtn.onclick = (ev) => { ev.preventDefault(); fetchAndRender(heroToken.mdPath); };
+      }
+    } else {
+      // fallback: abrir PDF se não houver MD
+      const href = assetPath('docs/assets/whitepaper', heroToken.filename);
+      if (ctaTokenomics) ctaTokenomics.href = href;
+      const pdfTokenomicsBtn = document.getElementById('pdf-tokenomics');
+      if (pdfTokenomicsBtn) pdfTokenomicsBtn.href = href;
+    }
   }
 }
 
 /* ---------- Constrói o menu: inclui só docs que NÃO estão no hero (inHero !== true) ---------- */
 function buildMenu(){
-  if(!mainNav) return;
+  if (!mainNav) return;
   mainNav.innerHTML = ''; // limpa
+
   // título do menu
   const title = document.createElement('div');
   title.style.opacity = '0.85';
@@ -71,23 +92,18 @@ function buildMenu(){
     mainNav.appendChild(a);
   });
 
-  // link para a pasta docs/ (visão geral)
-  const all = document.createElement('a');
-  all.className = 'btn-ghost';
-  all.href = 'docs/';
-  all.textContent = 'All docs';
-  mainNav.appendChild(all);
+  // NOTE: removido o link "All docs" para evitar 404 — conforme pedido
 }
 
 /* ---------- Renderiza cards (cada ficheiro apenas 1x) ---------- */
 function renderCards(){
   const container = document.getElementById('pdf-cards');
-  if(!container) return;
+  if (!container) return;
   container.innerHTML = '';
   const seen = new Set();
 
   pdfs.forEach(p => {
-    if(seen.has(p.filename)) return;
+    if (seen.has(p.filename)) return;
     seen.add(p.filename);
 
     const href = assetPath('docs/assets/whitepaper', p.filename);
@@ -109,7 +125,7 @@ function renderCards(){
   document.querySelectorAll('.view-md').forEach(b => {
     b.addEventListener('click', e => {
       const md = e.currentTarget.dataset.md;
-      if(md) fetchAndRender(md);
+      if (md) fetchAndRender(md);
     });
   });
 }
@@ -135,16 +151,16 @@ function mdToHtml(md){
 
 /* ---------- Fetch + render ---------- */
 async function fetchAndRender(path){
-  if(!viewer) return;
+  if (!viewer) return;
   viewer.innerHTML = `A carregar ${path} ...`;
-  try{
+  try {
     const res = await fetch(path);
-    if(!res.ok) throw new Error('HTTP ' + res.status);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
     const txt = await res.text();
     viewer.innerHTML = mdToHtml(txt);
-    if(flash) flash.style.display = 'none';
-    window.scrollTo({top: document.querySelector('.md-viewer').offsetTop - 80, behavior:'smooth'});
-  }catch(err){
+    if (flash) flash.style.display = 'none';
+    window.scrollTo({ top: document.querySelector('.md-viewer').offsetTop - 80, behavior: 'smooth' });
+  } catch (err) {
     viewer.innerHTML = `<div class="flash">Erro ao carregar: ${err.message}. Abre o PDF <a href="${assetPath('docs/assets/whitepaper', pdfs[0].filename)}" target="_blank">aqui</a>.</div>`;
   }
 }
