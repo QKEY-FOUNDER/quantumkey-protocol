@@ -1,85 +1,152 @@
-/* ============================================================
-   QuantumKey Protocol — start.html isolated layout fixes
-   This file affects ONLY start.html when imported manually.
-   ============================================================ */
+/* ==========================================================
+   START PAGE — ISOLATED STYLES (does NOT affect main site)
+   Everything only applies inside <body class="start-page">
+   ========================================================== */
 
-/* Evita scroll lateral só nesta página */
-.start-page {
+body.start-page {
+  max-width: 100%;
   overflow-x: hidden;
 }
 
-/* Container principal do hero section centrado */
-.start-page .hero {
+/* ---------------------------------------
+   HEADER FIXES (specific only for start)
+----------------------------------------*/
+
+body.start-page .site-header {
+  justify-content: flex-start;
+  gap: 12px;
+  padding-left: 18px;
+}
+
+body.start-page .small-logo img {
+  height: 40px;
+  width: auto;
   display: block;
+}
+
+/* ---------------------------------------
+   HERO SECTION FIX — CENTER LOGO
+----------------------------------------*/
+
+body.start-page .hero {
+  max-width: 100%;
+  padding: 0 18px;
   text-align: center;
-  width: 100%;
-  max-width: 1100px;
-  margin: 18px auto 10px;
-  padding: 0 16px;
-  box-sizing: border-box;
 }
 
-/* Moldura do logo — versão 100% responsiva */
-.start-page .hero-card {
+body.start-page .hero-card {
   margin: 0 auto 18px;
-  width: min(86vw, 720px);
-  height: auto;
-  aspect-ratio: 1 / 1;
+  width: min(720px, 90vw);
+  height: min(720px, 90vw);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  background: #000;
+  border-radius: 18px;
   overflow: hidden;
-  border-radius: 16px;
-  background: #000; /* mantém o fundo preto do logo */
-  padding: 6px;
-  box-shadow: 0 20px 80px rgba(11, 20, 32, 0.6),
-              inset 0 0 140px rgba(255, 180, 80, 0.03);
 }
 
-/* Logo grande — centralizado, contido e responsivo */
-.start-page .logo-large,
-.start-page .hero-card img {
+/* Logo perfectly centered */
+body.start-page .hero-logo {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center center;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body.start-page .logo-large {
+  width: 88%;
+  height: auto;
   margin: 0 auto;
-  filter: drop-shadow(0 18px 48px rgba(255, 170, 60, 0.18));
+  display: block;
 }
 
-/* Pequeno logo no header (favicon) estabilizado em mobile */
-.start-page .favicon {
-  margin-left: 6px;
-  margin-right: 8px;
-  flex-shrink: 0;
+/* ---------------------------------------
+   HERO TITLE + TEXT
+----------------------------------------*/
+
+body.start-page .hero-title {
+  font-size: 42px;
+  margin-bottom: 10px;
 }
 
-/* Garante que o menu mobile não empurre o conteúdo */
-.start-page .side-menu,
-.start-page .main-nav.mobile-open {
-  position: fixed;
-  right: 12px;
-  top: 64px;
-  width: min(86vw, 360px);
-  max-width: 360px;
-  z-index: 9999;
+body.start-page .hero-sub {
+  max-width: 700px;
+  margin: 0 auto 18px;
+  font-size: 17px;
+  line-height: 1.55;
 }
 
-/* Classe opcional para remover botões duplicados, se JS marcar elementos */
-.start-page .duplicate-hide {
-  display: none !important;
+/* ---------------------------------------
+   CTA BUTTONS
+----------------------------------------*/
+
+body.start-page .hero-cta {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
 }
 
-/* Ajustes em mobile */
+body.start-page .hero-cta .btn-gradient {
+  min-width: 220px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* ---------------------------------------
+   CONTENT AREA
+----------------------------------------*/
+
+body.start-page .content {
+  margin-top: 20px;
+  padding-bottom: 50px;
+}
+
+body.start-page h2 {
+  margin-top: 30px;
+  font-size: 26px;
+}
+
+body.start-page ol {
+  margin-left: 20px;
+}
+
+/* ---------------------------------------
+   MOBILE FIXES
+----------------------------------------*/
+
 @media (max-width: 720px) {
-  .start-page .hero-card {
-    width: 92vw;
-    max-width: 420px;
-    aspect-ratio: 1/1;
+
+  body.start-page .hero-title {
+    font-size: 30px;
   }
 
-  .start-page .logo-large {
-    max-height: 62vw;
+  body.start-page .hero-card {
+    width: min(420px, 90vw);
+    height: min(420px, 90vw);
   }
+
+  body.start-page .logo-large {
+    width: 92%;
+  }
+
+  body.start-page .hero-cta {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  body.start-page .hero-cta .btn-gradient {
+    width: 100%;
+  }
+}
+
+/* ---------------------------------------
+   SAFETY: No horizontal scroll
+----------------------------------------*/
+
+body.start-page * {
+  max-width: 100%;
 }
