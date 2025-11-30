@@ -1,164 +1,243 @@
-/* styles.css - full file (drop-in replacement)
-   Focus: center hero logo, vertical menu, responsive layout and avoid horizontal overflow
-*/
+/* ---------------------------------------------------
+   Global Reset & Base Styles
+--------------------------------------------------- */
 
-:root{
-  --bg:#071826;
-  --card:#0e2b34;
-  --muted:#9fb3bf;
-  --accent-1:#6ef0c4;
-  --accent-2:#b689ff;
-  --text:#e8f7fb;
-  --radius:14px;
-  --max-content-width:980px;
-  --container-padding:20px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: linear-gradient(180deg,#071826 0%, #04131a 100%);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  overflow-x:hidden; /* important: prevent horizontal scroll from images */
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #030b12;
+  font-family: system-ui, sans-serif;
+  color: #dce7f3;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-/* Header */
-.site-header{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:12px var(--container-padding);
-  position:sticky;
-  top:0;
-  z-index:60;
-  background:linear-gradient(180deg, rgba(4,8,12,0.25), rgba(4,8,12,0.0));
+a {
+  color: #7bc7ff;
+  text-decoration: none;
 }
 
-/* hamburger */
-.hamburger{
-  width:44px;height:44px;border-radius:10px;border: none;background:transparent;color:var(--text);
-  display:flex;align-items:center;justify-content:center;cursor:pointer;padding:6px;
-}
-.hamburger .bar{
-  display:block;width:20px;height:2px;background:var(--text);margin:3px 0;border-radius:2px;opacity:0.9;
+a:hover {
+  text-decoration: underline;
 }
 
-/* small header logo */
-.small-logo img{width:44px;height:44px;display:block;border-radius:8px}
+/* ---------------------------------------------------
+   HEADER + SMALL LOGO + HAMBURGER + SIDE MENU
+--------------------------------------------------- */
 
-/* Side menu (vertical) */
-.side-menu{
-  position:fixed;top:64px;left:12px;
-  width:220px;
-  max-width:70%;
-  background:rgba(2,10,14,0.7);
-  border-radius:12px;padding:12px 10px;
-  transform:translateY(-10px);
-  z-index:70;
-  box-shadow:0 8px 24px rgba(0,0,0,0.6);
-  display:none; /* desktop style: hidden by default */
-}
-.side-menu.open{display:block}
-.side-menu ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
-.side-menu a{
-  color:var(--text);text-decoration:none;padding:10px;border-radius:10px;background:rgba(255,255,255,0.02);display:block;
-}
-.side-menu a:hover{background:rgba(255,255,255,0.04);}
-
-/* main container */
-.container{max-width:var(--max-content-width);margin:0 auto;padding:20px}
-
-/* hero */
-.hero{padding:8px 0 28px;text-align:center}
-.hero-logo{
-  display:block;
-  margin:0 auto 18px;
-  width:62%;
-  max-width:520px; /* keep it bounded so it cannot overflow */
-  aspect-ratio:1/1;
-  border-radius:18px;
-  background:rgba(0,0,0,0.6);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.6), inset 0 0 40px rgba(2,10,14,0.2);
-  overflow:hidden;
-  padding:10px;
-}
-.hero-logo img{
-  display:block;
-  margin:auto;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  max-height:520px;
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 18px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(180deg, rgba(4,8,12,0.30), rgba(4,8,12,0.06));
+  backdrop-filter: blur(4px);
 }
 
-/* Title and lead */
-.title{
-  font-size:2.2rem;
-  margin:10px 0 8px;
-  line-height:1.0;
-  font-weight:800;
-}
-.lead{
-  max-width:880px;
-  margin:0 auto 18px;
-  color:var(--muted);
-  font-size:1.05rem;
-  line-height:1.6;
+/* Hamburger Button */
+.hamburger {
+  font-size: 28px;
+  cursor: pointer;
+  user-select: none;
+  padding: 6px;
+  color: #fff;
+  z-index: 1100;
 }
 
-/* CTA row (big gradient buttons) */
-.cta-row{display:flex;flex-direction:column;gap:14px;align-items:center;justify-content:center;padding:8px}
-.cta{
-  display:inline-block;text-decoration:none;padding:16px 28px;border-radius:30px;font-weight:700;
-  min-width:240px;text-align:center;
-  box-shadow: 0 10px 24px rgba(40,70,90,0.18);
-  color:#031018;
+/* Small Logo */
+.small-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-left: 8px;
+  flex-shrink: 0;
+  z-index: 1100;
 }
-.cta-primary{
-  background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
+
+.small-logo img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
 }
 
-/* Content sections */
-.content{padding:22px 0 60px}
-.content h2{font-size:1.6rem;margin-top:26px;color:var(--text)}
-.content p, .content li{color:var(--muted);line-height:1.7;font-size:1rem}
-.content ol{padding-left:18px;color:var(--muted)}
+/* Side Menu (overlay style) */
+.side-menu {
+  position: fixed;
+  top: 64px;
+  right: 12px;
+  width: 84%;
+  max-width: 360px;
+  padding: 14px;
+  border-radius: 12px;
 
-/* repo link */
-.repo-link a{display:inline-block;margin-top:14px;padding:10px 16px;border-radius:12px;background:rgba(255,255,255,0.02);color:var(--accent-2);text-decoration:none}
+  background: linear-gradient(180deg, rgba(2,10,14,0.95), rgba(2,10,14,0.92));
+  box-shadow: 0 14px 40px rgba(0,0,0,0.6);
 
-/* small screens tweaks */
-@media (max-width:780px){
-  :root{--container-padding:14px}
-  .container{padding:14px}
-  .title{font-size:2rem}
-  .hero-logo{width:78%;max-width:420px}
-  .cta-row{width:100%;padding:0 30px}
-  .cta{width:100%}
+  display: none;
+  opacity: 0;
+  transform: translateY(-12px);
+  transition: opacity .18s ease, transform .18s ease;
+  z-index: 1050;
+}
 
-  /* menu should appear as overlay */
-  .side-menu{
-    left:12px; top:64px;
-    width:84%;
-    max-width:360px;
-    display:none;
+.side-menu.open {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.side-menu h3 {
+  margin-bottom: 12px;
+  font-size: 1.4rem;
+}
+
+.side-menu ul {
+  list-style: none;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.side-menu a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  background: rgba(255,255,255,0.04);
+}
+
+/* ---------------------------------------------------
+   HERO SECTION (BIG LOGO)
+--------------------------------------------------- */
+
+.hero {
+  text-align: center;
+  padding: 24px 16px 10px;
+}
+
+.hero-logo {
+  width: 80vw;
+  max-width: 520px;
+  aspect-ratio: 1/1;
+  margin: 0 auto 18px;
+  border-radius: 16px;
+  overflow: hidden;
+
+  background: rgba(0,0,0,0.55);
+  padding: 10px;
+
+  box-shadow: 0 22px 48px rgba(2,8,12,0.7);
+}
+
+.hero-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+}
+
+/* ---------------------------------------------------
+   TITLE / TEXT SECTIONS
+--------------------------------------------------- */
+
+h1, h2, h3 {
+  font-weight: 700;
+  text-align: center;
+  margin: 20px 0 10px;
+}
+
+p {
+  line-height: 1.6;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 20px;
+  padding: 0 20px;
+}
+
+/* ---------------------------------------------------
+   BUTTONS
+--------------------------------------------------- */
+
+.button {
+  display: block;
+  margin: 12px auto;
+  padding: 14px 22px;
+
+  font-size: 1.15rem;
+  font-weight: 600;
+
+  text-align: center;
+  border-radius: 16px;
+
+  background: linear-gradient(90deg, #67f0c0, #8d82ff);
+  color: #031118;
+}
+
+.button:hover {
+  opacity: 0.85;
+}
+
+/* Smaller secondary buttons (Start Here duplicates fix) */
+.button-secondary {
+  display: inline-block;
+  padding: 10px 16px;
+  margin: 8px 6px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.06);
+  color: #c8d7e6;
+}
+
+.button-secondary:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+/* ---------------------------------------------------
+   SECTIONS LAYOUT
+--------------------------------------------------- */
+
+.section {
+  padding: 40px 16px;
+  text-align: center;
+}
+
+/* Avoid edge overflow */
+section, div {
+  max-width: 100%;
+}
+
+/* ---------------------------------------------------
+   MOBILE TWEAKS
+--------------------------------------------------- */
+
+@media (max-width: 420px) {
+
+  .hero-logo {
+    width: 86vw;
+    max-width: 420px;
   }
-  .side-menu.open{display:block}
-}
 
-/* large screens */
-@media (min-width:981px){
-  .site-header{padding:18px 40px}
-  .small-logo img{width:52px;height:52px}
-  .hero{display:flex;flex-direction:column;align-items:center}
-  .cta-row{flex-direction:row;gap:18px}
-  .cta{min-width:200px}
-  .side-menu{display:block} /* optional: on desktop you may prefer visible menu */
-}
+  .site-header {
+    padding: 8px 12px;
+  }
 
-/* Accessibility focus */
-a:focus, button:focus{outline:3px solid rgba(110,240,196,0.18);outline-offset:2px}
+  .small-logo img {
+    width: 36px;
+    height: 36px;
+  }
+
+  p {
+    padding: 0 14px;
+  }
+}
