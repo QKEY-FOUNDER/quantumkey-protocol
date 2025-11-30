@@ -3,53 +3,125 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>QuantumKey — QuantumKey Protocol</title>
+  <title>Start Here — QuantumKey Protocol</title>
 
-  <!-- favicon -->
   <link rel="icon" type="image/svg+xml" href="docs/assets/favicon.svg">
-
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Pequena personalização exclusiva para esta página */
+    .start-hero{max-width:980px;margin:42px auto;padding:28px 18px;text-align:center}
+    .start-hero h1{font-size:38px;margin:6px 0 10px;font-weight:800}
+    .start-hero p.lead{color:var(--muted);max-width:820px;margin:12px auto 18px;line-height:1.6}
+    .quick-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));padding:16px;border-radius:12px;box-shadow:0 10px 30px rgba(2,8,18,0.6)}
+    .panel h3{margin:0 0 8px}
+    .panel p{margin:0;color:var(--muted);font-size:14px}
+    .cta-row{display:flex;gap:12px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+    .small-link{display:inline-block;padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);text-decoration:none;color:inherit}
+    .roadmap{max-width:980px;margin:28px auto;padding:0 18px}
+    .roadmap ol{padding-left:18px;color:var(--muted)}
+    .contributors{max-width:980px;margin:28px auto;padding:0 18px}
+  </style>
 </head>
 <body>
   <header class="site-header">
     <div class="left">
-      <button id="menu-toggle" aria-label="Abrir menu" class="hamburger" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <img src="docs/assets/quantumkey-logo.svg" alt="QuantumKey icon" class="favicon">
+      <a href="index.html" aria-label="Voltar" class="small-link">← Home</a>
+      <img src="docs/assets/quantumkey-logo.svg" alt="QuantumKey icon" class="favicon" style="margin-left:10px">
     </div>
-
-    <!-- nav vazio: script.js vai inserir os itens não-hero -->
-    <nav class="main-nav" id="main-nav" aria-label="Main navigation"></nav>
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+      <!-- O script.js pode popular isto; se preferires, mantem só links estáticos -->
+      <a class="small-link" href="index.html">Home</a>
+      <a class="small-link" href="start.html" aria-current="page">Start Here</a>
+    </nav>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-card">
-        <img src="docs/assets/quantumkey-logo.svg" alt="QuantumKey Logo" class="logo-large">
+    <section class="start-hero">
+      <h1>Start Here — QuantumKey Protocol</h1>
+      <p class="lead">Bem-vindo ao ponto de entrada do QuantumKey. Esta página é a tua rota rápida para compreender o propósito do protocolo, como participar, qual o estado dos documentos e onde obter ferramentas para começar a experimentar. Escolhe uma rota abaixo e vamos transformar teoria em prática.</p>
+
+      <div class="cta-row">
+        <a class="btn-gradient" href="docs/WHITEPAPER.md" id="hero-wp">Ler Whitepaper (MD)</a>
+        <a class="btn-gradient outline" href="docs/architecture/Tokenomics_v0.1.md" id="hero-token">Tokenomics (MD)</a>
       </div>
 
-      <h1 class="hero-title">QuantumKey</h1>
-      <p class="hero-sub">A subtle architecture of meaning — the key that harmonizes conscious intent with machine intelligence.</p>
+      <div class="quick-grid" style="margin-top:22px">
+        <div class="panel">
+          <h3>O que é o QuantumKey?</h3>
+          <p>Uma arquitectura unificada que integra intenção, identidade criptográfica, agentes semânticos e governança orientada por alinhamento.</p>
+        </div>
 
-      <div class="hero-cta">
-        <button class="btn-gradient" id="cta-read">Read Whitepaper</button>
-        <a class="btn-gradient outline" id="cta-tokenomics" href="#" target="_blank" rel="noopener">Tokenomics</a>
+        <div class="panel">
+          <h3>Para quem é?</h3>
+          <p>Pesquisadores, engenheiros, criadores de protocolo, DAOs e curiosos que querem construir sistemas alinhados com valores humanos.</p>
+        </div>
+
+        <div class="panel">
+          <h3>Como participar</h3>
+          <p>1) Ler os documentos principais. 2) Abrir issues/PRs. 3) Contribuir em discussões (GitHub Discussions). 4) Testar mini-SDKs quando disponíveis.</p>
+        </div>
+
+        <div class="panel">
+          <h3>Recursos rápidos</h3>
+          <p>
+            <a class="small-link" href="docs/WHITEPAPER.md">Whitepaper (MD)</a>
+            <a class="small-link" href="docs/assets/whitepaper/QuantumKey_Tokenomics_v1.0.pdf">Tokenomics (PDF)</a>
+          </p>
+        </div>
       </div>
     </section>
 
-    <section class="cards" id="pdf-cards" aria-live="polite">
-      <!-- Cards gerados pelo script.js -->
+    <section class="roadmap">
+      <h2 style="color:#e6eef8">Roadmap — próximos passos</h2>
+      <ol>
+        <li><strong>Documentação viva</strong> — organizar MDs, garantir que cada spec tem exemplos e formato de mensagem.</li>
+        <li><strong>QKP-SDK (v0.1)</strong> — criar repositório com primitives e exemplos (JS/Python).</li>
+        <li><strong>Devnet / Demo</strong> — demo interactiva que mostra troca de mensagens QIE.</li>
+        <li><strong>Governance + DAO</strong> — lançar processo de governação inicial e colectar feedback.</li>
+      </ol>
     </section>
 
-    <section class="md-viewer">
-      <div id="flash" class="flash">Seleccione um documento ou clique em "Read Whitepaper".</div>
-      <article id="viewer" class="viewer" aria-live="polite"></article>
+    <section class="contributors">
+      <h2 style="color:#e6eef8">Como ajudar — instruções práticas</h2>
+      <p style="color:var(--muted)">Sugestão de workflow para contribuidores:</p>
+      <ul style="color:var(--muted)">
+        <li>Fork do repositório.</li>
+        <li>Clonar e criar branch: <code>git checkout -b feat/my-contrib</code>.</li>
+        <li>Modificar MD ou adicionar exemplo no diretório <code>examples/</code>.</li>
+        <li>Submeter Pull Request com descrição clara e link para issue se aplicável.</li>
+      </ul>
+
+      <div style="margin-top:14px">
+        <a class="btn-gradient" href="https://github.com/QKEY-FOUNDER/quantumkey-protocol" target="_blank" rel="noopener">Ir para o repositório</a>
+        <a class="small-link" href="mailto:mihail@example.com" style="margin-left:10px">Contactar o autor</a>
+      </div>
+    </section>
+
+    <section class="roadmap" style="margin-bottom:90px">
+      <h2 style="color:#e6eef8">First micro-tasks (baixo esforço, alto impacto)</h2>
+      <ol>
+        <li>Padronizar nomes de ficheiros (remover espaços e acentos nos nomes dos PDFs/MDs).</li>
+        <li>Adicionar exemplos mínimos em <code>docs/examples/</code> (mensagem QIE, JSON).</li>
+        <li>Criar repositório <code>qkp-sdk</code> com um README e um módulo inicial (ex.: <code>intent-validator</code>).</li>
+      </ol>
     </section>
   </main>
 
   <footer class="site-footer">© 2025 Mihail Chiosa — Quantum Hammer</footer>
 
-  <script src="script.js"></script>
+  <script>
+    // UX pequeno: se clicarem Read Whitepaper/Tokenomics abrimos no viewer da página principal (se existires)
+    document.getElementById('hero-wp')?.addEventListener('click', (e)=>{
+      // se a página principal tiver viewer, abrimos lá — caso contrário fallback para MD
+      e.preventDefault();
+      window.location.href = 'index.html';
+      // Na index.html o script.js já tem handlers para carregar WHITEPAPER.md via CTA
+    });
+    document.getElementById('hero-token')?.addEventListener('click', (e)=>{
+      e.preventDefault();
+      window.location.href = 'index.html';
+    });
+  </script>
 </body>
 </html>
