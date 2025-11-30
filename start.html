@@ -1,104 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Start Here — QuantumKey Protocol</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Start Here — QuantumKey Protocol</title>
+  <link rel="icon" href="docs/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* small helper for this page only: ensure menu overlay sits above big logo */
+    .menu-overlay { z-index: 1200; }
+  </style>
 </head>
-
 <body>
+  <!-- Header with small logo + hamburger -->
+  <header class="header">
+    <button id="hamburger" aria-label="Open menu" class="hamburger">
+      <span></span><span></span><span></span>
+    </button>
 
-<!-- Top Navigation -->
-<header class="header">
-    <a href="index.html" class="back-button">← Home</a>
-    <img src="docs/assets/whitepaper/quantumkey-logo.svg" class="header-logo" alt="QuantumKey Logo">
-</header>
+    <!-- small logo (top-left) -->
+    <img src="docs/assets/quantumkey-logo.svg" alt="QuantumKey Logo" class="header-logo" id="headerLogo">
 
-<!-- Hero Section -->
-<section class="hero">
-    <img src="docs/assets/whitepaper/quantumkey-logo.svg" class="logo-large" alt="QuantumKey Logo">
-    <h1>Start Here — <br> QuantumKey Protocol</h1>
+    <a class="back-button" href="index.html" title="Home">← Home</a>
+  </header>
 
-    <p class="intro-text">
-        Welcome to the entry point of the QuantumKey Protocol.  
-        This page is your fast route to understanding the purpose of the protocol, how to participate,  
-        what the document structure looks like, and where to find tools to begin experimenting.  
-        Choose a route below and let's turn theory into action.
-    </p>
+  <!-- vertical menu (hidden by default on mobile) -->
+  <nav id="mobileMenu" class="menu-overlay mobile-menu" aria-hidden="true">
+    <ul>
+      <li><a href="docs/WHITEPAPER.md">Whitepaper (MD)</a></li>
+      <li><a href="docs/architecture/Tokenomics_v0.1.md">Tokenomics (MD)</a></li>
+      <li><a href="docs/architecture/DAO_Constitution_v0.1.md">DAO (MD)</a></li>
+      <li><a href="docs/architecture/Identity_Crypto_Spec_v0.1.md">Identity (MD)</a></li>
+      <li><a href="https://github.com/QKEY-FOUNDER/quantumkey-protocol">Go to repository</a></li>
+    </ul>
+  </nav>
 
-    <div class="cta-buttons">
+  <main>
+    <section class="hero">
+      <!-- big logo (centered, scaled up) -->
+      <img src="docs/assets/quantumkey-logo.svg" alt="QuantumKey Logo" class="logo-large" id="bigLogo">
+
+      <h1>Start Here — QuantumKey Protocol</h1>
+
+      <p class="intro-text">
+        Welcome to the entry point of the QuantumKey Protocol. This page is your fast route to understanding the purpose of the protocol, how to participate, what the document structure looks like, and where to find tools to begin experimenting. Choose a route below and let's turn theory into action.
+      </p>
+
+      <div class="cta-buttons">
         <a class="cta" href="docs/WHITEPAPER.md">Read Whitepaper (MD)</a>
         <a class="cta" href="docs/architecture/Tokenomics_v0.1.md">Tokenomics (MD)</a>
-    </div>
-</section>
+      </div>
 
-<!-- What is QKP -->
-<section class="content-section">
-    <h2>What is the QuantumKey Protocol?</h2>
-    <p>
-        A unified architecture that integrates intent, cryptographic identity, semantic agents,  
-        and alignment-oriented governance into a single coherent protocol.
-    </p>
-</section>
-
-<!-- Who is it for -->
-<section class="content-section">
-    <h2>Who is it for?</h2>
-    <p>
-        Researchers, engineers, protocol designers, DAO creators, and curious builders  
-        who want to create digital systems aligned with human values.
-    </p>
-</section>
-
-<!-- How to participate -->
-<section class="content-section">
-    <h2>How to participate</h2>
-    <p>
-        1) Read the core documents.<br>
-        2) Open issues or submit PRs.<br>
-        3) Contribute to discussions (GitHub Discussions).<br>
-        4) Test upcoming mini-SDKs when released.
-    </p>
-</section>
-
-<!-- Quick Resources -->
-<section class="content-section">
-    <h2>Quick Resources</h2>
-
-    <div class="quick-links">
+      <div class="quick-links">
         <a href="docs/WHITEPAPER.md">Whitepaper (MD)</a>
-        <a href="docs/assets/whitepaper/QuantumKey_Tokenomics_v1.0.pdf">Tokenomics (PDF)</a>
-    </div>
-</section>
+        <a href="docs/architecture/Tokenomics_v0.1.md">Tokenomics (MD)</a>
+      </div>
+    </section>
 
-<!-- Roadmap -->
-<section class="content-section">
-    <h2>Roadmap — Next Steps</h2>
+    <section>
+      <h2>What is the QuantumKey Protocol?</h2>
+      <p>A unified architecture that integrates intent, cryptographic identity, semantic agents, and alignment-oriented governance into a single coherent protocol.</p>
 
-    <p><strong>1. Living Documentation</strong> — organize MDs and ensure every spec includes examples and message formats.</p>
+      <h2>Who is it for?</h2>
+      <p>Researchers, engineers, protocol designers, DAO creators, and curious builders who want to create digital systems aligned with human values.</p>
 
-    <p><strong>2. Minimal Examples</strong> — add examples to <code>docs/examples/</code>  
-        (QIE messages, JSON structures).</p>
+      <h2>How to participate</h2>
+      <ol>
+        <li>Read the core documents.</li>
+        <li>Open issues or submit PRs.</li>
+        <li>Contribute to discussions (GitHub Discussions).</li>
+        <li>Test upcoming mini-SDKs when released.</li>
+      </ol>
 
-    <p><strong>3. QKP-SDK Repository</strong> — build the first software kit with an initial module  
-        (e.g., <code>intent-validator</code>).</p>
-</section>
+      <h2>Roadmap — Next Steps</h2>
+      <p><strong>1. Living Documentation</strong> — organize MDs and ensure every spec includes examples and message formats.</p>
+      <p><strong>2. Minimal Examples</strong> — add examples to <code>docs/examples/</code> (QIE messages, JSON).</p>
+      <p><strong>3. QKP-SDK Repository</strong> — build the first software development kit with an initial module (e.g., <code>intent-validator</code>).</p>
 
-<!-- Contribution Guide -->
-<section class="content-section">
-    <h2>How to contribute — Practical Guide</h2>
+      <a href="https://github.com/QKEY-FOUNDER/quantumkey-protocol" class="repo-link">Go to repository</a>
+    </section>
+  </main>
 
-    <ul>
-        <li>Fork the repository.</li>
-        <li>Create a feature branch: <code>git checkout -b feat/my-contrib</code></li>
-        <li>Edit MD files or add examples in <code>docs/examples/</code>.</li>
-        <li>Submit a Pull Request with a clear description.</li>
-    </ul>
+  <script>
+    // Simple menu toggle (no external script needed)
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-    <a href="https://github.com/QKEY-FOUNDER/quantumkey-protocol" class="repo-link">Go to repository</a>
-</section>
+    function setMenuState(open) {
+      if (open) {
+        mobileMenu.style.display = 'block';
+        mobileMenu.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      } else {
+        mobileMenu.style.display = 'none';
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+    }
 
-<script src="script.js"></script>
+    // initial
+    setMenuState(false);
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.style.display === 'block';
+      setMenuState(!isOpen);
+    });
+
+    // close menu on outside click
+    document.addEventListener('click', (ev) => {
+      if (!mobileMenu.contains(ev.target) && !hamburger.contains(ev.target)) {
+        setMenuState(false);
+      }
+    });
+
+    // Prevent horizontal overflow (extra safeguard)
+    document.documentElement.style.overflowX = 'hidden';
+  </script>
 </body>
 </html>
