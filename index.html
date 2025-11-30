@@ -3,51 +3,50 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>QuantumKey Protocol — Documentação</title>
+  <title>QuantumKey — QuantumKey Protocol</title>
 
-  <!-- favicon apontando para a pasta correcta -->
+  <!-- favicon -->
   <link rel="icon" type="image/svg+xml" href="docs/assets/favicon.svg">
 
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
-    <div class="brand">
-      <!-- small logo: arquivo em docs/assets/ -->
-      <img src="docs/assets/quantumkey-logo.svg" alt="QuantumKey Logo" class="logo-small" />
-
-      <div class="brand-text">
-        <h1>QuantumKey Protocol</h1>
-        <p class="tag">Unified architecture for Intent · Identity · Agents · Governance</p>
-      </div>
+    <div class="left">
+      <button id="menu-toggle" aria-label="Abrir menu" class="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+      <img src="docs/assets/quantumkey-logo.svg" alt="QuantumKey icon" class="favicon">
     </div>
 
-    <nav class="main-nav" role="navigation" aria-label="Main">
-      <button id="btn-show-doc">Ver Whitepaper (Markdown)</button>
-      <a id="pdf-link"
-         href="docs/assets/whitepaper/QuantumKey%20Protocol%20--%20Whitepaper%20v1.0.pdf"
-         target="_blank" rel="noopener">Abrir Whitepaper (PDF)</a>
-      <a href="docs/EXECUTIVE_SUMMARY.md" class="nav-link">Executive Summary</a>
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+      <a class="btn-ghost" id="btn-show-doc">Read Whitepaper</a>
+      <a class="btn-ghost" href="docs/assets/whitepaper/QuantumKey%20Protocol%20--%20Whitepaper%20v1.0.pdf" target="_blank" rel="noopener">Whitepaper (PDF)</a>
+      <a class="btn-ghost" href="docs/EXECUTIVE_SUMMARY.md">Executive Summary</a>
     </nav>
   </header>
 
-  <!-- hero com logo grande (usa o mesmo SVG — fica bem escalável) -->
-  <section class="hero" id="hero" aria-hidden="true">
-    <img src="docs/assets/quantumkey-logo.svg" alt="" class="logo-large" />
-  </section>
+  <main>
+    <section class="hero">
+      <div class="hero-card">
+        <img src="docs/assets/quantumkey-logo.svg" alt="QuantumKey Logo" class="logo-large">
+      </div>
 
-  <main class="container">
-    <aside class="sidebar" aria-label="Documentos">
-      <h3>Documentos</h3>
-      <ul id="doc-list">
-        <li><a data-path="docs/WHITEPAPER.md">WHITEPAPER.md</a></li>
-        <li><a data-path="docs/QuantumKey_Protocol.md">QuantumKey_Protocol.md</a></li>
-        <li><a data-path="docs/EXECUTIVE_SUMMARY.md">EXECUTIVE_SUMMARY.md</a></li>
-      </ul>
-    </aside>
+      <h1 class="hero-title">QuantumKey</h1>
+      <p class="hero-sub">A subtle architecture of meaning — the key that harmonizes conscious intent with machine intelligence.</p>
 
-    <section class="content">
-      <div id="flash" class="flash">Carregado automaticamente: selecione um documento ou clique em "Ver Whitepaper".</div>
+      <div class="hero-cta">
+        <button class="btn-gradient" id="cta-read">Read Whitepaper</button>
+        <a class="btn-gradient outline" href="docs/assets/whitepaper/QuantumKey%20Protocol%20--%20Whitepaper%20v1.0.pdf" target="_blank" rel="noopener">Tokenomics</a>
+      </div>
+    </section>
+
+    <section class="cards" id="pdf-cards">
+      <!-- Cards gerados no JS a partir da lista abaixo -->
+    </section>
+
+    <section class="md-viewer">
+      <div id="flash" class="flash">Seleccione um documento ou clique em "Read Whitepaper".</div>
       <article id="viewer" class="viewer" aria-live="polite"></article>
     </section>
   </main>
