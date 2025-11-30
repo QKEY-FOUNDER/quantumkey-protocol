@@ -1,5 +1,5 @@
-// script.js — centraliza documentos, evita duplicação, popula menu + cards + hero CTAs
-// Versão atualizada: Tokenomics abre MD no viewer; "All docs" removido do menu
+// script.js — menu usa MD quando disponível; cards mostram Open PDF + View (MD)
+// Mantém hero CTAs: Read Whitepaper (MD) e Tokenomics (MD se existir)
 
 // DOM refs
 const viewer = document.getElementById("viewer");
@@ -22,80 +22,96 @@ function assetPath(folder, filename){
   return `${folder}/${encodeURIComponent(filename).replace(/%2F/g,'/')}`;
 }
 
-/* ---------- Fonte única de documentos (use nomes EXACTOS do repositório) ---------- */
+// Helper: github raw path for md files served from the repo via GitHub Pages
+// If your site is published at qkey-founder.github.io/<repo>/, the direct path to md inside repo is relative
+// We'll use relative paths (e.g. 'docs/architecture/Tokenomics_v0.1.md') so fetch works via the same host.
+function mdHref(mdPath){
+  // return relative path that Github Pages can serve (same origin). No change needed.
+  return mdPath;
+}
+
+/* ---------- Fonte única de documentos (use nomes EXACTOS do repositório) ----------
+   - filename: path do PDF dentro de docs/assets/whitepaper (apontado nos cards)
+   - mdPath: path relativo do ficheiro markdown dentro do repo (quando existir) */
 const pdfs = [
   { id: 'whitepaper', title:'Whitepaper', desc:'Vision, architecture and philosophical foundations.', filename: "QuantumKey Protocol — Whitepaper v1.0.pdf", mdPath: 'docs/WHITEPAPER.md', inHero: true },
   { id: 'tokenomics', title:'Tokenomics', desc:'The energetic architecture of the $QKEY economy.', filename: "QuantumKey_Tokenomics_v1.0.pdf", mdPath: 'docs/architecture/Tokenomics_v0.1.md', inHero: true },
-  { id: 'dao', title:'DAO', desc:'Governance model and alignment primitives.', filename:'QuantumKey_DAO_v1.0.pdf', mdPath: null },
-  { id: 'identity', title:'Identity', desc:'Identity as a field of presence and continuity.', filename:'QuantumKey_Identity_v1.0.pdf', mdPath: null },
-  { id: 'protocol', title:'Protocol', desc:'Operational mechanics of the protocol.', filename:'QuantumKey_Protocol_Core_v1.0.pdf', mdPath: null }
-  // adiciona mais itens aqui se preciso
+  { id: 'dao', title:'DAO', desc:'Governance model and alignment primitives.', filename:'QuantumKey_DAO_v1.0.pdf', mdPath: 'docs/architecture/DAO_Constitution_v0.1.md', inHero: false },
+  { id: 'identity', title:'Identity', desc:'Identity as a field of presence and continuity.', filename:'QuantumKey_Identity_v1.0.pdf', mdPath: 'docs/architecture/Identity_Crypto_Spec_v0.1.md', inHero: false },
+  { id: 'protocol', title:'Protocol', desc:'Operational mechanics of the protocol.', filename:'QuantumKey_Protocol_Core_v1.0.pdf', mdPath: 'docs/architecture/Protocol_Message_Formats_v0.1.md', inHero: false }
+  // adiciona mais itens conforme necessário (use o caminho EXACTO do ficheiro no repo)
 ];
 
-/* ---------- Atualiza CTAs do hero a partir da fonte de verdade ---------- */
+/* ---------- Atualiza CTAs do hero (MD para whitepaper e tokenomics quando existir) ---------- */
 function patchHeroCTAs(){
   const heroWhite = pdfs.find(p => p.id === 'whitepaper');
   const heroToken = pdfs.find(p => p.id === 'tokenomics');
 
   if (heroWhite) {
-    const md = heroWhite.mdPath || 'docs/WHITEPAPER.md';
-    if (ctaRead) ctaRead.addEventListener('click', () => fetchAndRender(md));
-    // também mantemos botão “Read Whitepaper” primário no header, se existir
+    const md = heroWhite.mdPath || null;
+    if (md && ctaRead) {
+      ctaRead.addEventListener('click', (e) => { e.preventDefault(); fetchAndRender(md); });
+    } else if (ctaRead && heroWhite.filename) {
+      // fallback para PDF se não houver MD
+      ctaRead.addEventListener('click', (e) => { e.preventDefault(); window.open(assetPath('docs/assets/whitepaper', heroWhite.filename), '_blank'); });
+    }
     const headerBtn = document.getElementById('btn-show-doc');
-    if (headerBtn) headerBtn.onclick = (e) => { e.preventDefault(); fetchAndRender(md); };
+    if (headerBtn && md) headerBtn.onclick = (e) => { e.preventDefault(); fetchAndRender(md); };
   }
 
   if (heroToken) {
-    // NOVO: se há mdPath para tokenomics, fazemos o botão carregar o MD no viewer (como o whitepaper)
-    if (heroToken.mdPath) {
-      if (ctaTokenomics) {
-        ctaTokenomics.addEventListener('click', (e) => {
-          e.preventDefault();
-          fetchAndRender(heroToken.mdPath);
-        });
-        // se também houver um elemento no header que aponta para tokenomics, aplica lá também
-        const pdfTokenomicsBtn = document.getElementById('pdf-tokenomics');
-        if (pdfTokenomicsBtn) pdfTokenomicsBtn.onclick = (ev) => { ev.preventDefault(); fetchAndRender(heroToken.mdPath); };
-      }
-    } else {
-      // fallback: abrir PDF se não houver MD
-      const href = assetPath('docs/assets/whitepaper', heroToken.filename);
-      if (ctaTokenomics) ctaTokenomics.href = href;
+    const md = heroToken.mdPath || null;
+    if (md && ctaTokenomics) {
+      ctaTokenomics.addEventListener('click', (e) => { e.preventDefault(); fetchAndRender(md); });
       const pdfTokenomicsBtn = document.getElementById('pdf-tokenomics');
-      if (pdfTokenomicsBtn) pdfTokenomicsBtn.href = href;
+      if (pdfTokenomicsBtn) pdfTokenomicsBtn.onclick = (ev) => { ev.preventDefault(); fetchAndRender(md); };
+    } else if (ctaTokenomics && heroToken.filename) {
+      ctaTokenomics.href = assetPath('docs/assets/whitepaper', heroToken.filename);
     }
   }
 }
 
-/* ---------- Constrói o menu: inclui só docs que NÃO estão no hero (inHero !== true) ---------- */
+/* ---------- Constrói o menu: usa MD quando houver, senão PDF
+   - Não inclui itens com inHero === true (evita duplicação) ---------- */
 function buildMenu(){
   if (!mainNav) return;
   mainNav.innerHTML = ''; // limpa
 
-  // título do menu
   const title = document.createElement('div');
-  title.style.opacity = '0.85';
-  title.style.fontWeight = '700';
+  title.style.opacity = '0.95';
+  title.style.fontWeight = '800';
   title.style.padding = '6px 8px';
+  title.style.textAlign = 'center';
   title.textContent = 'Documents';
   mainNav.appendChild(title);
 
-  // items: todos os pdfs que não estão no hero
   const items = pdfs.filter(p => !p.inHero);
   items.forEach(p => {
     const a = document.createElement('a');
     a.className = 'btn-ghost';
-    a.href = assetPath('docs/assets/whitepaper', p.filename);
-    a.target = '_blank';
-    a.rel = 'noopener';
-    a.textContent = `${p.title} (PDF)`;
+
+    if (p.mdPath) {
+      // usa MD (abre em nova aba); se preferires abrir no viewer, trocar target e onclick
+      a.href = mdHref(p.mdPath);
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = `${p.title} (MD)`;
+    } else {
+      // fallback para PDF
+      a.href = assetPath('docs/assets/whitepaper', p.filename);
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = `${p.title} (PDF)`;
+    }
+
     mainNav.appendChild(a);
   });
 
-  // NOTE: removido o link "All docs" para evitar 404 — conforme pedido
+  // Note: removido "All docs" para evitar 404
 }
 
-/* ---------- Renderiza cards (cada ficheiro apenas 1x) ---------- */
+/* ---------- Renderiza cards (cada ficheiro apenas 1x) ----------
+   - Cards mantêm Open PDF e (quando existir) View (MD) ---------- */
 function renderCards(){
   const container = document.getElementById('pdf-cards');
   if (!container) return;
@@ -106,7 +122,7 @@ function renderCards(){
     if (seen.has(p.filename)) return;
     seen.add(p.filename);
 
-    const href = assetPath('docs/assets/whitepaper', p.filename);
+    const hrefPdf = assetPath('docs/assets/whitepaper', p.filename);
     const card = document.createElement('div');
     card.className = 'card';
     const viewBtn = p.mdPath ? `<button class="view-md" data-md="${p.mdPath}">View</button>` : '';
@@ -114,14 +130,14 @@ function renderCards(){
       <h3>${p.title}</h3>
       <p>${p.desc}</p>
       <div style="display:flex;gap:12px;margin-top:10px;align-items:center">
-        <a class="open" href="${href}" target="_blank" rel="noopener">Open PDF</a>
+        <a class="open" href="${hrefPdf}" target="_blank" rel="noopener">Open PDF</a>
         ${viewBtn}
       </div>
     `;
     container.appendChild(card);
   });
 
-  // View buttons
+  // Attach view events (render MD into viewer)
   document.querySelectorAll('.view-md').forEach(b => {
     b.addEventListener('click', e => {
       const md = e.currentTarget.dataset.md;
@@ -130,7 +146,7 @@ function renderCards(){
   });
 }
 
-/* ---------- Markdown rendering (lightweight) ---------- */
+/* ---------- Markdown rendering (leve) ---------- */
 function mdToHtml(md){
   md = md.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   md = md.replace(/```([\s\S]*?)```/g, (_, code) => `<pre class="code-block">${code}</pre>`);
@@ -142,7 +158,7 @@ function mdToHtml(md){
   md = md.replace(/^# (.*$)/gim,'<h1>$1</h1>');
   md = md.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
   md = md.replace(/\*(.*?)\*/g,'<em>$1</em>');
-  md = md.replace(/\[(.*?)\]\((.*?)\)/g,'<a href="$2" target="_blank">$1</a>');
+  md = md.replace(/\[(.*?)\]\((.*?)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
   md = md.replace(/^- (.*)$/gim,'<li>$1</li>');
   md = md.replace(/(<li>.*<\/li>)/gms,'<ul>$1</ul>');
   md = md.replace(/\n{2,}/g,'</p><p>');
@@ -161,7 +177,7 @@ async function fetchAndRender(path){
     if (flash) flash.style.display = 'none';
     window.scrollTo({ top: document.querySelector('.md-viewer').offsetTop - 80, behavior: 'smooth' });
   } catch (err) {
-    viewer.innerHTML = `<div class="flash">Erro ao carregar: ${err.message}. Abre o PDF <a href="${assetPath('docs/assets/whitepaper', pdfs[0].filename)}" target="_blank">aqui</a>.</div>`;
+    viewer.innerHTML = `<div class="flash">Erro ao carregar: ${err.message}. Abre o PDF <a href="${assetPath('docs/assets/whitepaper', pdfs[0].filename)}" target="_blank" rel="noopener">aqui</a>.</div>`;
   }
 }
 
