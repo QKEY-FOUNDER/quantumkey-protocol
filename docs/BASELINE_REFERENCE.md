@@ -148,9 +148,6 @@
 This document freezes the exact state of the homepage that is considered stable and correct.
 
 ## Included
-- index.html  
-- styles.css  
-- script.js  
 - assets/quantumkey-logo.svg  
 - No orbital animations  
 - No header buttons besides menu  
