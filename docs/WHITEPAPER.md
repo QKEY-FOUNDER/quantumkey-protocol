@@ -134,9 +134,69 @@ QKP does not attempt to define what systems should do.
 
 It defines how systems can prove what they did, why it was allowed, and who attested to it — in a way that remains verifiable over time, across boundaries, and independent of any single actor.
 
+
 ---
 
-1.3 Introduction — Intent as a Protocol Primitive
+1.3 — Canonical Trust Narrative (Why QKP Exists)
+
+QuantumKey Protocol (QKP) exists to solve a structural problem that modern digital systems can no longer ignore:
+
+**trust does not scale.**
+
+As systems become autonomous, federated, and long-lived, traditional trust assumptions collapse. Logs can be altered, audits are retrospective, policies are subjective, and responsibility becomes ambiguous. This is not a failure of intelligence or automation — it is a failure of structure.
+
+QKP introduces a different approach.
+
+Instead of assuming trust, QKP makes **accountability a first-class, verifiable property** of systems.
+
+Instead of retroactive audits, QKP produces **audit-grade evidence by construction**.
+
+Instead of conflating verification with acceptance, QKP cleanly separates:
+- cryptographic validity
+- causal structure
+- aggregation
+- policy evaluation
+- attestation
+
+This separation is not philosophical — it is architectural.
+
+Every meaningful action in QKP:
+- is explicitly declared as intent
+- is bound to a persistent identity
+- is causally linked to its effects
+- is aggregated without loss of meaning
+- can be independently verified
+- can be locally accepted or rejected
+- can be attested by third parties without modifying history
+
+QKP does not decide what should be trusted.
+
+It provides the **evidence required to decide whether something can be trusted**.
+
+This makes QKP suitable for environments where:
+- humans and agents act together
+- authority is delegated
+- execution is autonomous
+- governance is distributed
+- trust is contextual and plural
+
+QKP is not a blockchain.
+It is not a governance framework.
+It is not an AI system.
+
+It is a **protocol layer for verifiable accountability**.
+
+By treating intent, causality, aggregation, and trust as explicit structures rather than implicit assumptions, QKP enables systems to scale **without sacrificing responsibility, auditability, or meaning**.
+
+This is the foundation upon which higher-level systems — economic, social, legal, or computational — can be built without collapsing into opaque trust.
+
+QKP is not about enforcing behavior.
+
+It is about making behavior **provable, inspectable, and accountable** — across time, systems, and domains.
+
+---
+
+1.4 Introduction — Intent as a Protocol Primitive
 
 Modern digital systems—blockchains, AI agents, governance mechanisms—operate without a shared understanding of intent.
 They execute instructions, but do not comprehend meaning.
