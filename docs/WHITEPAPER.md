@@ -59,6 +59,9 @@ a restorative, non-plutocratic economy (QKEY token)
 
 QuantumKey positions itself as a semantic foundation for the digital era, enabling humans and intelligent systems to coexist through aligned, transparent, verifiable meaning.
 
+---
+
+All technical terms used in this document follow the canonical definitions specified in Appendix B (Vocabulary).
 
 ---
 
