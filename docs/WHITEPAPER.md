@@ -59,45 +59,6 @@ a restorative, non-plutocratic economy (QKEY token)
 
 QuantumKey positions itself as a semantic foundation for the digital era, enabling humans and intelligent systems to coexist through aligned, transparent, verifiable meaning.
 
-
-
----
-
-1. Problem Statement
-
-Modern digital systems increasingly rely on autonomous agents, distributed services, and cross-organizational coordination to make decisions and execute actions. These systems operate at scales and speeds where traditional human oversight, manual audits, and trust-by-assumption models no longer suffice.
-
-Today, most accountability mechanisms suffer from one or more of the following structural limitations:
-
-Implicit trust: Systems assume that agents, services, or organizations behave correctly without providing cryptographically verifiable evidence of intent or execution.
-
-Retroactive audits: Accountability is often reconstructed after incidents occur, relying on logs that may be incomplete, mutable, or unverifiable.
-
-Coupled trust and verification: Technical validity and policy acceptance are frequently conflated, leading to opaque decision-making and unclear responsibility boundaries.
-
-Lack of composability: Evidence produced by one system cannot be reliably reused, aggregated, or verified across domains or organizational boundaries.
-
-Human-centric assumptions: Existing frameworks presume human decision points, failing to address autonomous or semi-autonomous agents acting continuously and independently.
-
-
-As autonomous and federated systems proliferate — particularly in environments involving artificial intelligence, automated execution, and cross-domain coordination — the absence of a verifiable, machine-readable, and cryptographically grounded accountability layer becomes a systemic risk.
-
-Without such a layer:
-
-Decisions cannot be independently verified.
-
-Responsibility cannot be unambiguously attributed.
-
-Trust cannot be externalized or delegated safely.
-
-Governance becomes subjective rather than evidentiary.
-
-
-The core problem is therefore not a lack of intelligence or automation, but a lack of verifiable accountability primitives that can operate across autonomous, federated, and evolving systems without central authority or implicit trust assumptions.
-
-QuantumKey Protocol (QKP) is designed to address this gap.
-
-
 ---
 
 All technical terms used in this document follow the canonical definitions specified in Appendix B (Vocabulary).
@@ -105,6 +66,77 @@ All technical terms used in this document follow the canonical definitions speci
 ---
 
 1. Introduction
+
+1.1 Problem Statement
+
+Modern digital systems increasingly rely on autonomous agents, distributed services, and cross-organizational coordination to make decisions and execute actions. These systems operate at scales and speeds where traditional human oversight, manual audits, and trust-by-assumption models no longer suffice.
+
+Today, most accountability mechanisms suffer from one or more of the following structural limitations:
+
+- Implicit trust: Systems assume that agents, services, or organizations behave correctly without providing cryptographically verifiable evidence of intent or execution.
+- Retroactive audits: Accountability is often reconstructed after incidents occur, relying on logs that may be incomplete, mutable, or unverifiable.
+- Coupled trust and verification: Technical validity and policy acceptance are frequently conflated, leading to opaque decision-making and unclear responsibility boundaries.
+- Lack of composability: Evidence produced by one system cannot be reliably reused, aggregated, or verified across domains or organizational boundaries.
+- Human-centric assumptions: Existing frameworks presume human decision points, failing to address autonomous or semi-autonomous agents acting continuously and independently.
+
+As autonomous and federated systems proliferate — particularly in environments involving artificial intelligence, automated execution, and cross-domain coordination — the absence of a verifiable, machine-readable, and cryptographically grounded accountability layer becomes a systemic risk.
+
+Without such a layer:
+
+- Decisions cannot be independently verified.
+- Responsibility cannot be unambiguously attributed.
+- Trust cannot be externalized or delegated safely.
+- Governance becomes subjective rather than evidentiary.
+
+The core problem is therefore not a lack of intelligence or automation, but a lack of verifiable accountability primitives that can operate across autonomous, federated, and evolving systems without central authority or implicit trust assumptions.
+
+QuantumKey Protocol (QKP) is designed to address this gap.
+
+---
+
+1.2 Core Insight
+
+The central insight behind QuantumKey Protocol is that trust is not a feeling, a reputation, or a static permission — trust is a verifiable outcome of evidence.
+
+In complex autonomous systems, the question is no longer “Who do we trust?” but rather:
+
+“What can be proven, by whom, under which rules, and at what moment in time?”
+
+QKP is built on the separation of four concerns that are traditionally conflated:
+
+1. Intent declaration — what an actor claims it intends to do.  
+2. Execution evidence — what actually occurred in the system.  
+3. Cryptographic validity — whether the evidence is structurally and cryptographically sound.  
+4. Policy acceptance — whether that evidence is acceptable under a given trust policy.
+
+By strictly separating these layers, QKP enables systems where:
+
+- Cryptographic verification is objective and deterministic.
+- Trust decisions are explicit, auditable, and reversible.
+- Accountability can be delegated, aggregated, and attested without modifying underlying data.
+- Autonomous agents can participate without requiring human mediation.
+
+The key realization is that accountability must be composable.
+
+Just as cryptographic primitives compose into protocols, and protocols compose into systems, accountability evidence must also compose:
+
+- Individual actions form chains.
+- Chains form aggregates.
+- Aggregates form hierarchies.
+- Hierarchies can be federated across domains.
+- Trust decisions over those structures can be attested by independent parties.
+
+QKP treats accountability as a first-class protocol primitive, not an application-layer afterthought.
+
+This approach allows trust to emerge not from centralized authority or social consensus, but from verifiable structure — enabling cross-domain cooperation without shared trust anchors, independent audits without privileged access, and machine-verifiable governance.
+
+QKP does not attempt to define what systems should do.
+
+It defines how systems can prove what they did, why it was allowed, and who attested to it — in a way that remains verifiable over time, across boundaries, and independent of any single actor.
+
+---
+
+1.3 Introduction — Intent as a Protocol Primitive
 
 Modern digital systems—blockchains, AI agents, governance mechanisms—operate without a shared understanding of intent.
 They execute instructions, but do not comprehend meaning.
@@ -116,18 +148,12 @@ Intent as the unit of digital action.
 
 From this primitive emerges an architecture where:
 
-identity is continuous
-
-intent is formalized
-
-agents are accountable
-
-governance is restorative
-
-execution is deterministic
-
-semantics are verifiable
-
+- identity is continuous
+- intent is formalized
+- agents are accountable
+- governance is restorative
+- execution is deterministic
+- semantics are verifiable
 
 QuantumKey is not merely a chain or a protocol—it is an intent-native digital civilization layer.
 
