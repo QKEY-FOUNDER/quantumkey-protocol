@@ -468,6 +468,70 @@ Semantic Drift: deviation of meaning from declared intent
 
 ---
 
+## Appendix B — Technical Cross-Reference Map
+
+This appendix maps QuantumKey Protocol concepts to their normative specification,
+conformance tests, and reference implementations.
+
+---
+
+### Intent & Identity Layer
+
+| Concept | Specification | Conformance | Reference Code |
+|------|--------------|------------|----------------|
+| Intent | protocol-spec.md §Intent | C1 | examples/reference-flow.js |
+| SignedIntent | protocol-spec.md §SignedIntent | C2 | examples/reference-flow.js |
+| Identity | protocol-spec.md §Identity | C3 | src/identity |
+
+---
+
+### Claims & Execution
+
+| Concept | Specification | Conformance | Reference Code |
+|------|--------------|------------|----------------|
+| Claim | protocol-spec.md §Claim | C4 | src/claim |
+| SignedClaim | protocol-spec.md §SignedClaim | C5 | src/claim |
+| ExecutionContract | protocol-spec.md §ExecutionContract | C6 | src/execution |
+| ExecutionReceipt | protocol-spec.md §ExecutionReceipt | C7 | src/execution |
+
+---
+
+### Accountability Graphs & Chains
+
+| Concept | Specification | Conformance | Reference Code |
+|------|--------------|------------|----------------|
+| AccountabilityGraph | protocol-spec.md §AccountabilityGraph | C13 | src/graph |
+| AccountabilityChain | protocol-spec.md §AccountabilityChain | C14 | src/graph |
+| ChainLink | protocol-spec.md §ChainLink | C14 | src/graph |
+
+---
+
+### Aggregation Layers
+
+| Concept | Specification | Conformance | Reference Code |
+|------|--------------|------------|----------------|
+| ChainAggregate | protocol-spec.md §Aggregation | C15 | src/graph/aggregate.js |
+| WindowedChainAggregate | protocol-spec.md §WindowedAggregation | C16 | src/graph/windowed-aggregate.js |
+| HierarchicalAggregate | protocol-spec.md §HierarchicalAggregation | C17 | src/graph/hier-aggregate.js |
+| FederatedAggregate | protocol-spec.md §FederatedAggregation | C18 | src/graph/federated-aggregate.js |
+
+---
+
+### Trust, Policy & Attestation
+
+| Concept | Specification | Conformance | Reference Code |
+|------|--------------|------------|----------------|
+| TrustPolicy | protocol-spec.md §TrustPolicy | C19 | src/policy/evaluate.js |
+| AcceptanceReceipt | protocol-spec.md §AcceptanceReceipt | C20 | src/policy/attestation.js |
+| AttestedTrust | protocol-spec.md §AttestedTrust | C20 | src/policy |
+
+---
+
+This appendix is normative.
+Any new protocol feature MUST be mapped here.
+
+---
+
 Appendix B — Technical Foundations (Expanded)
 
 B.1 — Problem Statement & Motivation
