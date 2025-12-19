@@ -445,6 +445,13 @@ It provides a coherent architecture for the emergence of a semantic civilization
 where humans and intelligent systems collaborate safely, transparently and constructively.
 
 
+
+---
+
+```md
+The QKP Reference Flow (examples/reference-flow.js) serves as a living,
+executable specification of the protocol’s end-to-end behavior.
+```
 ---
 
 15. Appendix A — Glossary
