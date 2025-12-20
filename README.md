@@ -158,9 +158,13 @@ Evolution happens at higher layers, without breaking accountability guarantees.
 QuantumKey Protocol is designed to be explored, verified, and extended.
 
 If you want to **see the protocol in action**, run the executable reference flow:
+
 - `node examples/reference-flow.js`
+
 If you want to **understand how it works**, follow the annotated walkthrough:
+
 - `examples/REFERENCE_FLOW.md`
+- 
 If you want to **study the protocol design**, read:
 
 - `docs/WHITEPAPER.md`
