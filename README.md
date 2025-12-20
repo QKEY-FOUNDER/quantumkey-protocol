@@ -283,7 +283,30 @@ Additional documents expanding the conceptual and operational foundations:
 
 Early conceptual architecture documents (v0.1), maintained as historical and developmental references:
 
-docs/ └── architecture/ ├── DAO_Constitution_v0.1.md ├── Identity_Crypto_Spec_v0.1.md ├── Protocol_Message_Formats_v0.1.md ├── Roadmap_2025_2027_v0.1.md ├── SAS_v0.1.md ├── Testnet_Architecture_v0.1.md └── Tokenomics_v0.1.md
+```text
+docs/
+└── architecture/
+    ├── DAO_Constitution_v0.1.md
+    │   └── Governance principles, constitutional rules, and decision boundaries
+    │
+    ├── Identity_Crypto_Spec_v0.1.md
+    │   └── Cryptographic identity model (HID, AID, CID, SID)
+    │
+    ├── Protocol_Message_Formats_v0.1.md
+    │   └── Canonical message and envelope formats (QIE)
+    │
+    ├── Roadmap_2025_2027_v0.1.md
+    │   └── Phased evolution from foundation to mainnet
+    │
+    ├── SAS_v0.1.md
+    │   └── Semantic Alignment System and validation principles
+    │
+    ├── Testnet_Architecture_v0.1.md
+    │   └── Testnet topology, validation flows, and simulation layers
+    │
+    └── Tokenomics_v0.1.md
+        └── Economic model, incentives, and non-plutocratic constraints
+```
 
 > These files capture the technical foundation and thought process leading to version 1.0.
 
