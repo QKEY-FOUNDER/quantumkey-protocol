@@ -117,6 +117,42 @@ It provides the evidence required to decide *whether* something can be trusted.
 
 ---
 
+## Protocol Status
+
+QuantumKey Protocol has progressed beyond conceptual design.
+
+The core protocol primitives have been fully specified, implemented, and validated through executable conformance tests.
+
+**Current status:**
+- Core protocol coverage: **C1–C20 implemented**
+- Conformance tests: **passing**
+- Specification: **stable (v0.1.0)**
+- Reference implementation: **complete**
+- End-to-end reference flow: **executable**
+
+This repository contains:
+- A normative protocol specification
+- A complete reference implementation
+- Executable conformance cases
+- A living, runnable reference flow
+
+QKP is intentionally designed to be:
+- Readable
+- Testable
+- Auditable
+- Forkable
+
+Future work focuses on:
+- Developer tooling
+- Ecosystem integrations
+- Governance experiments
+- Real-world adoption
+
+The protocol core is stable.  
+Evolution happens at higher layers, without breaking accountability guarantees.
+
+---
+
 ## 🧭 Overview
 
 QuantumKey Protocol is a unified digital architecture connecting **human intent**, **verifiable identity**, **autonomous agents**, **semantic machine intelligence**, and **alignment-driven governance** into a single harmonic framework.
