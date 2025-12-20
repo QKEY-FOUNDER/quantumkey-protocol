@@ -291,8 +291,76 @@ docs/ └── architecture/ ├── DAO_Constitution_v0.1.md ├── Ident
 
 # 🗂 Folder Structure
 
-/ ├── art/logo/                     # Visual identity assets ├── docs/ │   ├── architecture/             # Historical architecture (v0.1) │   ├── assets/ │   │   ├── whitepaper/           # Official v1.0 PDF documents │   │   └── summary/              # Executive summary files │   ├── legacy/                   # Deprecated pre-v1.0 specifications │   ├── ui-baseline/              # Demonstration UI (HTML/CSS/JS) │   ├── QuantumKey_Protocol.md    # Core Protocol Specification v1.0 │   ├── WHITEPAPER.md             # Whitepaper v1.0 │   ├── EXECUTIVE_SUMMARY.md │   ├── MASTER_DOCUMENT.md │   └── BASELINE_REFERENCE.md ├── Brand-Guidelines.md └── README.md
-
+quantumkey-protocol/
+├── README.md
+├── index.md
+├── index.html
+├── start.html
+├── script.js
+├── start.css
+├── styles.css
+├── Brand-Guidelines.md
+├── BASELINE_REFERENCE.md
+├── EXECUTIVE_SUMMARY.md
+├── EXTERNALIZATION.md
+├── MASTER_DOCUMENT.md
+├── QuantumKey_Protocol.md
+├── RFC_INDEX.md
+├── WHITEPAPER.md
+├── favicon.svg
+├── quantumkey-logo.svg
+│
+├── docs/
+│   ├── index.md
+│   ├── VOCABULARY.md
+│   ├── architecture.md
+│   ├── conformance.md
+│   ├── protocol-spec.md
+│   ├── roadmap.md
+│   │
+│   ├── CANONICAL_STATEMENT.md
+│   ├── PROTOCOL_FREEZE_v1.0.md
+│   ├── GOVERNANCE_SNAPSHOT_v1.0.md
+│   ├── LAUNCH_READINESS.md
+│   ├── VERSIONING.md
+│   ├── START_HERE.md
+│   ├── CONTRIBUTING.md
+│   │
+│   ├── architecture/
+│   │   ├── DAO_Constitution_v0.1.md
+│   │   ├── Identity_Crypto_Spec_v0.1.md
+│   │   ├── Protocol_Message_Formats_v0.1.md
+│   │   ├── Roadmap_2025_2027_v0.1.md
+│   │   ├── SAS_v0.1.md
+│   │   ├── Testnet_Architecture_v0.1.md
+│   │   └── Tokenomics_v0.1.md
+│   │
+│   ├── summary/
+│   │   ├── QuantumKey_Protocol_Executive_Summary.md
+│   │   └── QuantumKey_Protocol_Executive_Summary.pdf
+│   │
+│   └── whitepaper/
+│       ├── .keep
+│       ├── QuantumKey_Protocol_Whitepaper.md
+│       └── QuantumKey_Protocol_Whitepaper.pdf
+│
+├── art/
+│   └── logo/
+│       ├── .keep
+│       └── quantumkey-logo.svg
+│
+├── legacy/
+│   ├── SPEC_DAO.md
+│   ├── SPEC_IDENTITY.md
+│   ├── SPEC_PROTOCOL.md
+│   ├── SPEC_TOKEN.md
+│   └── TOKENOMICS.md
+│
+├── ui-baseline/
+│   ├── BLUEPRINT_ALPHA.md
+│   └── .keep
+│
+└── .keep
 ---
 
 # 📜 Legacy Documents
