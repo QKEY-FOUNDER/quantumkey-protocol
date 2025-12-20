@@ -153,6 +153,63 @@ Evolution happens at higher layers, without breaking accountability guarantees.
 
 ---
 
+## How to Engage with QKP
+
+QuantumKey Protocol is designed to be explored, verified, and extended.
+
+If you want to **see the protocol in action**, run the executable reference flow:
+node examples/reference-flow.js
+If you want to **understand how it works**, follow the annotated walkthrough:
+examples/REFERENCE_FLOW.md
+If you want to **study the protocol design**, read:
+
+- `docs/WHITEPAPER.md`
+- `docs/protocol-spec.md`
+
+If you want to **evaluate trust, governance, and accountability separation**, inspect:
+
+- `docs/conformance.md`
+- `src/policy/`
+- `examples/conformance-c19.js`
+- `examples/conformance-c20.js`
+
+QuantumKey Protocol does not decide what should be trusted.
+
+It provides the evidence required to decide whether something *can* be trusted.
+
+This repository is intentionally structured so that understanding does not require belief — only inspection.
+
+
+---
+
+## Closing Perspective
+
+QuantumKey Protocol is not an opinion about how systems *should* behave.  
+It is a structure that records how systems *did* behave — and under which declared rules that behavior was accepted or rejected.
+
+By separating:
+
+- intent from execution  
+- evidence from interpretation  
+- verification from trust  
+
+QKP enables accountability without central authority, governance without opacity, and coordination without implicit assumptions.
+
+This repository is intentionally designed to be:
+
+- Readable — concepts before complexity  
+- Executable — behavior before theory  
+- Verifiable — evidence before trust  
+
+If you can run the reference flow, inspect the artifacts, and verify the outcomes, you do not need to *believe* in QuantumKey Protocol.
+
+You can verify it.
+
+That is the protocol’s core promise.
+
+
+---
+
 ## 🧭 Overview
 
 QuantumKey Protocol is a unified digital architecture connecting **human intent**, **verifiable identity**, **autonomous agents**, **semantic machine intelligence**, and **alignment-driven governance** into a single harmonic framework.
