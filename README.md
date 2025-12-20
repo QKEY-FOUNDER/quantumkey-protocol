@@ -36,7 +36,59 @@ It becomes a **verifiable outcome of evidence**.
 QuantumKey Protocol is not a blockchain, not a DAO framework, and not a trust authority.  
 It is a **foundational protocol layer** that enables accountable execution, governance, and coordination across humans, agents, and systems — without centralized control.
 
+## Choose your path
 
+QuantumKey Protocol is designed to be approached from different perspectives.  
+Select the path that best matches your role and intent.
+
+### 👩‍💻 Engineers & Builders
+
+If you want to understand **how QKP works in practice**:
+
+- Run the executable reference flow  
+  `node examples/reference-flow.js`
+
+- Read the annotated walkthrough  
+  `examples/REFERENCE_FLOW.md`
+
+- Explore the core primitives  
+  `src/graph/`  
+  `src/identity/`  
+  `src/policy/`
+
+The reference flow is a **living, executable specification** of the protocol.
+
+---
+
+### 🧠 Researchers & Architects
+
+If you want to understand **why QKP exists and how it is designed**:
+
+- Read the whitepaper  
+  `docs/WHITEPAPER.md`
+
+- Study the protocol specification  
+  `docs/protocol-spec.md`
+
+- Review the technical cross-reference map  
+  Appendix B (WHITEPAPER.md)
+
+---
+
+### 🛡️ Auditors & Governance Designers
+
+If you want to understand **verifiability, accountability, and trust separation**:
+
+- Review conformance coverage  
+  `docs/conformance.md`
+
+- Inspect the trust policy and attestation layer  
+  `src/policy/`
+
+- Review acceptance and attestation examples  
+  `examples/conformance-c19.js`  
+  `examples/conformance-c20.js`
+  
 ---
 
 ## 🧭 Overview
