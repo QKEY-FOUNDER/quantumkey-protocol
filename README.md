@@ -91,6 +91,32 @@ If you want to understand **verifiability, accountability, and trust separation*
   
 ---
 
+## Design Principles
+
+QuantumKey Protocol is designed around a small set of explicit principles that guide every architectural and governance decision.
+
+These principles are not slogans — they are enforced structurally by the protocol.
+
+**Verifiability over trust**  
+QKP does not assume trust. Every meaningful action must be provable through cryptographic evidence.
+
+**Structure over interpretation**  
+Accountability emerges from explicit causal structures, not from informal narratives or mutable logs.
+
+**Cryptography before policy**  
+Cryptographic validity is evaluated first. Trust policies are applied only after facts are verified.
+
+**Auditability without surveillance**  
+QKP produces audit-grade evidence by construction, without requiring continuous monitoring or invasive observation.
+
+**Federation without centralization**  
+Independent systems can coordinate and compose accountability without surrendering sovereignty.
+
+QKP does not decide *what* should be trusted.  
+It provides the evidence required to decide *whether* something can be trusted.
+
+---
+
 ## 🧭 Overview
 
 QuantumKey Protocol is a unified digital architecture connecting **human intent**, **verifiable identity**, **autonomous agents**, **semantic machine intelligence**, and **alignment-driven governance** into a single harmonic framework.
