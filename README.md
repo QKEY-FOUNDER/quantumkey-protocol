@@ -291,6 +291,7 @@ docs/ └── architecture/ ├── DAO_Constitution_v0.1.md ├── Ident
 
 # 🗂 Folder Structure
 
+```text
 quantumkey-protocol/
 ├── README.md
 ├── index.md
@@ -361,6 +362,8 @@ quantumkey-protocol/
 │   └── .keep
 │
 └── .keep
+```
+
 ---
 
 # 📜 Legacy Documents
