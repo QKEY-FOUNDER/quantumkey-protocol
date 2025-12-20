@@ -6,6 +6,39 @@
 
 ---
 
+## What is QuantumKey Protocol?
+
+QuantumKey Protocol (QKP) is a protocol for **verifiable accountability** across autonomous and federated systems.
+
+Modern digital systems increasingly rely on autonomous agents, distributed execution, and cross-organizational coordination. Yet trust in these environments is still based on assumptions: trusted operators, trusted logs, trusted platforms, trusted intermediaries.
+
+QKP replaces these assumptions with **cryptographic evidence**.
+
+Instead of asking *who* to trust, QKP enables systems to verify:
+
+- **What was intended**
+- **Who declared it**
+- **What was authorized**
+- **What actually happened**
+- **Under which rules it was accepted or rejected**
+
+All as explicit, signed, and auditable artifacts.
+
+QKP introduces a clear separation between:
+
+- **Cryptographic truth** — what can be verified
+- **Causality** — how actions are related
+- **Trust** — whether a verifier accepts the result
+
+Trust is no longer implicit.  
+It becomes a **verifiable outcome of evidence**.
+
+QuantumKey Protocol is not a blockchain, not a DAO framework, and not a trust authority.  
+It is a **foundational protocol layer** that enables accountable execution, governance, and coordination across humans, agents, and systems — without centralized control.
+
+
+---
+
 ## 🧭 Overview
 
 QuantumKey Protocol is a unified digital architecture connecting **human intent**, **verifiable identity**, **autonomous agents**, **semantic machine intelligence**, and **alignment-driven governance** into a single harmonic framework.
