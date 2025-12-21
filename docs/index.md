@@ -341,6 +341,58 @@ It is about **making meaning, responsibility, and trust provable**.
 
 ---
 
+## 🔑 Canonical Sources of Truth
+
+The QuantumKey Protocol is intentionally defined across **three distinct public surfaces**, each with a clear and non-overlapping role.
+
+### 1. Canonical Layer — What *is* true
+**`docs/CANONICAL_STATEMENT.md`**
+
+This document defines the **non-negotiable public truth** of the protocol.
+It is the authoritative reference for:
+
+- What the QuantumKey Protocol *is*
+- What it explicitly *is not*
+- The invariants that MUST NOT diverge across implementations or explanations
+
+If there is ever ambiguity, this document prevails.
+
+---
+
+### 2. Conceptual Layer — Why it exists
+**`docs/WHITEPAPER.md`**
+
+The whitepaper explains:
+
+- The problem space QKP addresses
+- The philosophical and architectural foundations
+- The design rationale behind the protocol
+
+It provides understanding, not authority.
+It MUST align with the Canonical Statement.
+
+---
+
+### 3. Operational Layer — How it works
+**`qkp-sdk/`**
+
+The SDK is the **executable surface** of the protocol.
+
+It contains:
+- Reference implementations
+- Conformance tests (C1–C20)
+- An executable reference flow
+
+The SDK demonstrates how the canonical protocol behaves in practice.
+It MUST conform to the specification and canonical definitions.
+
+---
+
+All other documents, pages, and websites **point to these three layers**.
+None of them redefine the protocol.
+
+---
+
 ## Canonical statement
 
 Read the canonical public statement:
