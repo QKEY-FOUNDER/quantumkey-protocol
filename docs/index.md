@@ -149,6 +149,95 @@ Launch readiness is documented here:
 QuantumKey Protocol is not a promise.
 It is a **verifiable protocol surface**, ready to be inspected, adopted, and extended.
 
+---
+
+## How to Adopt QuantumKey Protocol
+
+QuantumKey Protocol can be adopted at different levels, depending on your role and intent.
+
+Choose the entry point that matches **what you want to build or evaluate**.
+
+---
+
+### 🧠 Protocol-Level Adoption (Conceptual & Normative)
+
+Use this path if you want to:
+
+- Understand the protocol as a **formal system**
+- Evaluate trust, accountability, and governance models
+- Reference QKP in research, policy, or architecture design
+
+Start here:
+
+- Canonical protocol statement  
+  `docs/CANONICAL_STATEMENT.md`
+
+- Full protocol specification  
+  `docs/protocol-spec.md`
+
+- Whitepaper (conceptual foundation)  
+  `docs/WHITEPAPER.md`
+
+This path is **implementation-agnostic**.
+
+---
+
+### 🛠️ SDK-Level Adoption (Practical & Executable)
+
+Use this path if you want to:
+
+- Integrate QKP into software
+- Execute accountability flows
+- Experiment with chains, aggregation, and trust evaluation
+
+Start here:
+
+- SDK entry point  
+  `qkp-sdk/README.md`
+
+- Executable reference flow  
+  `qkp-sdk/examples/reference-flow.js`
+
+- Annotated walkthrough  
+  `qkp-sdk/examples/REFERENCE_FLOW.md`
+
+This path is **code-first and testable**.
+
+---
+
+### 🌍 Public & Ecosystem Adoption
+
+Use this path if you want to:
+
+- Present QKP publicly
+- Explain the protocol to non-technical audiences
+- Reference QKP as an external system
+
+Start here:
+
+- Public website  
+  `/index.html`
+
+- Externalization narrative  
+  `docs/EXTERNALIZATION.md`
+
+- Brand and messaging guidelines  
+  `Brand-Guidelines.md`
+
+This path focuses on **clarity and positioning**, not implementation detail.
+
+---
+
+### 🔑 One Protocol, Multiple Surfaces
+
+All adoption paths refer to the **same canonical protocol**.
+
+- No duplicated truth
+- No diverging semantics
+- No hidden assumptions
+
+QuantumKey Protocol is designed to be:
+**readable, executable, and verifiable** — at every level.
 
 ---
 
