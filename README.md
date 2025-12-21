@@ -14,36 +14,40 @@
 > `node examples/reference-flow.js`
 
 ---
+## Start here
 
-## What is QuantumKey Protocol?
+This repository is the canonical source for the QuantumKey Protocol (QKP).
 
-QuantumKey Protocol (QKP) is a protocol for **verifiable accountability** across autonomous and federated systems.
+It intentionally does **not duplicate** the specification, whitepaper, or governance documents.
+Instead, it points to the authoritative entry points.
 
-Modern digital systems increasingly rely on autonomous agents, distributed execution, and cross-organizational coordination. Yet trust in these environments is still based on assumptions: trusted operators, trusted logs, trusted platforms, trusted intermediaries.
+### Canonical entry points
 
-QKP replaces these assumptions with **cryptographic evidence**.
+- Public protocol index and navigation  
+  `docs/index.md`
 
-Instead of asking *who* to trust, QKP enables systems to verify:
+- Canonical protocol statement  
+  `docs/CANONICAL_STATEMENT.md`
 
-- **What was intended**
-- **Who declared it**
-- **What was authorized**
-- **What actually happened**
-- **Under which rules it was accepted or rejected**
+- Full protocol specification  
+  `docs/protocol-spec.md`
 
-All as explicit, signed, and auditable artifacts.
+- Whitepaper (design rationale and vision)  
+  `docs/WHITEPAPER.md`
 
-QKP introduces a clear separation between:
+- Executable reference flow (living specification)  
+  `examples/reference-flow.js`
 
-- **Cryptographic truth** — what can be verified
-- **Causality** — how actions are related
-- **Trust** — whether a verifier accepts the result
+- Conformance test suite (C1–C20)  
+  `docs/conformance.md`
 
-Trust is no longer implicit.  
-It becomes a **verifiable outcome of evidence**.
+---
 
-QuantumKey Protocol is not a blockchain, not a DAO framework, and not a trust authority.  
-It is a **foundational protocol layer** that enables accountable execution, governance, and coordination across humans, agents, and systems — without centralized control.
+If you are new to QKP, start with `docs/index.md`.
+If you can run and understand the reference flow, you understand the core of the protocol.
+
+
+---
 
 ## Choose your path
 
