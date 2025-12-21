@@ -36,7 +36,8 @@
   </header>
 
   <!-- side menu (mobile) -->
-  <nav id="sideMenu" class="main-nav mobile-open" aria-hidden="true" hidden>
+  <!-- IMPORTANT: do NOT start with "mobile-open" class -->
+  <nav id="sideMenu" class="main-nav" aria-hidden="true" hidden>
     <ul>
       <!-- Using MD pages in the repo to avoid duplicate PDF links -->
       <li><a href="docs/architecture/DAO_Constitution_v0.1.md">DAO (MD)</a></li>
@@ -103,34 +104,48 @@
     <small>QuantumKey — living protocol. Author: Mihail Chiosa.</small>
   </footer>
 
-  <!-- minimal JS to open/close mobile side menu and keep ARIA updated -->
+  <!-- Single, consistent menu controller (no duplicates) -->
   <script>
     (function () {
       const menuToggle = document.getElementById('menuToggle');
       const sideMenu = document.getElementById('sideMenu');
 
+      if (!menuToggle || !sideMenu) {
+        console.warn('Menu toggle or sideMenu not found. Check IDs: menuToggle, sideMenu');
+        return;
+      }
+
       function openMenu() {
         sideMenu.hidden = false;
+        sideMenu.classList.add('mobile-open');
         sideMenu.setAttribute('aria-hidden', 'false');
         menuToggle.setAttribute('aria-expanded', 'true');
       }
+
       function closeMenu() {
+        sideMenu.classList.remove('mobile-open');
         sideMenu.hidden = true;
         sideMenu.setAttribute('aria-hidden', 'true');
         menuToggle.setAttribute('aria-expanded', 'false');
       }
 
-      menuToggle.addEventListener('click', () => {
-        if (sideMenu.hidden) openMenu();
-        else closeMenu();
-      });
+      function toggleMenu(e) {
+        const isOpen = sideMenu.classList.contains('mobile-open') && sideMenu.hidden === false;
+        if (isOpen) closeMenu();
+        else openMenu();
+        e.stopPropagation();
+      }
+
+      // initial: closed
+      closeMenu();
+
+      menuToggle.addEventListener('click', toggleMenu);
 
       // close menu when clicking outside
       document.addEventListener('click', (e) => {
-        if (!sideMenu.hidden) {
-          const inside = sideMenu.contains(e.target) || menuToggle.contains(e.target);
-          if (!inside) closeMenu();
-        }
+        if (sideMenu.hidden) return;
+        const inside = sideMenu.contains(e.target) || menuToggle.contains(e.target);
+        if (!inside) closeMenu();
       });
 
       // close on Escape
@@ -138,56 +153,9 @@
         if (e.key === 'Escape') closeMenu();
       });
 
-      // keep menu hidden by default on load for mobile
-      closeMenu();
+      // keep closed on reloads
+      window.addEventListener('load', closeMenu);
     })();
-  </script>
-  <script>
-/* Robust menu toggle for start.html */
-(function () {
-  // IDs e classes esperadas — confirma correspondência com o teu HTML
-  const menuToggle = document.getElementById('menuToggle');
-  const sideMenu = document.getElementById('sideMenu');
-
-  if (!menuToggle || !sideMenu) {
-    // Se houver mismatch, tenta procurar por alternativas e loga
-    console.warn('Menu toggle or sideMenu not found. Check IDs: menuToggle, sideMenu');
-    return;
-  }
-
-  // garantir estado inicial: fechado
-  sideMenu.classList.remove('mobile-open');
-  sideMenu.setAttribute('aria-hidden', 'true');
-  menuToggle.setAttribute('aria-expanded', 'false');
-
-  // funçao que alterna o menu
-  function toggleMenu(e) {
-    const isOpen = sideMenu.classList.toggle('mobile-open');
-    sideMenu.setAttribute('aria-hidden', String(!isOpen));
-    menuToggle.setAttribute('aria-expanded', String(isOpen));
-    e.stopPropagation();
-  }
-
-  menuToggle.addEventListener('click', toggleMenu);
-
-  // fecha o menu ao clicar fora
-  document.addEventListener('click', function (ev) {
-    if (!sideMenu.classList.contains('mobile-open')) return;
-    const inside = sideMenu.contains(ev.target) || menuToggle.contains(ev.target);
-    if (!inside) {
-      sideMenu.classList.remove('mobile-open');
-      sideMenu.setAttribute('aria-hidden', 'true');
-      menuToggle.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  // evita o menu a abrir por atalhos ou reloads inesperados
-  window.addEventListener('load', function () {
-    sideMenu.classList.remove('mobile-open');
-    sideMenu.setAttribute('aria-hidden', 'true');
-    menuToggle.setAttribute('aria-expanded', 'false');
-  });
-})();
   </script>
 </body>
 </html>
