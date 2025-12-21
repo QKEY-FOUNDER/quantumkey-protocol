@@ -11,6 +11,15 @@ It does not duplicate the specification or whitepaper. It points to canonical so
 
 ---
 
+> **QuantumKey Protocol (QKP)** is a protocol for **verifiable accountability** across autonomous and federated systems.
+>
+> It replaces implicit trust with **cryptographic evidence**, **explicit causality**, and **signed acceptance decisions**.
+>
+> ▶ **Run the protocol now:**  
+> `node examples/reference-flow.js`
+
+---
+
 ## Canonical statement
 
 Read the canonical public statement:
