@@ -239,6 +239,106 @@ All adoption paths refer to the **same canonical protocol**.
 QuantumKey Protocol is designed to be:
 **readable, executable, and verifiable** — at every level.
 
+
+---
+
+## Getting Started in 5 Minutes
+
+If you only read one section of this site, read this one.
+
+QuantumKey Protocol (QKP) exists to solve a single, structural problem:
+
+**Modern systems execute actions, but cannot prove intent, responsibility, or trust.**
+
+---
+
+### The Core Idea
+
+Most digital systems ask:
+
+> “Who do we trust?”
+
+QuantumKey changes the question to:
+
+> **“What can be proven?”**
+
+QKP does not introduce a new authority, consensus mechanism, or reputation system.
+
+It introduces **cryptographic evidence** for:
+
+- What was intended
+- Who declared it
+- What was authorized
+- What actually happened
+- Under which rules it was accepted or rejected
+
+Trust becomes a **verifiable outcome**, not an assumption.
+
+---
+
+### What QKP Is (in one paragraph)
+
+QuantumKey Protocol is a protocol for **verifiable accountability** across autonomous and federated systems.
+
+It uses canonical data structures, cryptographic signatures, causal graphs, aggregation, and explicit trust policies to ensure that actions, decisions, and governance processes can be independently verified — without centralized control.
+
+---
+
+### What QKP Is Not
+
+QKP is **not**:
+
+- A blockchain
+- A DAO framework
+- A consensus network
+- A trust authority
+- An AI model
+
+QKP can work *with* all of the above, but replaces none of them.
+
+---
+
+### How QKP Is Used in Practice
+
+In practice, QKP allows systems to:
+
+- Declare intent explicitly
+- Bind actions to identities
+- Record execution as evidence
+- Aggregate accountability over time and domains
+- Evaluate trust separately from cryptographic validity
+- Attest acceptance or rejection without rewriting history
+
+All of this is demonstrated in the executable reference flow.
+
+---
+
+### Your Next Step
+
+If this makes sense to you:
+
+- Run the reference flow  
+  `qkp-sdk/examples/reference-flow.js`
+
+- Read the annotated walkthrough  
+  `qkp-sdk/examples/REFERENCE_FLOW.md`
+
+If you want deeper understanding:
+
+- Read the whitepaper  
+  `docs/WHITEPAPER.md`
+
+If you want formal definitions:
+
+- Read the protocol specification  
+  `docs/protocol-spec.md`
+
+---
+
+QuantumKey Protocol is not about speed, hype, or control.
+
+It is about **making meaning, responsibility, and trust provable**.
+
 ---
 
 ## Canonical statement
