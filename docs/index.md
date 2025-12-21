@@ -20,6 +20,55 @@ It does not duplicate the specification or whitepaper. It points to canonical so
 
 ---
 
+## Choose your path
+
+QuantumKey Protocol can be approached from different perspectives.
+Select the path that best matches your intent.
+
+### 👩‍💻 Builders & Engineers
+If you want to **see QKP in action** and build with it:
+
+- Run the executable reference flow  
+  `examples/reference-flow.js`
+
+- Follow the annotated walkthrough  
+  `examples/REFERENCE_FLOW.md`
+
+- Explore the core SDK primitives  
+  `src/graph/` · `src/identity/` · `src/claims/` · `src/execution/` · `src/policy/`
+
+---
+
+### 🧠 Researchers & Architects
+If you want to **understand why QKP exists and how it is designed**:
+
+- Read the Whitepaper  
+  `docs/WHITEPAPER.md`
+
+- Study the normative protocol specification  
+  `docs/protocol-spec.md`
+
+- Review the technical cross-reference map  
+  Appendix B — `docs/WHITEPAPER.md`
+
+---
+
+### 🛡️ Governance Designers & Auditors
+If you want to **evaluate trust, accountability, and governance separation**:
+
+- Review conformance coverage  
+  `docs/conformance.md`
+
+- Inspect the acceptance and attestation layer  
+  `src/policy/`
+
+- Examine end-to-end trust cases  
+  `examples/conformance-c19.js`  
+  `examples/conformance-c20.js`
+
+---
+
+
 ## Canonical statement
 
 Read the canonical public statement:
