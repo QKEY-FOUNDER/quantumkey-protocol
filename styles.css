@@ -124,3 +124,49 @@ body{
   .btn-gradient{width:100%}
   .logo-large{width:86%}
    }
+/* ==========================================================
+   READABILITY FIX — DOCUMENT PAGES
+   Limits line length and improves mobile reading
+   ========================================================== */
+
+/* container base para conteúdo textual */
+main,
+.container,
+.content,
+.md-viewer {
+  max-width: 860px;        /* largura ideal para leitura */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+/* texto principal */
+.md-viewer p,
+.md-viewer li,
+.md-viewer blockquote {
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+/* títulos mais equilibrados */
+.md-viewer h1,
+.md-viewer h2,
+.md-viewer h3 {
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* mobile refinement */
+@media (max-width: 720px) {
+  .md-viewer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .md-viewer p,
+  .md-viewer li {
+    font-size: 16px;
+  }
+}
