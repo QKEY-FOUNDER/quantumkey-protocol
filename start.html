@@ -7,10 +7,10 @@
 
   <!-- global site styles -->
   <link rel="stylesheet" href="styles.css">
-  <!-- page-specific overrides for Start Here -->
+  <!-- page-specific overrides -->
   <link rel="stylesheet" href="start.css">
 
-  <meta name="description" content="Quick entry point for the QuantumKey Protocol — how to participate, where core docs live and next steps.">
+  <meta name="description" content="Start here for the QuantumKey Protocol — how to read, evaluate, and use the protocol.">
 </head>
 <body class="start-page">
 
@@ -32,44 +32,25 @@
     <!-- main nav (desktop) -->
     <nav class="main-nav" role="navigation" aria-label="Main">
       <a class="btn-ghost" href="index.html">Home</a>
-      <a class="btn-ghost"
-         href="https://github.com/qkey-founder/quantumkey-protocol/blob/main/docs/WHITEPAPER.md"
-         target="_blank" rel="noopener">Whitepaper</a>
-      <a class="btn-ghost"
-         href="https://github.com/qkey-founder/quantumkey-protocol/blob/main/docs/architecture/Tokenomics_v0.1.md"
-         target="_blank" rel="noopener">Tokenomics</a>
+      <a class="btn-ghost" href="docs/whitepaper.html">Whitepaper</a>
+      <a class="btn-ghost" href="docs/tokenomics.html">Tokenomics</a>
     </nav>
   </header>
 
   <!-- side menu (mobile) -->
   <nav id="sideMenu" class="main-nav" aria-hidden="true" hidden>
     <ul>
-      <li>
-        <a href="https://github.com/qkey-founder/quantumkey-protocol/blob/main/docs/architecture/DAO_Constitution_v0.1.md"
-           target="_blank" rel="noopener">DAO Constitution</a>
-      </li>
-      <li>
-        <a href="https://github.com/qkey-founder/quantumkey-protocol/blob/main/docs/architecture/Identity_Crypto_Spec_v0.1.md"
-           target="_blank" rel="noopener">Identity Spec</a>
-      </li>
-      <li>
-        <a href="https://github.com/qkey-founder/quantumkey-protocol/blob/main/docs/architecture/Protocol_Message_Formats_v0.1.md"
-           target="_blank" rel="noopener">Protocol Formats</a>
-      </li>
-      <li>
-        <a href="https://github.com/qkey-founder/quantumkey-protocol/blob/main/docs/WHITEPAPER.md"
-           target="_blank" rel="noopener">Whitepaper</a>
-      </li>
-      <li>
-        <a href="https://github.com/qkey-founder/quantumkey-protocol/blob/main/docs/architecture/Tokenomics_v0.1.md"
-           target="_blank" rel="noopener">Tokenomics</a>
-      </li>
+      <li><a href="docs/dao.html">DAO Constitution</a></li>
+      <li><a href="docs/identity.html">Identity Spec</a></li>
+      <li><a href="docs/protocol.html">Protocol Formats</a></li>
+      <li><a href="docs/whitepaper.html">Whitepaper</a></li>
+      <li><a href="docs/tokenomics.html">Tokenomics</a></li>
     </ul>
   </nav>
 
   <main id="main" class="container" role="main">
 
-    <!-- hero section -->
+    <!-- hero -->
     <section class="hero">
       <div class="hero-card" aria-hidden="true">
         <div class="hero-logo" role="img" aria-label="QuantumKey mark">
@@ -82,21 +63,15 @@
       <h1 class="hero-title">Start Here — QuantumKey Protocol</h1>
 
       <p class="hero-sub lead">
-        Welcome to the entry point of the QuantumKey Protocol.
-        This page helps you understand what the protocol is,
-        how to participate, and where to find the core documents
-        and executable tools.
+        This is the fastest entry point to understand what the QuantumKey Protocol is,
+        how to read it correctly, and how to begin evaluating or using it.
       </p>
 
       <div class="hero-cta" role="region" aria-label="Quick resources">
-        <a class="btn-gradient cta-primary"
-           href="https://github.com/qkey-founder/quantumkey-protocol/blob/main/docs/WHITEPAPER.md"
-           target="_blank" rel="noopener">
+        <a class="btn-gradient cta-primary" href="docs/whitepaper.html">
           Read Whitepaper
         </a>
-        <a class="btn-gradient outline cta-primary"
-           href="https://github.com/qkey-founder/quantumkey-protocol/blob/main/docs/architecture/Tokenomics_v0.1.md"
-           target="_blank" rel="noopener">
+        <a class="btn-gradient outline cta-primary" href="docs/tokenomics.html">
           Tokenomics
         </a>
       </div>
@@ -107,39 +82,22 @@
 
       <h2>What is the QuantumKey Protocol?</h2>
       <p>
-        A unified architecture that enables verifiable accountability
-        by making intent, execution, and trust decisions cryptographically provable.
+        A protocol for verifiable accountability that makes intent, execution,
+        and trust decisions cryptographically provable across autonomous and federated systems.
       </p>
 
       <h2>Who is it for?</h2>
       <p>
-        Engineers, researchers, protocol designers, auditors,
-        and organizations building autonomous or federated systems
-        where accountability matters.
+        Engineers, researchers, auditors, protocol designers,
+        and organizations building systems where accountability matters.
       </p>
 
-      <h2>How to participate</h2>
+      <h2>How to proceed</h2>
       <ol>
-        <li>Read the core documents linked above.</li>
-        <li>Explore the SDK and reference flows.</li>
-        <li>Open issues or submit pull requests on GitHub.</li>
-        <li>Participate in discussions and reviews.</li>
-      </ol>
-
-      <h2>Roadmap — Next Steps</h2>
-      <ol>
-        <li>
-          <strong>Living documentation</strong> —
-          keep specifications aligned with executable evidence.
-        </li>
-        <li>
-          <strong>Executable examples</strong> —
-          expand reference flows and conformance tests.
-        </li>
-        <li>
-          <strong>SDK evolution</strong> —
-          grow modules without mutating core protocol semantics.
-        </li>
+        <li>Read the Whitepaper for conceptual grounding.</li>
+        <li>Inspect protocol and identity specifications.</li>
+        <li>Evaluate governance, conformance, and freeze guarantees.</li>
+        <li>Explore the SDK for executable reference behavior.</li>
       </ol>
 
       <p class="repo-link">
@@ -155,7 +113,7 @@
     <small>QuantumKey — living protocol. Author: Mihail Chiosa.</small>
   </footer>
 
-  <!-- single menu controller -->
+  <!-- menu controller -->
   <script>
     (function () {
       const menuToggle = document.getElementById('menuToggle');
