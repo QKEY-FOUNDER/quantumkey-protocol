@@ -5,6 +5,7 @@ title: "QuantumKey Protocol (QKP)"
 # QuantumKey Protocol (QKP)
 
 QKP is a protocol for verifiable accountability across autonomous and federated systems.
+**It makes intent, execution, and trust decisions independently verifiable.**
 
 This page is a **minimal public index** for the QuantumKey Protocol.  
 It does **not** duplicate the specification or the whitepaper.  
@@ -18,6 +19,54 @@ It points to **canonical sources of truth**.
 >
 > ▶ **Run the protocol now:**  
 > `node examples/reference-flow.js`
+
+---
+
+## Protocol Status & Credibility
+
+QuantumKey Protocol (QKP) has reached **protocol maturity**.
+
+This repository represents a **stable, frozen, and verifiable reference** of the protocol.
+
+---
+
+### ✅ Current Status
+
+- **Protocol version:** v1.0 (frozen)
+- **Core primitives:** fully specified and implemented
+- **Conformance coverage:** C1–C20 passing
+- **Breaking changes:** not permitted outside explicit version upgrades
+
+The protocol is designed to be extended **without mutating its core semantics**.
+
+---
+
+### 🔒 Protocol Freeze & Versioning
+
+The v1.0 protocol freeze is formally declared and documented:
+
+- Protocol freeze declaration  
+  `docs/PROTOCOL_FREEZE_v1.0.md`
+
+- Versioning rules and guarantees  
+  `docs/VERSIONING.md`
+
+This ensures long-term stability for adopters and implementers.
+
+---
+
+### 🧪 Verifiability & Conformance
+
+QKP does not rely on claims of correctness.  
+It provides **executable proof**.
+
+- Conformance specification  
+  `docs/conformance.md`
+
+- Executable conformance tests  
+  `examples/conformance-c*.js`
+
+Every core concept is mapped to a **testable, verifiable artifact**.
 
 ---
 
@@ -71,54 +120,6 @@ If you want to **evaluate trust, accountability, and governance separation**:
 - Examine end-to-end trust cases  
   `examples/conformance-c19.js`  
   `examples/conformance-c20.js`
-
----
-
-## Protocol Status & Credibility
-
-QuantumKey Protocol (QKP) has reached **protocol maturity**.
-
-This repository represents a **stable, frozen, and verifiable reference** of the protocol.
-
----
-
-### ✅ Current Status
-
-- **Protocol version:** v1.0 (frozen)
-- **Core primitives:** fully specified and implemented
-- **Conformance coverage:** C1–C20 passing
-- **Breaking changes:** not permitted outside explicit version upgrades
-
-The protocol is designed to be extended **without mutating its core semantics**.
-
----
-
-### 🔒 Protocol Freeze & Versioning
-
-The v1.0 protocol freeze is formally declared and documented:
-
-- Protocol freeze declaration  
-  `docs/PROTOCOL_FREEZE_v1.0.md`
-
-- Versioning rules and guarantees  
-  `docs/VERSIONING.md`
-
-This ensures long-term stability for adopters and implementers.
-
----
-
-### 🧪 Verifiability & Conformance
-
-QKP does not rely on claims of correctness.  
-It provides **executable proof**.
-
-- Conformance specification  
-  `docs/conformance.md`
-
-- Executable conformance tests  
-  `examples/conformance-c*.js`
-
-Every core concept is mapped to a **testable, verifiable artifact**.
 
 ---
 
@@ -295,6 +296,30 @@ It MUST conform to the specification and canonical definitions.
 
 All other documents, pages, and websites **point to these three layers**.  
 None of them redefine the protocol.
+
+---
+
+## What to do next
+
+If you want to verify QuantumKey Protocol:
+
+- Run the executable reference flow  
+  `examples/reference-flow.js`
+
+If you want to understand its design:
+
+- Read the Whitepaper  
+  `docs/WHITEPAPER.md`
+
+If you want to evaluate trust and governance:
+
+- Review conformance and acceptance  
+  `docs/conformance.md`
+
+No registration.  
+No permission.  
+Only verification.
+
 
 ---
 
