@@ -296,31 +296,6 @@ Additional documents expanding the conceptual and operational foundations:
 
 Early conceptual architecture documents (v0.1), maintained as historical and developmental references:
 
-```text
-docs/
-└── architecture/
-    ├── DAO_Constitution_v0.1.md
-    │   └── Governance principles, constitutional rules, and decision boundaries
-    │
-    ├── Identity_Crypto_Spec_v0.1.md
-    │   └── Cryptographic identity model (HID, AID, CID, SID)
-    │
-    ├── Protocol_Message_Formats_v0.1.md
-    │   └── Canonical message and envelope formats (QIE)
-    │
-    ├── Roadmap_2025_2027_v0.1.md
-    │   └── Phased evolution from foundation to mainnet
-    │
-    ├── SAS_v0.1.md
-    │   └── Semantic Alignment System and validation principles
-    │
-    ├── Testnet_Architecture_v0.1.md
-    │   └── Testnet topology, validation flows, and simulation layers
-    │
-    └── Tokenomics_v0.1.md
-        └── Economic model, incentives, and non-plutocratic constraints
-```
-
 > These files capture the technical foundation and thought process leading to version 1.0.
 
 ---
@@ -329,39 +304,41 @@ docs/
 
 ```text
 quantumkey-protocol/
-├── README.md
-├── index.md
-├── index.html
-├── start.html
-├── script.js
-├── start.css
-├── styles.css
-├── Brand-Guidelines.md
-├── BASELINE_REFERENCE.md
-├── EXECUTIVE_SUMMARY.md
-├── EXTERNALIZATION.md
-├── MASTER_DOCUMENT.md
-├── QuantumKey_Protocol.md
-├── RFC_INDEX.md
-├── WHITEPAPER.md
+├── README.md                      # Public entry (canonical pointers only)
+├── index.md                       # Jekyll index (docs hub)
+├── index.html                     # Public landing page
+├── start.html                     # Start Here interactive entry
+├── script.js                      # Site navigation logic
+├── styles.css                     # Global site styles
+├── start.css                      # Start page specific styles
+│
+├── Brand-Guidelines.md            # Brand & messaging rules
+├── BASELINE_REFERENCE.md          # Baseline reference snapshot
+├── EXECUTIVE_SUMMARY.md           # Executive overview
+├── EXTERNALIZATION.md             # Public narrative & positioning
+├── MASTER_DOCUMENT.md             # Internal master reference
+├── QuantumKey_Protocol.md         # Unified protocol narrative
+├── RFC_INDEX.md                   # RFC-style document index
+├── WHITEPAPER.md                  # Conceptual whitepaper (MD)
+│
 ├── favicon.svg
 ├── quantumkey-logo.svg
 │
 ├── docs/
-│   ├── index.md
-│   ├── VOCABULARY.md
-│   ├── architecture.md
-│   ├── conformance.md
-│   ├── protocol-spec.md
-│   ├── roadmap.md
+│   ├── index.md                   # Documentation hub
+│   ├── VOCABULARY.md              # Canonical vocabulary
+│   ├── architecture.md            # High-level architecture overview
+│   ├── conformance.md             # Conformance specification
+│   ├── protocol-spec.md           # Normative protocol specification
+│   ├── roadmap.md                 # Public roadmap
 │   │
-│   ├── CANONICAL_STATEMENT.md
-│   ├── PROTOCOL_FREEZE_v1.0.md
-│   ├── GOVERNANCE_SNAPSHOT_v1.0.md
-│   ├── LAUNCH_READINESS.md
-│   ├── VERSIONING.md
-│   ├── START_HERE.md
-│   ├── CONTRIBUTING.md
+│   ├── CANONICAL_STATEMENT.md     # Non-negotiable protocol truth
+│   ├── PROTOCOL_FREEZE_v1.0.md    # v1.0 freeze declaration
+│   ├── GOVERNANCE_SNAPSHOT_v1.0.md# Governance snapshot
+│   ├── LAUNCH_READINESS.md        # Launch readiness checklist
+│   ├── VERSIONING.md              # Versioning rules
+│   ├── START_HERE.md              # Documentation start guide
+│   ├── CONTRIBUTING.md            # Contribution & stewardship model
 │   │
 │   ├── architecture/
 │   │   ├── DAO_Constitution_v0.1.md
@@ -398,6 +375,7 @@ quantumkey-protocol/
 │   └── .keep
 │
 └── .keep
+
 ```
 
 ---
