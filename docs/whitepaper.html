@@ -1,0 +1,9 @@
+---
+layout: default
+title: Whitepaper
+---
+
+<div class="content markdown-body">
+  {% capture md %}{% include_relative WHITEPAPER.md %}{% endcapture %}
+  {{ md | markdownify }}
+</div>
