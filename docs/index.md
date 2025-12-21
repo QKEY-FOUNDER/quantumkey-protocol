@@ -68,6 +68,89 @@ If you want to **evaluate trust, accountability, and governance separation**:
 
 ---
 
+## Protocol Status & Credibility
+
+QuantumKey Protocol (QKP) has reached **protocol maturity**.
+
+This repository represents a **stable, frozen, and verifiable reference** of the protocol.
+
+---
+
+### ✅ Current Status
+
+- **Protocol version:** v1.0 (frozen)
+- **Core primitives:** fully specified and implemented
+- **Conformance coverage:** C1–C20 passing
+- **Breaking changes:** not permitted outside explicit version upgrades
+
+The protocol is designed to be extended **without mutating its core semantics**.
+
+---
+
+### 🔒 Protocol Freeze & Versioning
+
+The v1.0 protocol freeze is formally declared and documented:
+
+- Protocol freeze declaration  
+  `docs/PROTOCOL_FREEZE_v1.0.md`
+
+- Versioning rules and guarantees  
+  `docs/VERSIONING.md`
+
+This ensures long-term stability for adopters and implementers.
+
+---
+
+### 🧪 Verifiability & Conformance
+
+QKP does not rely on claims of correctness.
+It provides executable proof.
+
+- Conformance specification  
+  `docs/conformance.md`
+
+- Executable conformance tests  
+  `examples/conformance-c*.js`
+
+Every core concept is mapped to a testable, verifiable artifact.
+
+---
+
+### 🏛️ Governance & Stewardship
+
+QKP governance is **minimal, explicit, and non-centralized**.
+
+- Governance snapshot (v1.0)  
+  `docs/GOVERNANCE_SNAPSHOT_v1.0.md`
+
+- Contribution and stewardship model  
+  `docs/CONTRIBUTING.md`
+
+Stewardship is **earned through verifiable contribution**, not assigned by authority.
+
+---
+
+### 🌍 Adoption Readiness
+
+QKP is ready for:
+
+- Research and academic use
+- SDK integration and experimentation
+- Governance and policy design
+- Federated and cross-organizational systems
+
+Launch readiness is documented here:
+
+- Launch readiness checklist  
+  `docs/LAUNCH_READINESS.md`
+
+---
+
+QuantumKey Protocol is not a promise.
+It is a **verifiable protocol surface**, ready to be inspected, adopted, and extended.
+
+
+---
 
 ## Canonical statement
 
