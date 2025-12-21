@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Start Here — QuantumKey Protocol</title>
 
-  <!-- global site styles (unchanged) -->
+  <!-- global site styles -->
   <link rel="stylesheet" href="styles.css">
   <!-- page-specific overrides for Start Here -->
   <link rel="stylesheet" href="start.css">
@@ -17,85 +17,136 @@
   <!-- header -->
   <header class="site-header" role="banner">
     <div class="left">
-      <button id="menuToggle" class="hamburger" aria-expanded="false" aria-controls="sideMenu" aria-label="Open menu">
+      <button id="menuToggle" class="hamburger"
+              aria-expanded="false"
+              aria-controls="sideMenu"
+              aria-label="Open menu">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
 
-      <!-- small favicon / home link (keeps header consistent with main site) -->
       <a class="small-logo" href="index.html" aria-label="Home">
         <img class="favicon" src="docs/assets/quantumkey-logo.svg" alt="QuantumKey Logo">
       </a>
     </div>
 
-    <!-- horizontal nav for large screens (kept minimal) -->
+    <!-- main nav (desktop) -->
     <nav class="main-nav" role="navigation" aria-label="Main">
       <a class="btn-ghost" href="index.html">Home</a>
-      <a class="btn-ghost" href="docs/WHITEPAPER.md">Whitepaper (MD)</a>
-      <a class="btn-ghost" href="docs/architecture/Tokenomics_v0.1.md">Tokenomics (MD)</a>
+      <a class="btn-ghost"
+         href="https://github.com/qkey-founder/quantumkey-protocol/blob/main/docs/WHITEPAPER.md"
+         target="_blank" rel="noopener">Whitepaper</a>
+      <a class="btn-ghost"
+         href="https://github.com/qkey-founder/quantumkey-protocol/blob/main/docs/architecture/Tokenomics_v0.1.md"
+         target="_blank" rel="noopener">Tokenomics</a>
     </nav>
   </header>
 
   <!-- side menu (mobile) -->
-  <!-- IMPORTANT: do NOT start with "mobile-open" class -->
   <nav id="sideMenu" class="main-nav" aria-hidden="true" hidden>
     <ul>
-      <!-- Using MD pages in the repo to avoid duplicate PDF links -->
-      <li><a href="docs/architecture/DAO_Constitution_v0.1.md">DAO (MD)</a></li>
-      <li><a href="docs/architecture/Identity_Crypto_Spec_v0.1.md">Identity (MD)</a></li>
-      <li><a href="docs/architecture/Protocol_Message_Formats_v0.1.md">Protocol (MD)</a></li>
-      <li><a href="docs/WHITEPAPER.md">Whitepaper (MD)</a></li>
-      <li><a href="docs/architecture/Tokenomics_v0.1.md">Tokenomics (MD)</a></li>
+      <li>
+        <a href="https://github.com/qkey-founder/quantumkey-protocol/blob/main/docs/architecture/DAO_Constitution_v0.1.md"
+           target="_blank" rel="noopener">DAO Constitution</a>
+      </li>
+      <li>
+        <a href="https://github.com/qkey-founder/quantumkey-protocol/blob/main/docs/architecture/Identity_Crypto_Spec_v0.1.md"
+           target="_blank" rel="noopener">Identity Spec</a>
+      </li>
+      <li>
+        <a href="https://github.com/qkey-founder/quantumkey-protocol/blob/main/docs/architecture/Protocol_Message_Formats_v0.1.md"
+           target="_blank" rel="noopener">Protocol Formats</a>
+      </li>
+      <li>
+        <a href="https://github.com/qkey-founder/quantumkey-protocol/blob/main/docs/WHITEPAPER.md"
+           target="_blank" rel="noopener">Whitepaper</a>
+      </li>
+      <li>
+        <a href="https://github.com/qkey-founder/quantumkey-protocol/blob/main/docs/architecture/Tokenomics_v0.1.md"
+           target="_blank" rel="noopener">Tokenomics</a>
+      </li>
     </ul>
   </nav>
 
   <main id="main" class="container" role="main">
+
     <!-- hero section -->
     <section class="hero">
-      <!-- hero card containing centered large logo -->
       <div class="hero-card" aria-hidden="true">
         <div class="hero-logo" role="img" aria-label="QuantumKey mark">
-          <!-- Use the repository SVG/PNG that already exists. Adjust path if needed. -->
-          <img class="logo-large" src="docs/assets/quantumkey-logo.svg" alt="QuantumKey Logo">
+          <img class="logo-large"
+               src="docs/assets/quantumkey-logo.svg"
+               alt="QuantumKey Logo">
         </div>
       </div>
 
       <h1 class="hero-title">Start Here — QuantumKey Protocol</h1>
+
       <p class="hero-sub lead">
-        Welcome to the entry point of the QuantumKey Protocol. This page is your fast route to understanding the purpose of the protocol, how to participate, what the document structure looks like, and where to find tools to begin experimenting. Choose a route below and let's turn theory into action.
+        Welcome to the entry point of the QuantumKey Protocol.
+        This page helps you understand what the protocol is,
+        how to participate, and where to find the core documents
+        and executable tools.
       </p>
 
-      <!-- single set of CTAs: one link per doc (no duplication) -->
       <div class="hero-cta" role="region" aria-label="Quick resources">
-        <a class="btn-gradient cta-primary" href="docs/WHITEPAPER.md">Read Whitepaper (MD)</a>
-        <a class="btn-gradient outline cta-primary" href="docs/architecture/Tokenomics_v0.1.md">Tokenomics (MD)</a>
+        <a class="btn-gradient cta-primary"
+           href="https://github.com/qkey-founder/quantumkey-protocol/blob/main/docs/WHITEPAPER.md"
+           target="_blank" rel="noopener">
+          Read Whitepaper
+        </a>
+        <a class="btn-gradient outline cta-primary"
+           href="https://github.com/qkey-founder/quantumkey-protocol/blob/main/docs/architecture/Tokenomics_v0.1.md"
+           target="_blank" rel="noopener">
+          Tokenomics
+        </a>
       </div>
     </section>
 
-    <!-- content: concise roadmap & contribution instructions -->
+    <!-- content -->
     <section class="content md-viewer" aria-label="Start content">
+
       <h2>What is the QuantumKey Protocol?</h2>
-      <p>A unified architecture that integrates intent, cryptographic identity, semantic agents, and alignment-oriented governance into a single coherent protocol.</p>
+      <p>
+        A unified architecture that enables verifiable accountability
+        by making intent, execution, and trust decisions cryptographically provable.
+      </p>
 
       <h2>Who is it for?</h2>
-      <p>Researchers, engineers, protocol designers, DAO creators, and curious builders who want to create digital systems aligned with human values.</p>
+      <p>
+        Engineers, researchers, protocol designers, auditors,
+        and organizations building autonomous or federated systems
+        where accountability matters.
+      </p>
 
       <h2>How to participate</h2>
       <ol>
-        <li>Read the core documents (links above).</li>
-        <li>Open issues or submit PRs on GitHub.</li>
-        <li>Contribute to discussions (GitHub Discussions).</li>
-        <li>Test upcoming mini-SDKs when released.</li>
+        <li>Read the core documents linked above.</li>
+        <li>Explore the SDK and reference flows.</li>
+        <li>Open issues or submit pull requests on GitHub.</li>
+        <li>Participate in discussions and reviews.</li>
       </ol>
 
       <h2>Roadmap — Next Steps</h2>
       <ol>
-        <li><strong>Living documentation</strong> — organize MDs and ensure every spec includes examples and message formats.</li>
-        <li><strong>Minimal examples</strong> — add examples to <code>docs/examples/</code> (QIE messages, JSON structures).</li>
-        <li><strong>QKP-SDK repository</strong> — build the first SDK with an initial module (e.g., <code>intent-validator</code>).</li>
+        <li>
+          <strong>Living documentation</strong> —
+          keep specifications aligned with executable evidence.
+        </li>
+        <li>
+          <strong>Executable examples</strong> —
+          expand reference flows and conformance tests.
+        </li>
+        <li>
+          <strong>SDK evolution</strong> —
+          grow modules without mutating core protocol semantics.
+        </li>
       </ol>
 
       <p class="repo-link">
-        <a href="https://github.com/qkey-founder/quantumkey-protocol" target="_blank" rel="noopener">Go to repository</a>
+        <a href="https://github.com/qkey-founder/quantumkey-protocol"
+           target="_blank" rel="noopener">
+          View repository on GitHub
+        </a>
       </p>
     </section>
   </main>
@@ -104,16 +155,13 @@
     <small>QuantumKey — living protocol. Author: Mihail Chiosa.</small>
   </footer>
 
-  <!-- Single, consistent menu controller (no duplicates) -->
+  <!-- single menu controller -->
   <script>
     (function () {
       const menuToggle = document.getElementById('menuToggle');
       const sideMenu = document.getElementById('sideMenu');
 
-      if (!menuToggle || !sideMenu) {
-        console.warn('Menu toggle or sideMenu not found. Check IDs: menuToggle, sideMenu');
-        return;
-      }
+      if (!menuToggle || !sideMenu) return;
 
       function openMenu() {
         sideMenu.hidden = false;
@@ -130,31 +178,25 @@
       }
 
       function toggleMenu(e) {
-        const isOpen = sideMenu.classList.contains('mobile-open') && sideMenu.hidden === false;
+        const isOpen = !sideMenu.hidden;
         if (isOpen) closeMenu();
         else openMenu();
         e.stopPropagation();
       }
 
-      // initial: closed
       closeMenu();
-
       menuToggle.addEventListener('click', toggleMenu);
 
-      // close menu when clicking outside
       document.addEventListener('click', (e) => {
         if (sideMenu.hidden) return;
-        const inside = sideMenu.contains(e.target) || menuToggle.contains(e.target);
-        if (!inside) closeMenu();
+        if (!sideMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+          closeMenu();
+        }
       });
 
-      // close on Escape
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeMenu();
       });
-
-      // keep closed on reloads
-      window.addEventListener('load', closeMenu);
     })();
   </script>
 </body>
