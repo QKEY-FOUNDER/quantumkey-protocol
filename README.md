@@ -154,6 +154,24 @@ Collaborative Intelligence: Quantum Hammer
 
 Not affiliated with any similarly named projects (QKey, QSAVE, or others).
 
+### Baseline Authority & Versioning
+
+The authority of Baseline v0.1 is formally established through the following documents:
+
+- Baseline definition  
+  `docs/BASELINE_V0.1.md`
+
+- Protocol freeze declaration  
+  `docs/PROTOCOL_FREEZE_v0.1.md`
+
+- Versioning rules  
+  `docs/VERSIONING.md`
+
+- Change history  
+  `CHANGELOG.md`
+
+Together, these documents define the immutable semantic boundary of QKP v0.1.
+
 ---
 
 ## How to Engage with QKP
