@@ -311,8 +311,10 @@ Early conceptual architecture documents (v0.1), maintained as historical and dev
 # 🗂 Folder Structure
 
 ```text
+
 quantumkey-protocol/
 ├── README.md                      # Public entry (canonical pointers only)
+├── CHANGELOG.md                   # Change history (Baseline v0.1 freeze recorded)
 ├── index.md                       # Jekyll index (docs hub)
 ├── index.html                     # Public landing page
 ├── start.html                     # Start Here interactive entry
@@ -332,6 +334,13 @@ quantumkey-protocol/
 ├── favicon.svg
 ├── quantumkey-logo.svg
 │
+├── examples/
+│   ├── README.md                  # Examples index (Baseline v0.1)
+│   ├── QIE_EXAMPLE.md
+│   ├── SEMANTIC_SIGNATURE_EXAMPLE.md
+│   ├── ACCEPTANCE_RECEIPT_EXAMPLE.md
+│   └── END_TO_END_FLOW_EXAMPLE.md
+│
 ├── docs/
 │   ├── index.md                   # Documentation hub
 │   ├── VOCABULARY.md              # Canonical vocabulary
@@ -341,13 +350,25 @@ quantumkey-protocol/
 │   ├── roadmap.md                 # Public roadmap
 │   │
 │   ├── CANONICAL_STATEMENT.md     # Non-negotiable protocol truth
-│   ├── PROTOCOL_FREEZE_v1.0.md    # v1.0 freeze declaration
-│   ├── GOVERNANCE_SNAPSHOT_v1.0.md# Governance snapshot
+│   ├── PROTOCOL_FREEZE_v1.0.md    # v1.0 freeze declaration (legacy/previous)
+│   ├── GOVERNANCE_SNAPSHOT_v1.0.md# Governance snapshot (legacy/previous)
 │   ├── LAUNCH_READINESS.md        # Launch readiness checklist
-│   ├── VERSIONING.md              # Versioning rules
+│   ├── VERSIONING.md              # Versioning rules (active)
 │   ├── START_HERE.md              # Documentation start guide
 │   ├── CONTRIBUTING.md            # Contribution & stewardship model
 │   │
+│   ├── THREAT_MODEL_v0.1.md
+│   ├── QIE_MINIMAL_PROFILE_v0.1.md
+│   ├── SEMANTIC_SIGNATURE_v0.1.md
+│   ├── ACCEPTANCE_RECEIPT_v0.1.md
+│   ├── REFERENCE_FLOW_v0.1.md
+│   ├── CONFORMANCE_MATRIX_v0.1.md
+│   ├── SECURITY_INVARIANTS_v0.1.md
+│   ├── GLOSSARY.md
+│   ├── BASELINE_V0.1.md
+│   ├── PROTOCOL_FREEZE_v0.1.md
+│   └── IMPLEMENTATION_GUIDE.md
+│
 │   ├── architecture/
 │   │   ├── DAO_Constitution_v0.1.md
 │   │   ├── Identity_Crypto_Spec_v0.1.md
