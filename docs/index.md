@@ -24,49 +24,57 @@ It points to **canonical sources of truth**.
 
 ## Protocol Status & Credibility
 
-QuantumKey Protocol (QKP) has reached **protocol maturity**.
+QuantumKey Protocol (QKP) is currently defined and frozen at **Baseline v0.1**.
 
-This repository represents a **stable, frozen, and verifiable reference** of the protocol.
+This repository represents the **authoritative reference** for the protocol’s first stable baseline, with all core semantics explicitly defined, versioned, and auditable.
 
 ---
 
-### ✅ Current Status
+### ✅ Current Status (Baseline v0.1)
 
-- **Protocol version:** v1.0 (frozen)
-- **Core primitives:** fully specified and implemented
-- **Conformance coverage:** C1–C20 passing
-- **Breaking changes:** not permitted outside explicit version upgrades
+- **Protocol version:** v0.1  
+- **Baseline status:** frozen  
+- **Freeze date:** 2026-01-01  
+- **Breaking changes:** not permitted within v0.1  
+- **Auditability:** guaranteed by design  
 
-The protocol is designed to be extended **without mutating its core semantics**.
+All core protocol semantics are fixed.  
+Extensions may evolve only through explicit version upgrades.
 
 ---
 
 ### 🔒 Protocol Freeze & Versioning
 
-The v1.0 protocol freeze is formally declared and documented:
+The protocol freeze for Baseline v0.1 is formally declared and documented:
 
 - Protocol freeze declaration  
-  `docs/PROTOCOL_FREEZE_v1.0.md`
+  `docs/PROTOCOL_FREEZE_v0.1.md`
 
-- Versioning rules and guarantees  
-  `docs/VERSIONING.md`
+- Baseline definition  
+  `docs/BASELINE_V0.1.md`
 
-This ensures long-term stability for adopters and implementers.
+- Change history  
+  `CHANGELOG.md`
+
+This guarantees long-term stability for adopters, auditors, and researchers.
 
 ---
 
 ### 🧪 Verifiability & Conformance
 
 QKP does not rely on claims of correctness.  
-It provides **executable proof**.
+It provides **cryptographic and executable proof**.
 
-- Conformance specification  
-  `docs/conformance.md`
+- Conformance matrix (normative)  
+  `docs/CONFORMANCE_MATRIX_v0.1.md`
 
-- Executable conformance tests  
-  `examples/conformance-c*.js`
+- Security invariants  
+  `docs/SECURITY_INVARIANTS_v0.1.md`
 
-Every core concept is mapped to a **testable, verifiable artifact**.
+- Threat model  
+  `docs/THREAT_MODEL_v0.1.md`
+
+Every core concept is bound to a **verifiable artifact**.
 
 ---
 
