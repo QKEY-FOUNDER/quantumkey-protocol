@@ -24,6 +24,7 @@ This example demonstrates:
 
 ---
 
+```json
 ## 2. Quantum Intent Envelope (QIE)
 
 {
@@ -53,6 +54,8 @@ This example demonstrates:
   "public_key_reference": "did:qkp:human:mchiosa#key-1",
   "signature": "0x5f2a9c8e7d6b4a3c2f1e9d8c7b6a5e4d3c2b1a0f9e8d7c6b5a4f3e2d1c0"
 }
+
+```
 
 ## 3. Canonicalization Notes
 
