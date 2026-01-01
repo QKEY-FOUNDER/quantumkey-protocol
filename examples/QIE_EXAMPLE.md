@@ -24,9 +24,10 @@ This example demonstrates:
 
 ---
 
-```json
+
 ## 2. Quantum Intent Envelope (QIE)
 
+```json
 {
   "qie_version": "v0.1",
   "intent_id": "intent-2026-01-01-0001",
