@@ -1,0 +1,34 @@
+{
+  "title": "QuantumKey Protocol (QKP): A Framework for Verifiable Accountability",
+  "version": "v0.1",
+  "publication_date": "2026-01-01",
+  "creators": [
+    {
+      "name": "Mihail Chiosa",
+      "affiliation": "Independent Research / QuantumKey Protocol"
+    }
+  ],
+  "description": "Academic positioning paper describing the QuantumKey Protocol (QKP), a protocol-level framework for verifiable accountability. This publication refers exclusively to Baseline v0.1, frozen on 2026-01-01, and includes protocol structure, examples, and regulatory positioning under the EU Markets in Crypto-Assets Regulation (MiCA).",
+  "keywords": [
+    "accountability",
+    "protocol design",
+    "distributed systems",
+    "governance",
+    "auditability",
+    "cryptography",
+    "MiCA",
+    "regulatory technology"
+  ],
+  "license": "MIT",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/QKEY-FOUNDER/quantumkey-protocol",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ],
+  "resource_type": {
+    "type": "publication",
+    "subtype": "preprint"
+  }
+}
