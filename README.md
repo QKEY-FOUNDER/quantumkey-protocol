@@ -132,37 +132,27 @@ It provides the evidence required to decide *whether* something can be trusted.
 
 ## Protocol Status
 
-QuantumKey Protocol has progressed beyond conceptual design.
+QuantumKey Protocol (QKP) has progressed beyond conceptual design and includes executable reference flows, conformance definitions, and cryptographically verifiable accountability primitives.
 
-The core protocol primitives have been fully specified, implemented, and validated through executable conformance tests.
+The protocol is currently frozen at **Baseline v0.1**.
 
-**Current status:**
-- Core protocol coverage: **C1–C20 implemented**
-- Conformance tests: **passing**
-- Specification: **stable (v0.1.0)**
-- Reference implementation: **complete**
-- End-to-end reference flow: **executable**
+### Core References
 
-This repository contains:
-- A normative protocol specification
-- A complete reference implementation
-- Executable conformance cases
-- A living, runnable reference flow
+- Threat Model: docs/THREAT_MODEL_v0.1.md  
+- QIE Minimal Profile: docs/QIE_MINIMAL_PROFILE_v0.1.md  
+- Semantic Signature: docs/SEMANTIC_SIGNATURE_v0.1.md  
+- Acceptance Receipt: docs/ACCEPTANCE_RECEIPT_v0.1.md  
+- Reference Flow: docs/REFERENCE_FLOW_v0.1.md  
+- Conformance Matrix: docs/CONFORMANCE_MATRIX_v0.1.md  
+- Security Invariants: docs/SECURITY_INVARIANTS_v0.1.md  
+- Baseline Definition: docs/BASELINE_V0.1.md  
 
-QKP is intentionally designed to be:
-- Readable
-- Testable
-- Auditable
-- Forkable
+### Authorship & Affiliation
 
-Future work focuses on:
-- Developer tooling
-- Ecosystem integrations
-- Governance experiments
-- Real-world adoption
+Author: Mihail Chiosa  
+Collaborative Intelligence: Quantum Hammer  
 
-The protocol core is stable.  
-Evolution happens at higher layers, without breaking accountability guarantees.
+Not affiliated with any similarly named projects (QKey, QSAVE, or others).
 
 ---
 
