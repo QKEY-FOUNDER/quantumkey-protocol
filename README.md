@@ -6,20 +6,30 @@
 ### A Unified Architecture for Intent, Identity, Autonomous Agents & Semantic Alignment  
 **Version:** 1.0 • **Year:** 2025  
 **Author:** Mihail Chiosa  
-**Collaborative Intelligence:** Quantum Hammer  
+**Collaborative Intelligence:** Quantum Hammer.
 
----
-
-▶ Run the protocol (canonical reference flow):
-
-```bash
-node examples/reference-flow.js
-```
-This command executes the canonical end-to-end reference flow defined by QuantumKey Protocol Baseline v0.1 and referenced by the Academic Release (DOI-anchored).
-> **QuantumKey Protocol (QKP)** is a protocol for **verifiable accountability** across autonomous and federated systems.
+> **QuantumKey Protocol (QKP)** is a protocol for **verifiable accountability**
+> across autonomous and federated systems.
 >
-> It replaces implicit trust with **cryptographic evidence**, **explicit causality**, and **signed acceptance decisions**.
+> It replaces implicit trust with **cryptographic evidence**,
+> **explicit causality**, and **signed acceptance decisions**.
+
 ---
+
+▶ Canonical Reference Flow (Normative)
+
+The QuantumKey Protocol v0.1 defines a **canonical, normative reference flow**
+describing the end-to-end lifecycle of an intent — from declaration to audit.
+
+This flow is specified in:
+
+📄 docs/REFERENCE_FLOW_v0.1.md
+
+The reference flow is **implementation-independent** and serves as the
+authoritative baseline for all future executable implementations.
+
+---
+
 ## Start here
 
 This repository is the canonical source for the QuantumKey Protocol (QKP).
