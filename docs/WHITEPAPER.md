@@ -1,10 +1,16 @@
-🌐 QuantumKey Protocol — Whitepaper v1.0
+🌐 QuantumKey Protocol (QKP)  
+## Whitepaper v1.0 — Academic Release
 
-A Unified Architecture for Intent, Identity, Autonomous Agents and Semantic Alignment
-Author: Mihail Chiosa
-Collaborative Intelligence: Quantum Hammer
-Version: 1.0
-Year: 2025
+**Title:** QuantumKey Protocol — A Unified Architecture for Intent, Identity, Autonomous Agents and Semantic Alignment  
+**Author:** Mihail Chiosa  
+**Collaborative Intelligence:** Quantum Hammer  
+**Version:** 1.0  
+**Year:** 2025  
+
+**Academic Anchor:**  
+QuantumKey Protocol (QKP). *Academic Release v0.1*. Zenodo.  
+DOI: https://doi.org/10.5281/zenodo.18172464
+
 
 ---
 
