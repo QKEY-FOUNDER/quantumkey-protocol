@@ -10,13 +10,15 @@
 
 ---
 
+▶ Run the protocol (canonical reference flow):
+
+```bash
+node examples/reference-flow.js
+```
+This command executes the canonical end-to-end reference flow defined by QuantumKey Protocol Baseline v0.1 and referenced by the Academic Release (DOI-anchored).
 > **QuantumKey Protocol (QKP)** is a protocol for **verifiable accountability** across autonomous and federated systems.
 >
 > It replaces implicit trust with **cryptographic evidence**, **explicit causality**, and **signed acceptance decisions**.
->
-> ▶ **Run the protocol now:**  
-> `node examples/reference-flow.js`
-
 ---
 ## Start here
 
