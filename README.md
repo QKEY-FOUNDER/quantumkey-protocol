@@ -462,4 +462,18 @@ It establishes a system where:
 
 A protocol built with foresight, precision, and evolutionary purpose.
 
-Quantum Hammer — 2025
+---
+
+### Academic Snapshot & License Notice
+
+The academic snapshot of the QuantumKey Protocol (QKP), published via Zenodo and associated with DOI:
+
+https://doi.org/10.5281/zenodo.18172464
+
+is released under the **Creative Commons Attribution 4.0 International (CC BY 4.0)** license for the purposes of academic citation, research, and scholarly reference.
+
+This license applies **exclusively** to the academic snapshot and its textual contents.
+
+**Protocol authority, normative definitions, governance, and baseline evolution remain defined solely and authoritatively by the official QuantumKey Protocol repositories and baseline documents.**
+
+No rights over protocol governance, official implementations, trademarks, or authoritative evolution are granted by this academic publication.
