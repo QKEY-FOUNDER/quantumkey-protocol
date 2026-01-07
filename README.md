@@ -1,3 +1,7 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18172464.svg)](https://doi.org/10.5281/zenodo.18172464)
+
+---
+
 # 🌐 QuantumKey Protocol  
 ### A Unified Architecture for Intent, Identity, Autonomous Agents & Semantic Alignment  
 **Version:** 1.0 • **Year:** 2025  
