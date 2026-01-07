@@ -16,6 +16,10 @@
 
 ---
 
+> **Scope note**
+>
+> The sections below describe normative protocol artifacts.
+
 ▶ Canonical Reference Flow (Normative)
 
 The QuantumKey Protocol v0.1 defines a **canonical, normative reference flow**
