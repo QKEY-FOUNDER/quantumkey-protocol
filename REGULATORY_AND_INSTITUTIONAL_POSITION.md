@@ -60,7 +60,7 @@ QKP is positioned as:
 - a **research artifact suitable for citation**
 - a **baseline for independent implementation**
 
-- The academic baseline is anchored via Zenodo (DOI: 10.5281/zenodo.18172464).
+“The academic baseline is anchored via Zenodo (DOI: 10.5281/zenodo.18172464).”
 
 The protocol is anchored via Zenodo with a DOI, ensuring:
 
