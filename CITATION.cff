@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "QuantumKey Protocol (QKP)"
+version: "Academic Release v0.1"
+date-released: 2026-01-01
+authors:
+  - family-names: "Chiosa"
+    given-names: "Mihail"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.18172464
+repository-code: "https://github.com/QKEY-FOUNDER/quantumkey-protocol"
+url: "https://doi.org/10.5281/zenodo.18172464"
+license: "CC-BY-4.0"
+abstract: >
+  QuantumKey Protocol (QKP) is a protocol specification for verifiable
+  accountability across autonomous and federated systems. It replaces
+  implicit trust with cryptographic evidence, explicit causality, and
+  signed acceptance decisions.
+keywords:
+  - cryptography
+  - accountability
+  - protocol design
+  - distributed systems
+  - governance
+  - autonomous agents
