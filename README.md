@@ -34,6 +34,22 @@ authoritative baseline for all future executable implementations.
 
 ---
 
+## Academic Reference & Citation
+
+**QuantumKey Protocol (QKP)** — Academic Release v0.1 is permanently archived and citable via Zenodo.
+
+**DOI:** https://doi.org/10.5281/zenodo.18172464  
+
+This repository represents the **canonical technical baseline** corresponding to that academic release.
+
+- No protocol semantics have changed since the archival.
+- Baseline v0.1 is frozen and authoritative.
+- Ongoing work may extend the protocol but does not retroactively modify this baseline.
+
+For academic citation, regulatory reference, or institutional review, always cite the Zenodo record above.
+
+---
+
 ## Start here
 
 This repository is the canonical source for the QuantumKey Protocol (QKP).
