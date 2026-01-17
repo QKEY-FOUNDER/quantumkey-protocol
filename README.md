@@ -1,5 +1,15 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18172464.svg)](https://doi.org/10.5281/zenodo.18172464)
 
+## Normative Precedence
+
+This repository distinguishes between **normative** and **presentational** layers.
+
+The authoritative definition of the QuantumKey Protocol — including its semantics, rules, and validity conditions — is defined in the **normative layer**.
+
+Any presentational, visual, or rendering component MUST be interpreted as non-authoritative.
+
+For architectural rationale, see: `ARCHITECTURE.md`.
+
 ---
 
 # 🌐 QuantumKey Protocol  
