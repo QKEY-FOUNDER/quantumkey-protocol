@@ -1,3 +1,5 @@
+<!-- QKP:NORMATIVE -->
+
 QuantumKey Protocol (QKP)
 Genesis Anchor
 
