@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>QuantumKey Viewer</title>
+</head>
+<body>
+
+  <div id="content">A carregar README.md...</div>
+
+  <script src="js/md-renderer.js"></script>
+  <script>
+   const params = new
+  URLSearchParams(window.location.search);
+   const doc = params.get("doc") || "README.md";
+   renderMarkdown("/" + doc);
+  </script>
+
+</body>
+</html>
