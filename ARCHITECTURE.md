@@ -1,3 +1,29 @@
+# Architecture Overview
+
+QuantumKey Protocol (QKP) is structured as a dual-layer system:
+
+## Normative Layer
+
+The normative layer defines protocol meaning, accountability semantics, and verifiable intent.
+It represents the source of truth and must remain stable, minimal, and auditable.
+
+Currently normative by intent:
+- Markdown documents defining protocol rules, positions, and commitments
+- md-renderer.js (normative Markdown interpretation)
+
+## Presentational Layer
+
+The presentational layer is responsible for visualization and user experience.
+It may evolve independently without affecting protocol truth.
+
+Currently presentational by intent:
+- viewer.html
+- CSS stylesheets
+- UI-related JavaScript
+
+This separation is intentional and foundational.
+The protocol defines truth; the viewer renders it.
+
 # QuantumKey Protocol — Architectural Semantics
 
 This repository follows a dual-layer architecture (Path C):
