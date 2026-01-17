@@ -1,0 +1,25 @@
+{
+  "protocol": "QuantumKey Protocol",
+  "evidence_type": "GENESIS",
+  "version": "1.0",
+
+  "genesis_anchor": {
+    "hash_sha256": "1fae7f558175b57ae58fc0da2b4b6c2d1cdfc18da8a81fe2e2b2b36186a0b2fa",
+    "anchor_file": "QKP_GENESIS_ANCHOR.md"
+  },
+
+  "binding": {
+    "sdk_anchor": "js/qkp-anchor.js"
+  },
+
+  "source_commit": {
+    "repository": "qkey-founder/quantumkey-protocol",
+    "commit_hash": "<COMMIT_HASH_DO_qkp-anchor.js>"
+  },
+
+  "timestamp_utc": "<UTC_ISO_8601>",
+
+  "statement": "This is the first Evidence Object of the QuantumKey Protocol. From this point forward, all protocol actions are evidence-linked, traceable, and disputable.",
+
+  "signature": "QKP / Martelo Quântico"
+}
